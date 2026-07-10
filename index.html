@@ -7,6 +7,11 @@
 <meta name="description" content="祖影 Echo：本地优先的家族树 App。记录亲人的照片、声音与故事，自动算出称谓，让家族的回声代代相传。">
 <link rel="icon" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="祖影 Echo — 把家族的故事留下来">
+<meta property="og:description" content="本地优先的家族树 App：照片、声音、故事与自动称谓，让家族的回声代代相传。">
+<meta property="og:image" content="assets/icon-512.png">
+<meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -45,6 +50,9 @@
       <div class="hero-copy">
         <h1 data-i18n="heroTitle">把家族的故事，留给下一代</h1>
         <p class="hero-sub" data-i18n="heroSub">祖影 Echo 是一款家族树 App：为每一位亲人建一张卡片，留下照片、声音与故事；血脉在指尖流动，称谓自动算好，回声代代相传。</p>
+        <div class="hero-cta">
+          <a class="cta-btn" href="#demo"><span data-i18n="heroCta">先在线试一试</span> ↓</a>
+        </div>
         <div class="badges" id="downloadTop">
           <a class="store-badge" href="#contact" aria-label="App Store">
             <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.29-1.27 3.15-2.52.99-1.45 1.4-2.85 1.42-2.92-.03-.01-2.72-1.04-2.75-4.14zM14.44 4.9c.72-.87 1.2-2.08 1.07-3.29-1.03.04-2.28.69-3.02 1.56-.66.77-1.24 2-1.09 3.18 1.15.09 2.33-.58 3.04-1.45z"/></svg>
@@ -58,7 +66,7 @@
         <p class="hero-note" data-i18n="heroNote">第一版将率先登陆 iPhone。想第一时间收到上架通知，欢迎来信。</p>
       </div>
       <div class="hero-art">
-        <img src="assets/loading-800.png" alt="" class="hero-img">
+        <img src="assets/loading-800.jpg" alt="" class="hero-img">
       </div>
     </div>
   </section>
@@ -98,6 +106,34 @@
         <h3 data-i18n="feat6T">四种风格，六种语言</h3>
         <p data-i18n="feat6B">晨白、夜潮、暖橘、雅纸四套主题随心换；界面支持简体、繁體、English、Español、Français、हिन्दी。</p>
       </article>
+    </div>
+  </section>
+
+  <!-- ============ REAL SCREENSHOTS ============ -->
+  <section class="shots" id="shots">
+    <h2 data-i18n="shotsTitle">真实界面抢先看</h2>
+    <p class="section-sub" data-i18n="shotsSub">以下截图来自正在开发中的 iPhone 版本。</p>
+    <div class="shots-strip">
+      <figure class="shot">
+        <img src="assets/shots/shot-tree.png" alt="" loading="lazy">
+        <figcaption data-i18n="shotCapTree">家族树画布</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shots/shot-card.png" alt="" loading="lazy">
+        <figcaption data-i18n="shotCapCard">人物卡</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shots/shot-gallery.png" alt="" loading="lazy">
+        <figcaption data-i18n="shotCapGallery">个人主页：故事与回声</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shots/shot-night.png" alt="" loading="lazy">
+        <figcaption data-i18n="shotCapNight">夜潮主题</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shots/shot-styles.png" alt="" loading="lazy">
+        <figcaption data-i18n="shotCapStyles">初次见面，先选风格</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -157,7 +193,17 @@
         </div>
 
         <div class="sim-toast" id="simToast" hidden></div>
+        <div class="canvas-fabs">
+          <button class="fab" id="fabZoomIn" aria-label="zoom in">＋</button>
+          <button class="fab" id="fabZoomOut" aria-label="zoom out">－</button>
+          <button class="fab" id="fabCenter" aria-label="recenter">◎</button>
+        </div>
         <div class="phone-hint" id="phoneHint" data-i18n="demoHint">👆 点一点树上的人 · 可拖动、缩放</div>
+      </div>
+      <div class="demo-legend">
+        <span><i class="lg-heart">♥</i> <span data-i18n="legendCouple">连理结 = 夫妻</span></span>
+        <span><i class="lg-dash">┄┄</i> <span data-i18n="legendBlood">流动虚线 = 血脉</span></span>
+        <span><i class="lg-fade">◐</i> <span data-i18n="legendDeceased">变淡 = 已故亲人</span></span>
       </div>
       <p class="demo-note" data-i18n="demoNote">真正的 App 还能翻面看卡片、写故事、录声音——这里只是浅浅一瞥。</p>
     </div>
@@ -191,6 +237,12 @@
 </main>
 
 <footer class="footer">
+  <nav class="footer-links">
+    <a href="#features" data-i18n="navFeatures">功能</a>
+    <a href="#shots" data-i18n="shotsTitle">真实界面抢先看</a>
+    <a href="#demo" data-i18n="navDemo">试一试</a>
+    <a href="#contact" data-i18n="navContact">联系</a>
+  </nav>
   <span data-i18n="footer">© 2026 祖影 Echo · 把家族的故事留下来</span>
 </footer>
 

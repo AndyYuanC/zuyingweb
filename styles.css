@@ -111,6 +111,18 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
   .hero-img { width: min(240px, 62%); }
 }
 
+/* hero CTA */
+.hero-cta { margin-top: 24px; }
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(120deg, var(--gold-soft), var(--gold));
+  color: #221607; font-weight: 700; font-size: 1.02rem;
+  border-radius: 14px; padding: 12px 26px;
+  box-shadow: 0 8px 24px rgba(217, 164, 65, .35);
+  transition: transform .15s ease;
+}
+.cta-btn:hover { transform: translateY(-2px); }
+
 /* store badges */
 .badges { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
 .badges-center { justify-content: center; }
@@ -142,6 +154,25 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
 .feat p { color: var(--dim); font-size: .95rem; }
 @media (max-width: 900px) { .feat-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .feat-grid { grid-template-columns: 1fr; } }
+
+/* ---------- real screenshots ---------- */
+.shots { padding: 72px 0 24px; max-width: var(--maxw); margin: 0 auto; }
+.shots-strip {
+  display: flex; gap: 22px; margin-top: 36px;
+  overflow-x: auto; padding: 8px 20px 18px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.shot {
+  flex: none; width: 218px; scroll-snap-align: center;
+  text-align: center;
+}
+.shot img {
+  width: 100%; border-radius: 26px;
+  border: 6px solid #10131c;
+  box-shadow: 0 14px 34px rgba(16, 19, 28, .22);
+}
+.shot figcaption { margin-top: 10px; color: var(--dim); font-size: .88rem; }
 
 /* ---------- demo / simulator ---------- */
 .demo { padding: 72px 20px 24px; max-width: var(--maxw); margin: 0 auto; }
@@ -326,6 +357,37 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
   width: 24px; text-align: center; color: var(--ph-dim); font-size: 1.05rem;
 }
 
+/* recenter / zoom controls, like the app's canvas FABs */
+.canvas-fabs {
+  position: absolute; right: 14px; bottom: 58px; z-index: 4;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.fab {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--ph-line); background: var(--ph-card);
+  color: var(--ph-ink); font-size: 1rem; cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .14);
+  display: flex; align-items: center; justify-content: center;
+}
+.fab:hover { border-color: var(--ph-accent); color: var(--ph-accent); }
+
+/* legend under the phone */
+.demo-legend {
+  display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: center;
+  margin-top: 18px; color: var(--dim); font-size: .88rem;
+}
+.demo-legend i { font-style: normal; }
+.demo-legend .lg-heart { color: var(--cinnabar); }
+.demo-legend .lg-dash { color: #5b5fef; letter-spacing: -1px; }
+.demo-legend .lg-fade { opacity: .45; }
+
+/* freshly added person pulses once */
+#tree .node.is-new rect.body { animation: node-pop .9s ease; }
+@keyframes node-pop {
+  0% { stroke: var(--ph-accent); stroke-width: 6; }
+  100% { stroke: var(--ph-line); stroke-width: 1; }
+}
+
 /* small toast inside the phone */
 .sim-toast {
   position: absolute; left: 18px; right: 18px; bottom: 20px; z-index: 8;
@@ -371,3 +433,8 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
   border-top: 1px solid var(--line);
   text-align: center; padding: 22px; color: var(--dim); font-size: .85rem;
 }
+.footer-links {
+  display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.footer-links a:hover { color: var(--ink); text-decoration: underline; }

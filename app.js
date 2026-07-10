@@ -15,6 +15,14 @@ const I18N = {
     heroSub: '祖影 Echo 是一款家族树 App：为每一位亲人建一张卡片，留下照片、声音与故事；血脉在指尖流动，称谓自动算好，回声代代相传。',
     badgeSoon: '即将上架',
     heroNote: '第一版将率先登陆 iPhone。想第一时间收到上架通知，欢迎来信。',
+    heroCta: '先在线试一试',
+    shotsTitle: '真实界面抢先看',
+    shotsSub: '以下截图来自正在开发中的 iPhone 版本。',
+    shotCapTree: '家族树画布', shotCapCard: '人物卡',
+    shotCapGallery: '个人主页：故事与回声', shotCapNight: '夜潮主题',
+    shotCapStyles: '初次见面，先选风格',
+    legendCouple: '连理结 = 夫妻', legendBlood: '流动虚线 = 血脉',
+    legendDeceased: '变淡 = 已故亲人',
     featTitle: '一棵树，装下一个家族',
     featSub: '从你自己开始，一人一卡，几分钟就能种下一棵家族树。',
     feat1T: '会呼吸的家族树',
@@ -54,6 +62,14 @@ const I18N = {
     heroSub: '祖影 Echo 是一款家族樹 App：為每一位親人建一張卡片，留下照片、聲音與故事；血脈在指尖流動，稱謂自動算好，回聲代代相傳。',
     badgeSoon: '即將上架',
     heroNote: '第一版將率先登陸 iPhone。想第一時間收到上架通知，歡迎來信。',
+    heroCta: '先線上試一試',
+    shotsTitle: '真實介面搶先看',
+    shotsSub: '以下截圖來自正在開發中的 iPhone 版本。',
+    shotCapTree: '家族樹畫布', shotCapCard: '人物卡',
+    shotCapGallery: '個人主頁：故事與回聲', shotCapNight: '夜潮主題',
+    shotCapStyles: '初次見面，先選風格',
+    legendCouple: '連理結 = 夫妻', legendBlood: '流動虛線 = 血脈',
+    legendDeceased: '變淡 = 已故親人',
     featTitle: '一棵樹，裝下一個家族',
     featSub: '從你自己開始，一人一卡，幾分鐘就能種下一棵家族樹。',
     feat1T: '會呼吸的家族樹',
@@ -93,6 +109,14 @@ const I18N = {
     heroSub: 'Echo (祖影) is a family-tree app: a card for every relative, holding their photos, voice and stories. Bloodlines flow at your fingertips, kinship terms are worked out for you, and family echoes carry on.',
     badgeSoon: 'Coming soon',
     heroNote: 'Launching first on iPhone. Want to hear the moment it ships? Send us a note.',
+    heroCta: 'Try the live demo',
+    shotsTitle: 'A first look at the real app',
+    shotsSub: 'Screenshots from the iPhone build in development.',
+    shotCapTree: 'The tree canvas', shotCapCard: 'Person card',
+    shotCapGallery: 'Person page: stories & echoes', shotCapNight: 'Night Tide theme',
+    shotCapStyles: 'Pick your style on first launch',
+    legendCouple: 'Heart = couple', legendBlood: 'Marching dashes = bloodline',
+    legendDeceased: 'Faded = passed away',
     featTitle: 'One tree, a whole family',
     featSub: 'Start from yourself — one card per person, a family tree planted in minutes.',
     feat1T: 'A living family tree',
@@ -132,6 +156,14 @@ const I18N = {
     heroSub: 'Echo (祖影) es una app de árbol genealógico: una tarjeta para cada familiar, con sus fotos, su voz y sus historias. El linaje fluye bajo tus dedos, el parentesco se calcula solo y los ecos familiares perduran.',
     badgeSoon: 'Muy pronto',
     heroNote: 'Llegará primero a iPhone. ¿Quieres enterarte en cuanto salga? Escríbenos.',
+    heroCta: 'Prueba la demo',
+    shotsTitle: 'Un vistazo a la app real',
+    shotsSub: 'Capturas de la versión para iPhone en desarrollo.',
+    shotCapTree: 'El lienzo del árbol', shotCapCard: 'Tarjeta de persona',
+    shotCapGallery: 'Página personal: historias y ecos', shotCapNight: 'Tema nocturno',
+    shotCapStyles: 'Elige tu estilo al empezar',
+    legendCouple: 'Corazón = pareja', legendBlood: 'Guiones en movimiento = linaje',
+    legendDeceased: 'Difuminado = fallecido',
     featTitle: 'Un árbol, toda una familia',
     featSub: 'Empieza por ti: una tarjeta por persona, un árbol plantado en minutos.',
     feat1T: 'Un árbol que respira',
@@ -171,6 +203,14 @@ const I18N = {
     heroSub: 'Echo (祖影) est une app d’arbre généalogique : une carte pour chaque proche, avec ses photos, sa voix et ses histoires. Le lignage coule sous vos doigts, les liens de parenté se calculent tout seuls, et les échos de la famille se transmettent.',
     badgeSoon: 'Bientôt disponible',
     heroNote: 'D’abord sur iPhone. Envie d’être prévenu dès la sortie ? Écrivez-nous.',
+    heroCta: 'Essayer la démo',
+    shotsTitle: 'Un aperçu de la vraie app',
+    shotsSub: 'Captures de la version iPhone en développement.',
+    shotCapTree: 'Le canevas de l’arbre', shotCapCard: 'Carte de personne',
+    shotCapGallery: 'Page personnelle : histoires et échos', shotCapNight: 'Thème nocturne',
+    shotCapStyles: 'Choisissez votre style au départ',
+    legendCouple: 'Cœur = couple', legendBlood: 'Tirets animés = lignage',
+    legendDeceased: 'Estompé = disparu',
     featTitle: 'Un arbre, toute une famille',
     featSub: 'Partez de vous : une carte par personne, un arbre planté en quelques minutes.',
     feat1T: 'Un arbre qui respire',
@@ -210,6 +250,14 @@ const I18N = {
     heroSub: 'Echo (祖影) एक वंश-वृक्ष ऐप है: हर रिश्तेदार के लिए एक कार्ड, जिसमें उनकी तस्वीरें, आवाज़ और कहानियाँ रहती हैं। वंश आपकी उँगलियों पर बहता है, रिश्तों के नाम अपने आप निकलते हैं, और परिवार की गूँज पीढ़ी-दर-पीढ़ी चलती है।',
     badgeSoon: 'जल्द आ रहा है',
     heroNote: 'पहले iPhone पर आएगा। लॉन्च की खबर सबसे पहले चाहिए? हमें लिखें।',
+    heroCta: 'लाइव डेमो आज़माएँ',
+    shotsTitle: 'असली ऐप की पहली झलक',
+    shotsSub: 'विकासाधीन iPhone संस्करण के स्क्रीनशॉट।',
+    shotCapTree: 'वंश-वृक्ष कैनवास', shotCapCard: 'व्यक्ति कार्ड',
+    shotCapGallery: 'व्यक्तिगत पेज: कहानियाँ और गूँज', shotCapNight: 'रात्रि थीम',
+    shotCapStyles: 'शुरुआत में शैली चुनें',
+    legendCouple: 'दिल = दंपती', legendBlood: 'चलती धारियाँ = वंश',
+    legendDeceased: 'धुँधला = दिवंगत',
     featTitle: 'एक पेड़ में पूरा परिवार',
     featSub: 'खुद से शुरू करें — हर व्यक्ति का एक कार्ड, मिनटों में वंश-वृक्ष तैयार।',
     feat1T: 'जीवंत वंश-वृक्ष',
@@ -418,6 +466,7 @@ addPerson({ nameZh: '李朵朵', nameEn: 'Li Duoduo', family: '李', gender: 'fe
 
 let focalId = ego.id;
 let selectedId = null;
+let lastAddedId = null;
 
 const byId = (id) => people.find((p) => p.id === id);
 const parentsOf = (p) => p.parentIds.map(byId).filter(Boolean);
@@ -852,7 +901,8 @@ function renderTree() {
     const pt = pos.get(p.id);
     const isFocal = p.id === focalId;
     const g = el('g', {
-      class: `node${isFocal ? ' is-ego' : ''}${p.deceased ? ' dead' : ''}`,
+      class: `node${isFocal ? ' is-ego' : ''}${p.deceased ? ' dead' : ''}` +
+        `${p.id === lastAddedId ? ' is-new' : ''}`,
       transform: `translate(${pt.x}, ${pt.y})`,
       'data-id': p.id,
     }, nodes);
@@ -871,6 +921,7 @@ function renderTree() {
       sub.textContent = subText;
     }
   }
+  lastAddedId = null;
 }
 
 /* --------------------------- pan / zoom --------------------------- */
@@ -1039,7 +1090,8 @@ scrim.addEventListener('click', closeSheet);
 sheet.addEventListener('click', (e) => {
   const row = e.target.closest('.sheet-row');
   if (!row || row.disabled || !sheetFor) return;
-  addRelative(sheetFor, row.dataset.kind);
+  const added = addRelative(sheetFor, row.dataset.kind);
+  lastAddedId = added ? added.id : null;
   closeSheet();
   renderTree();
   fitView(layoutTree());
@@ -1055,20 +1107,25 @@ function addRelative(p, kind) {
     const c = makePerson(father.family, gender, p.gen + 1,
       Math.max(p.birthY, spouse ? spouse.birthY : 0) + 24 + kids * 3, p);
     c.parentIds = spouse ? [p.id, spouse.id] : [p.id];
-  } else if (kind === 'spouse') {
+    return c;
+  }
+  if (kind === 'spouse') {
     const gender = p.gender === 'male' ? 'female' : 'male';
-    const family = gender === 'male' ? MARRY_IN[marryIdx++ % 5] : MARRY_IN[marryIdx++ % 5];
-    const s = makePerson(family, gender, p.gen,
+    const s = makePerson(MARRY_IN[marryIdx++ % 5], gender, p.gen,
       p.birthY + (gender === 'female' ? 2 : -2), p);
     marry(p, s);
-  } else if (kind === 'sibling') {
+    return s;
+  }
+  if (kind === 'sibling') {
     const gender = childFlip++ % 2 === 0 ? 'female' : 'male';
     const sibs = parentsOf(p).length ? childrenOf(parentsOf(p)[0]).length : 1;
     const father = parentsOf(p).find((x) => x.gender === 'male');
     const s = makePerson(father ? father.family : p.family, gender, p.gen,
       p.birthY + sibs * 3, p);
     s.parentIds = [...p.parentIds];
-  } else if (kind === 'parent') {
+    return s;
+  }
+  if (kind === 'parent') {
     const existing = parentsOf(p)[0];
     const gender = existing
       ? (existing.gender === 'male' ? 'female' : 'male') : 'male';
@@ -1076,7 +1133,9 @@ function addRelative(p, kind) {
     const par = makePerson(family, gender, p.gen - 1, p.birthY - 27, p);
     p.parentIds.push(par.id);
     if (existing) marry(existing, par);
+    return par;
   }
+  return null;
 }
 
 /* ----------------------------- toast ----------------------------- */
@@ -1089,6 +1148,24 @@ function showToast(msg) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { toast.hidden = true; }, 3200);
 }
+
+/* ---------------- canvas FABs (recenter / zoom) ---------------- */
+
+document.getElementById('fabCenter').addEventListener('click', () => {
+  fitView(layoutTree());
+});
+document.getElementById('fabZoomIn').addEventListener('click', () => {
+  zoomAt({ x: 195, y: 307 }, 1.3);
+});
+document.getElementById('fabZoomOut').addEventListener('click', () => {
+  zoomAt({ x: 195, y: 307 }, 1 / 1.3);
+});
+
+/* tapping the trading card itself = opening the gallery in the app */
+document.getElementById('tradingCard').addEventListener('click', () => {
+  overlay.hidden = true;
+  showToast(t('demoToast'));
+});
 
 /* ------------------------- style switcher ------------------------- */
 
