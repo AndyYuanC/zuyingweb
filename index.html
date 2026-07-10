@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>祖影 Echo — 把家族的故事留下来</title>
+<meta name="description" content="祖影 Echo：本地优先的家族树 App。记录亲人的照片、声音与故事，自动算出称谓，让家族的回声代代相传。">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <img src="assets/icon-192.png" alt="祖影 Echo" width="36" height="36">
+      <span class="brand-name" data-i18n="brand">祖影 Echo</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#features" data-i18n="navFeatures">功能</a>
+      <a href="#demo" data-i18n="navDemo">试一试</a>
+      <a href="#download" data-i18n="navDownload">下载</a>
+      <a href="#contact" data-i18n="navContact">联系</a>
+    </nav>
+    <div class="lang-wrap">
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.4 9h-3.1a15.6 15.6 0 0 0-1.2-5.3A8 8 0 0 1 19.4 11zM12 4.1c.9 1.2 1.9 3.4 2.2 6.9H9.8c.3-3.5 1.3-5.7 2.2-6.9zM4.6 13h3.1c.1 1.9.5 3.7 1.2 5.3A8 8 0 0 1 4.6 13zm3.1-2H4.6a8 8 0 0 1 4.3-5.3A15.6 15.6 0 0 0 7.7 11zm2.1 2h4.4c-.3 3.5-1.3 5.7-2.2 6.9-.9-1.2-1.9-3.4-2.2-6.9zm5.3 5.3c.7-1.6 1.1-3.4 1.2-5.3h3.1a8 8 0 0 1-4.3 5.3z"/></svg>
+      <select id="langSelect" aria-label="Language">
+        <option value="zh">简体中文</option>
+        <option value="zh_Hant">繁體中文</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 data-i18n="heroTitle">把家族的故事，留给下一代</h1>
+        <p class="hero-sub" data-i18n="heroSub">祖影 Echo 是一款家族树 App：为每一位亲人建一张卡片，留下照片、声音与故事；血脉在指尖流动，称谓自动算好，回声代代相传。</p>
+        <div class="badges" id="downloadTop">
+          <a class="store-badge" href="#contact" aria-label="App Store">
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.29-1.27 3.15-2.52.99-1.45 1.4-2.85 1.42-2.92-.03-.01-2.72-1.04-2.75-4.14zM14.44 4.9c.72-.87 1.2-2.08 1.07-3.29-1.03.04-2.28.69-3.02 1.56-.66.77-1.24 2-1.09 3.18 1.15.09 2.33-.58 3.04-1.45z"/></svg>
+            <span><small data-i18n="badgeSoon">即将上架</small><strong>App Store</strong></span>
+          </a>
+          <a class="store-badge" href="#contact" aria-label="Google Play">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M3.6 1.8c-.35.37-.55.94-.55 1.68v17.07c0 .74.2 1.31.56 1.67l.09.08L13.3 12.7v-.22L3.7 1.72l-.1.08zm12.9 14.1-3.2-3.2v-.22l3.2-3.2.07.04 3.79 2.15c1.08.61 1.08 1.62 0 2.24l-3.79 2.15-.07.04zm-.87.5L12.4 13.2 3.68 21.9c.36.38.95.42 1.62.05l10.33-5.56zM12.4 10.98l3.23-3.23L5.3 2.2c-.67-.38-1.26-.33-1.62.05l8.72 8.72z"/></svg>
+            <span><small data-i18n="badgeSoon2">即将上架</small><strong>Google Play</strong></span>
+          </a>
+        </div>
+        <p class="hero-note" data-i18n="heroNote">第一版将率先登陆 iPhone。想第一时间收到上架通知，欢迎来信。</p>
+      </div>
+      <div class="hero-art">
+        <img src="assets/loading-800.png" alt="" class="hero-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="features" id="features">
+    <h2 data-i18n="featTitle">一棵树，装下一个家族</h2>
+    <p class="section-sub" data-i18n="featSub">从你自己开始，一人一卡，几分钟就能种下一棵家族树。</p>
+    <div class="feat-grid">
+      <article class="feat">
+        <div class="feat-icon">🌳</div>
+        <h3 data-i18n="feat1T">会呼吸的家族树</h3>
+        <p data-i18n="feat1B">缩放漫游整棵树：血脉沿着线路流动，夫妻之间系着连理红心，逝去的亲人温柔地淡去。</p>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">🧭</div>
+        <h3 data-i18n="feat2T">称谓自动算</h3>
+        <p data-i18n="feat2B">姑妈、表哥、外甥女……点开任何人，App 立刻告诉你该怎么称呼，支持中西方六种语言的称谓体系。</p>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">📼</div>
+        <h3 data-i18n="feat3T">留住声音与影像</h3>
+        <p data-i18n="feat3B">每张卡片背后是一座小小的纪念馆：照片、录音、视频、文字故事，把亲人的音容留给后代。</p>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">〰️</div>
+        <h3 data-i18n="feat4T">回声</h3>
+        <p data-i18n="feat4B">和爷爷同属虎、和外婆同一个星座——App 自动发现跨越世代的巧合，这就是家族的「回声」。</p>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">🔒</div>
+        <h3 data-i18n="feat5T">数据在你手中</h3>
+        <p data-i18n="feat5B">本地优先：不需要注册账号，家族数据保存在你自己的手机里，不上传、不追踪。</p>
+      </article>
+      <article class="feat">
+        <div class="feat-icon">🎨</div>
+        <h3 data-i18n="feat6T">四种风格，六种语言</h3>
+        <p data-i18n="feat6B">晨白、夜潮、暖橘、雅纸四套主题随心换；界面支持简体、繁體、English、Español、Français、हिन्दी。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ DEMO ============ -->
+  <section class="demo" id="demo">
+    <h2 data-i18n="demoTitle">在这里先试一试</h2>
+    <p class="section-sub" data-i18n="demoSub">这是一个迷你演示：点一点树上的人，看看称谓；给他们添个孩子或伴侣；右上角换换风格。</p>
+    <div class="demo-stage">
+      <div class="phone" id="phone" data-style="soft">
+        <div class="phone-top">
+          <span class="phone-title" data-i18n="brandShort">祖影</span>
+          <div class="style-dots" id="styleDots" role="group" aria-label="style">
+            <button class="dot dot-soft is-on" data-style="soft" title="晨白"></button>
+            <button class="dot dot-glass" data-style="glass" title="夜潮"></button>
+            <button class="dot dot-candy" data-style="candy" title="暖橘"></button>
+            <button class="dot dot-paper" data-style="paper" title="雅纸"></button>
+          </div>
+        </div>
+        <svg id="tree" viewBox="0 0 390 560" aria-label="family tree demo"></svg>
+        <div class="person-card" id="personCard" hidden>
+          <button class="card-close" id="cardClose" aria-label="close">✕</button>
+          <div class="card-head">
+            <div class="card-avatar" id="cardAvatar"></div>
+            <div>
+              <div class="card-name" id="cardName"></div>
+              <div class="card-meta" id="cardMeta"></div>
+            </div>
+          </div>
+          <div class="card-chips" id="cardChips"></div>
+          <div class="card-actions">
+            <button id="btnAddChild" class="chip-btn">＋ <span data-i18n="addChild">添个孩子</span></button>
+            <button id="btnAddSpouse" class="chip-btn">♥ <span data-i18n="addSpouse">添个伴侣</span></button>
+          </div>
+        </div>
+        <div class="phone-hint" id="phoneHint" data-i18n="demoHint">👆 点一点树上的人</div>
+      </div>
+      <p class="demo-note" data-i18n="demoNote">真正的 App 还能翻面看卡片、写故事、录声音——这里只是浅浅一瞥。</p>
+    </div>
+  </section>
+
+  <!-- ============ DOWNLOAD ============ -->
+  <section class="download" id="download">
+    <img src="assets/icon-192.png" alt="" width="88" height="88" class="dl-icon">
+    <h2 data-i18n="dlTitle">即将与你见面</h2>
+    <p class="section-sub" data-i18n="dlSub">祖影 Echo 正在为 App Store 上架做最后准备，Android 版随后跟上。</p>
+    <div class="badges badges-center">
+      <a class="store-badge" href="#contact" aria-label="App Store">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M17.05 12.54c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.29-1.27 3.15-2.52.99-1.45 1.4-2.85 1.42-2.92-.03-.01-2.72-1.04-2.75-4.14zM14.44 4.9c.72-.87 1.2-2.08 1.07-3.29-1.03.04-2.28.69-3.02 1.56-.66.77-1.24 2-1.09 3.18 1.15.09 2.33-.58 3.04-1.45z"/></svg>
+        <span><small data-i18n="badgeSoon3">即将上架</small><strong>App Store</strong></span>
+      </a>
+      <a class="store-badge" href="#contact" aria-label="Google Play">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M3.6 1.8c-.35.37-.55.94-.55 1.68v17.07c0 .74.2 1.31.56 1.67l.09.08L13.3 12.7v-.22L3.7 1.72l-.1.08zm12.9 14.1-3.2-3.2v-.22l3.2-3.2.07.04 3.79 2.15c1.08.61 1.08 1.62 0 2.24l-3.79 2.15-.07.04zm-.87.5L12.4 13.2 3.68 21.9c.36.38.95.42 1.62.05l10.33-5.56zM12.4 10.98l3.23-3.23L5.3 2.2c-.67-.38-1.26-.33-1.62.05l8.72 8.72z"/></svg>
+        <span><small data-i18n="badgeSoon4">即将上架</small><strong>Google Play</strong></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <h2 data-i18n="ctTitle">联系我们</h2>
+    <p class="section-sub" data-i18n="ctSub">想法、建议、想第一时间试用？写封邮件给我们。</p>
+    <a class="mail-btn" href="mailto:w727020361@gmail.com">✉️ w727020361@gmail.com</a>
+    <p class="ct-note" data-i18n="ctNote">我们会认真读每一封来信。</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span data-i18n="footer">© 2026 祖影 Echo · 把家族的故事留下来</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
