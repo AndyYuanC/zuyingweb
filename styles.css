@@ -234,6 +234,8 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
 #tree .node text.sub { fill: var(--ph-accent); font-size: 11px; }
 #tree .node text.sub.no-kin { fill: var(--ph-dim); }
 #tree .node.dead { opacity: .55; }
+#tree .band-label { fill: var(--ph-dim); font-size: 11px; opacity: .85; }
+#tree .band-rail { stroke: var(--ph-line); stroke-width: 1.2; }
 
 /* ------ trading-card dialog (node tap, like the app) ------ */
 .sim-overlay {

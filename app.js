@@ -650,62 +650,71 @@ function avatarSvg(p, size, ctx) {
 
 const NW = 148, NH = 56, CGAP = 8, HGAP = 22, VGAP = 110;
 
+/* Tidy layout, like the app's tree_layout: couples form units, each
+   parent unit is centered over the span of its children. */
 function layoutTree() {
   const gens = [...new Set(people.map((p) => p.gen))].sort((a, b) => a - b);
-  const pos = new Map();
-  for (let ri = 0; ri < gens.length; ri++) {
-    const g = gens[ri];
-    const y = ri * (NH + VGAP);
-    const seen = new Set();
-    const units = [];
+  const rowOf = new Map(gens.map((g, i) => [g, i]));
+
+  // 1. units (couple or single) per generation
+  const unitOf = new Map();
+  const units = [];
+  for (const g of gens) {
     for (const p of people) {
-      if (p.gen !== g || seen.has(p.id)) continue;
-      const u = [p];
-      seen.add(p.id);
+      if (p.gen !== g || unitOf.has(p.id)) continue;
+      const members = [p];
       const s = p.spouseId && byId(p.spouseId);
-      if (s && s.gen === g && !seen.has(s.id)) { u.push(s); seen.add(s.id); }
+      if (s && s.gen === g && !unitOf.has(s.id)) members.push(s);
+      const u = { members, gen: g, children: [], parentUnit: null, subW: 0, x: 0 };
+      for (const m of members) unitOf.set(m.id, u);
       units.push(u);
     }
-    const bary = (u) => {
-      const xs = [];
-      for (const m of u) {
-        for (const pid of m.parentIds) {
-          const pp = pos.get(pid);
-          if (pp) xs.push(pp.x + NW / 2);
+  }
+
+  // 2. one primary parent unit per unit (extra in-law links only draw edges)
+  for (const u of units) {
+    for (const m of u.members) {
+      for (const pid of m.parentIds) {
+        const pu = unitOf.get(pid);
+        if (pu && pu.gen < u.gen && !u.parentUnit) {
+          u.parentUnit = pu;
+          pu.children.push(u);
         }
       }
-      return xs.length ? xs.reduce((a, b) => a + b) / xs.length : null;
-    };
-    units.sort((a, b) => {
-      const ba = bary(a), bb = bary(b);
-      if (ba == null && bb == null) return 0;
-      if (ba == null) return 1;
-      if (bb == null) return -1;
-      return ba - bb;
-    });
-    let x = 0;
-    const placed = [];
-    for (const u of units) {
-      const w = u.length * NW + (u.length - 1) * CGAP;
-      placed.push({ u, x, w });
-      x += w + HGAP;
+      if (u.parentUnit) break;
     }
-    const anchored = placed.filter((pl) => bary(pl.u) != null);
-    let shift;
-    if (anchored.length) {
-      const meanCenter = anchored.reduce((a, pl) => a + pl.x + pl.w / 2, 0) / anchored.length;
-      const meanBary = anchored.reduce((a, pl) => a + bary(pl.u), 0) / anchored.length;
-      shift = meanBary - meanCenter;
-    } else {
-      shift = -(x - HGAP) / 2;
-    }
-    for (const pl of placed) {
-      let mx = pl.x + shift;
-      for (const m of pl.u) {
-        pos.set(m.id, { x: mx, y });
-        mx += NW + CGAP;
-      }
-    }
+  }
+
+  // 3. post-order subtree widths
+  const ownW = (u) => u.members.length * NW + (u.members.length - 1) * CGAP;
+  const measure = (u) => {
+    let kidsW = 0;
+    for (const c of u.children) { measure(c); kidsW += c.subW; }
+    kidsW += HGAP * Math.max(0, u.children.length - 1);
+    u.subW = Math.max(ownW(u), kidsW);
+  };
+
+  // 4. parents centered over children
+  const place = (u, left) => {
+    u.x = left + (u.subW - ownW(u)) / 2;
+    let kidsW = HGAP * Math.max(0, u.children.length - 1);
+    for (const c of u.children) kidsW += c.subW;
+    let cx = left + (u.subW - kidsW) / 2;
+    for (const c of u.children) { place(c, cx); cx += c.subW + HGAP; }
+  };
+
+  let cursor = 0;
+  for (const root of units.filter((u) => !u.parentUnit)) {
+    measure(root);
+    place(root, cursor);
+    cursor += root.subW + HGAP * 2;
+  }
+
+  const pos = new Map();
+  for (const u of units) {
+    const y = rowOf.get(u.gen) * (NH + VGAP);
+    let mx = u.x;
+    for (const m of u.members) { pos.set(m.id, { x: mx, y }); mx += NW + CGAP; }
   }
   return pos;
 }
@@ -741,6 +750,7 @@ function fitView(pos) {
     minX = Math.min(minX, x); minY = Math.min(minY, y);
     maxX = Math.max(maxX, x + NW); maxY = Math.max(maxY, y + NH);
   }
+  minX -= 82; // generation band labels sit left of the tree
   const pad = 26;
   const w = maxX - minX + pad * 2, h = maxY - minY + pad * 2 + 22; // room for years text
   view.k = Math.min(390 / w, 614 / h, 1.05);
@@ -760,9 +770,35 @@ function renderTree() {
   const pos = layoutTree();
   const focal = byId(focalId);
   const blood = bloodPairs(focal);
+  const bands = el('g', {}, world);
   const edges = el('g', {}, world);
   const hearts = el('g', {}, world);
   const nodes = el('g', {}, world);
+
+  // generation band labels (祖辈 / 父母辈 / 同辈…), relative to the focal
+  {
+    const rows = new Map(); // y → leftmost x
+    let minGenX = 1e9;
+    for (const p of people) {
+      const { x, y } = pos.get(p.id);
+      minGenX = Math.min(minGenX, x);
+      rows.set(`${p.gen}`, Math.min(rows.get(`${p.gen}`) ?? 1e9, y));
+    }
+    for (const [genStr, y] of rows) {
+      const diff = Number(genStr) - focal.gen;
+      const key = ['bandGreat', 'bandGrand', 'bandParents', 'bandSame',
+        'bandChildren', 'bandGrandCh', 'bandGreatCh'][Math.max(-3, Math.min(3, diff)) + 3];
+      const label = el('text', {
+        class: 'band-label', x: minGenX - 18, y: y + NH / 2 + 4,
+        'text-anchor': 'end',
+      }, bands);
+      label.textContent = kinTerm(key);
+      el('line', {
+        class: 'band-rail', x1: minGenX - 10, y1: y + NH / 2,
+        x2: minGenX + 2, y2: y + NH / 2,
+      }, bands);
+    }
+  }
 
   // partner lines + 连理结 hearts
   const drawn = new Set();
@@ -834,18 +870,16 @@ function renderTree() {
       }, g);
       sub.textContent = subText;
     }
-    g.addEventListener('click', (ev) => {
-      ev.stopPropagation();
-      if (panMoved) return;
-      hideHint();
-      openCard(p);
-    });
   }
 }
 
 /* --------------------------- pan / zoom --------------------------- */
 
+/* Pointer capture retargets derived clicks to the canvas, so taps are
+   detected here from the pointerdown target — not with node listeners. */
 let panMoved = false;
+let tapNode = null;
+let downPt = null;
 const pointers = new Map();
 let pinchBase = null;
 
@@ -856,12 +890,19 @@ function svgPoint(e) {
 }
 
 tree.addEventListener('pointerdown', (e) => {
-  tree.setPointerCapture(e.pointerId);
-  pointers.set(e.pointerId, svgPoint(e));
-  panMoved = false;
-  if (pointers.size === 2) {
-    const [a, b] = [...pointers.values()];
-    pinchBase = { d: Math.hypot(a.x - b.x, a.y - b.y), k: view.k };
+  try { tree.setPointerCapture(e.pointerId); } catch { /* synthetic event */ }
+  const pt = svgPoint(e);
+  pointers.set(e.pointerId, pt);
+  if (pointers.size === 1) {
+    panMoved = false;
+    downPt = pt;
+    tapNode = e.target.closest ? e.target.closest('.node') : null;
+  } else {
+    tapNode = null;
+    if (pointers.size === 2) {
+      const [a, b] = [...pointers.values()];
+      pinchBase = { d: Math.hypot(a.x - b.x, a.y - b.y), k: view.k };
+    }
   }
 });
 tree.addEventListener('pointermove', (e) => {
@@ -870,9 +911,11 @@ tree.addEventListener('pointermove', (e) => {
   const cur = svgPoint(e);
   pointers.set(e.pointerId, cur);
   if (pointers.size === 1) {
-    const dx = cur.x - prev.x, dy = cur.y - prev.y;
-    if (Math.abs(dx) + Math.abs(dy) > 1.5) panMoved = true;
-    view.x += dx; view.y += dy;
+    if (downPt && Math.hypot(cur.x - downPt.x, cur.y - downPt.y) > 5) {
+      panMoved = true;
+    }
+    view.x += cur.x - prev.x;
+    view.y += cur.y - prev.y;
     applyView();
   } else if (pointers.size === 2 && pinchBase) {
     panMoved = true;
@@ -883,9 +926,13 @@ tree.addEventListener('pointermove', (e) => {
   }
 });
 const endPointer = (e) => {
+  if (e.type === 'pointerup' && pointers.size === 1 && !panMoved && tapNode) {
+    const p = byId(Number(tapNode.dataset.id));
+    if (p) { hideHint(); openCard(p); }
+  }
   pointers.delete(e.pointerId);
   if (pointers.size < 2) pinchBase = null;
-  setTimeout(() => { panMoved = false; }, 0);
+  tapNode = null;
 };
 tree.addEventListener('pointerup', endPointer);
 tree.addEventListener('pointercancel', endPointer);
@@ -904,7 +951,6 @@ function zoomAt(pt, factor) {
   applyView();
 }
 
-tree.addEventListener('click', () => { /* background tap: nothing (card is a dialog) */ });
 
 /* ---------------- trading-card dialog + action chips ---------------- */
 
