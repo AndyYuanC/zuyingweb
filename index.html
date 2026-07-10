@@ -116,23 +116,48 @@
             <button class="dot dot-paper" data-style="paper" title="雅纸"></button>
           </div>
         </div>
-        <svg id="tree" viewBox="0 0 390 560" aria-label="family tree demo"></svg>
-        <div class="person-card" id="personCard" hidden>
-          <button class="card-close" id="cardClose" aria-label="close">✕</button>
-          <div class="card-head">
-            <div class="card-avatar" id="cardAvatar"></div>
-            <div>
-              <div class="card-name" id="cardName"></div>
-              <div class="card-meta" id="cardMeta"></div>
+        <svg id="tree" viewBox="0 0 390 614" aria-label="family tree demo"></svg>
+
+        <!-- centered trading-card dialog, like the app's node tap -->
+        <div class="sim-overlay" id="simOverlay" hidden>
+          <div class="trading-card" id="tradingCard">
+            <div class="tc-inner">
+              <div class="tc-portrait" id="tcPortrait">
+                <span class="tc-watermark" id="tcWatermark"></span>
+                <div class="tc-avatar" id="tcAvatar"></div>
+                <span class="tc-kin" id="tcKin"></span>
+                <span class="tc-seal" id="tcSeal"></span>
+              </div>
+              <div class="tc-footer">
+                <div class="tc-name" id="tcName"></div>
+                <div class="tc-meta">
+                  <span class="tc-dot" id="tcDot"></span>
+                  <span id="tcYears"></span>
+                  <span class="tc-place" id="tcPlace"></span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="card-chips" id="cardChips"></div>
-          <div class="card-actions">
-            <button id="btnAddChild" class="chip-btn">＋ <span data-i18n="addChild">添个孩子</span></button>
-            <button id="btnAddSpouse" class="chip-btn">♥ <span data-i18n="addSpouse">添个伴侣</span></button>
+          <div class="tc-chips">
+            <button class="action-chip" id="chipAdd">＋ <span data-i18n="addRelative">添加亲人</span></button>
+            <button class="action-chip" id="chipExpand">⤢ <span data-i18n="expandChip">展开</span></button>
+            <button class="action-chip" id="chipRefocus" data-i18n="refocusChip">以TA为中心</button>
+            <button class="action-chip chip-danger" id="chipDelete" data-i18n="deleteChip">删除</button>
           </div>
         </div>
-        <div class="phone-hint" id="phoneHint" data-i18n="demoHint">👆 点一点树上的人</div>
+
+        <!-- bottom sheet: pick which relative to add -->
+        <div class="sim-sheet-scrim" id="sheetScrim" hidden></div>
+        <div class="sim-sheet" id="simSheet" hidden>
+          <div class="sheet-title" id="sheetTitle"></div>
+          <button class="sheet-row" data-kind="parent"><span class="sheet-ic">↑</span><span data-i18n="kindParent">父母</span></button>
+          <button class="sheet-row" data-kind="spouse"><span class="sheet-ic">♡</span><span data-i18n="kindSpouse">配偶</span></button>
+          <button class="sheet-row" data-kind="child"><span class="sheet-ic">↓</span><span data-i18n="kindChild">子女</span></button>
+          <button class="sheet-row" data-kind="sibling"><span class="sheet-ic">⇄</span><span data-i18n="kindSibling">兄弟姐妹</span></button>
+        </div>
+
+        <div class="sim-toast" id="simToast" hidden></div>
+        <div class="phone-hint" id="phoneHint" data-i18n="demoHint">👆 点一点树上的人 · 可拖动、缩放</div>
       </div>
       <p class="demo-note" data-i18n="demoNote">真正的 App 还能翻面看卡片、写故事、录声音——这里只是浅浅一瞥。</p>
     </div>

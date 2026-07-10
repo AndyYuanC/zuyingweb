@@ -1,5 +1,7 @@
 /* 祖影 Echo marketing site — i18n (6 languages, matching the app) +
-   interactive mini family-tree simulator. No dependencies. */
+   interactive mini family-tree simulator, ported faithfully from the
+   app's tree canvas (chip-card nodes, 连理结 hearts, bloodline dashes,
+   trading-card dialog, add-relative sheet, kinship engine). */
 'use strict';
 
 /* ============================== i18n ============================== */
@@ -28,17 +30,19 @@ const I18N = {
     feat6T: '四种风格，六种语言',
     feat6B: '晨白、夜潮、暖橘、雅纸四套主题随心换；界面支持简体、繁體、English、Español、Français、हिन्दी。',
     demoTitle: '在这里先试一试',
-    demoSub: '这是一个迷你演示：点一点树上的人，看看称谓；给他们添个孩子或伴侣；右上角换换风格。',
-    demoHint: '👆 点一点树上的人',
-    demoNote: '真正的 App 还能翻面看卡片、写故事、录声音——这里只是浅浅一瞥。',
-    addChild: '添个孩子', addSpouse: '添个伴侣',
+    demoSub: '这是真实界面的迷你版：拖动、缩放画布，点人看卡片和称谓；试试「添加亲人」和「以TA为中心」；右上角换风格。',
+    demoHint: '👆 点一点树上的人 · 可拖动、缩放',
+    demoNote: '完整版 App 还有个人相册、故事、录音和回声——这里只是浅浅一瞥。',
+    addRelative: '添加亲人', expandChip: '展开', refocusChip: '以TA为中心', deleteChip: '删除',
+    addRelativeFor: '为「{name}」添加亲人',
+    kindParent: '父母', kindSpouse: '配偶', kindChild: '子女', kindSibling: '兄弟姐妹',
+    demoToast: '演示到这里啦——完整 App 中会打开 TA 的个人主页：照片、录音与故事。',
     dlTitle: '即将与你见面',
     dlSub: '祖影 Echo 正在为 App Store 上架做最后准备，Android 版随后跟上。',
     ctTitle: '联系我们',
     ctSub: '想法、建议、想第一时间试用？写封邮件给我们。',
     ctNote: '我们会认真读每一封来信。',
     footer: '© 2026 祖影 Echo · 把家族的故事留下来',
-    deadLabel: '已故',
     styles: { soft: '晨白', glass: '夜潮', candy: '暖橘', paper: '雅纸' },
   },
 
@@ -65,17 +69,19 @@ const I18N = {
     feat6T: '四種風格，六種語言',
     feat6B: '晨白、夜潮、暖橘、雅紙四套主題隨心換；介面支援簡體、繁體、English、Español、Français、हिन्दी。',
     demoTitle: '在這裡先試一試',
-    demoSub: '這是一個迷你示範：點一點樹上的人，看看稱謂；給他們添個孩子或伴侶；右上角換換風格。',
-    demoHint: '👆 點一點樹上的人',
-    demoNote: '真正的 App 還能翻面看卡片、寫故事、錄聲音——這裡只是淺淺一瞥。',
-    addChild: '添個孩子', addSpouse: '添個伴侶',
+    demoSub: '這是真實介面的迷你版：拖動、縮放畫布，點人看卡片和稱謂；試試「添加親人」和「以TA為中心」；右上角換風格。',
+    demoHint: '👆 點一點樹上的人 · 可拖動、縮放',
+    demoNote: '完整版 App 還有個人相簿、故事、錄音和回聲——這裡只是淺淺一瞥。',
+    addRelative: '添加親人', expandChip: '展開', refocusChip: '以TA為中心', deleteChip: '刪除',
+    addRelativeFor: '為「{name}」添加親人',
+    kindParent: '父母', kindSpouse: '配偶', kindChild: '子女', kindSibling: '兄弟姊妹',
+    demoToast: '示範到這裡啦——完整 App 中會打開 TA 的個人主頁：照片、錄音與故事。',
     dlTitle: '即將與你見面',
     dlSub: '祖影 Echo 正在為 App Store 上架做最後準備，Android 版隨後跟上。',
     ctTitle: '聯絡我們',
     ctSub: '想法、建議、想第一時間試用？寫封郵件給我們。',
     ctNote: '我們會認真讀每一封來信。',
     footer: '© 2026 祖影 Echo · 把家族的故事留下來',
-    deadLabel: '已故',
     styles: { soft: '晨白', glass: '夜潮', candy: '暖橘', paper: '雅紙' },
   },
 
@@ -102,17 +108,19 @@ const I18N = {
     feat6T: 'Four styles, six languages',
     feat6B: 'Soft Minimal, Aurora Glass, Warm Playful and Heritage themes — with an interface in 简体, 繁體, English, Español, Français and हिन्दी.',
     demoTitle: 'Try it right here',
-    demoSub: 'A tiny demo: tap people to see kinship terms, add a child or a partner, and switch styles at the top right.',
-    demoHint: '👆 Tap someone in the tree',
-    demoNote: 'The real app flips cards over for stories and recordings — this is just a peek.',
-    addChild: 'Add a child', addSpouse: 'Add a partner',
+    demoSub: 'A miniature of the real UI: drag and zoom the canvas, tap people for their card and kinship term, try “Add relative” and “Center on them”, switch styles at the top right.',
+    demoHint: '👆 Tap someone · drag & pinch to move',
+    demoNote: 'The full app adds galleries, stories, recordings and echoes — this is just a peek.',
+    addRelative: 'Add relative', expandChip: 'Expand', refocusChip: 'Center on them', deleteChip: 'Delete',
+    addRelativeFor: 'Add a relative for {name}',
+    kindParent: 'Parent', kindSpouse: 'Spouse', kindChild: 'Child', kindSibling: 'Sibling',
+    demoToast: 'That’s the end of the demo — in the full app this opens their page: photos, recordings and stories.',
     dlTitle: 'See you very soon',
     dlSub: 'Echo is in final preparation for the App Store; Android will follow.',
     ctTitle: 'Contact us',
     ctSub: 'Ideas, feedback, or want to be first to try it? Drop us an email.',
     ctNote: 'We read every message.',
     footer: '© 2026 Echo 祖影 · Keep your family’s story',
-    deadLabel: 'in memory',
     styles: { soft: 'Soft Minimal', glass: 'Aurora Glass', candy: 'Warm Playful', paper: 'Heritage' },
   },
 
@@ -139,17 +147,19 @@ const I18N = {
     feat6T: 'Cuatro estilos, seis idiomas',
     feat6B: 'Temas Soft Minimal, Aurora Glass, Warm Playful y Heritage, con interfaz en 简体, 繁體, English, Español, Français y हिन्दी.',
     demoTitle: 'Pruébalo aquí mismo',
-    demoSub: 'Una mini demo: toca a las personas para ver el parentesco, añade un hijo o una pareja y cambia el estilo arriba a la derecha.',
-    demoHint: '👆 Toca a alguien del árbol',
-    demoNote: 'La app real gira las tarjetas para ver historias y grabaciones; esto es solo un vistazo.',
-    addChild: 'Añadir hijo', addSpouse: 'Añadir pareja',
+    demoSub: 'Una miniatura de la interfaz real: arrastra y haz zoom, toca a las personas para ver su tarjeta y parentesco, prueba «Añadir familiar» y «Centrar aquí», cambia el estilo arriba a la derecha.',
+    demoHint: '👆 Toca a alguien · arrastra y haz zoom',
+    demoNote: 'La app completa añade álbumes, historias, grabaciones y ecos; esto es solo un vistazo.',
+    addRelative: 'Añadir familiar', expandChip: 'Abrir', refocusChip: 'Centrar aquí', deleteChip: 'Eliminar',
+    addRelativeFor: 'Añadir un familiar para {name}',
+    kindParent: 'Padre o madre', kindSpouse: 'Cónyuge', kindChild: 'Hijo/a', kindSibling: 'Hermano/a',
+    demoToast: 'Aquí termina la demo: en la app completa se abre su página con fotos, grabaciones e historias.',
     dlTitle: 'Nos vemos muy pronto',
     dlSub: 'Echo se prepara para llegar al App Store; la versión Android vendrá después.',
     ctTitle: 'Contacto',
     ctSub: '¿Ideas, sugerencias o quieres ser de los primeros en probarla? Envíanos un correo.',
     ctNote: 'Leemos cada mensaje.',
     footer: '© 2026 Echo 祖影 · Guarda la historia de tu familia',
-    deadLabel: 'en memoria',
     styles: { soft: 'Soft Minimal', glass: 'Aurora Glass', candy: 'Warm Playful', paper: 'Heritage' },
   },
 
@@ -176,17 +186,19 @@ const I18N = {
     feat6T: 'Quatre styles, six langues',
     feat6B: 'Thèmes Soft Minimal, Aurora Glass, Warm Playful et Heritage — interface en 简体, 繁體, English, Español, Français et हिन्दी.',
     demoTitle: 'Essayez ici même',
-    demoSub: 'Une mini-démo : touchez les personnes pour voir les liens de parenté, ajoutez un enfant ou un conjoint, changez de style en haut à droite.',
-    demoHint: '👆 Touchez quelqu’un dans l’arbre',
-    demoNote: 'La vraie app retourne les cartes pour les histoires et les enregistrements — ceci n’est qu’un aperçu.',
-    addChild: 'Ajouter un enfant', addSpouse: 'Ajouter un conjoint',
+    demoSub: 'Une miniature de la vraie interface : déplacez et zoomez, touchez les personnes pour voir leur carte et leur lien de parenté, essayez « Ajouter un proche » et « Recentrer ici », changez de style en haut à droite.',
+    demoHint: '👆 Touchez quelqu’un · glissez, zoomez',
+    demoNote: 'La vraie app ajoute albums, histoires, enregistrements et échos — ceci n’est qu’un aperçu.',
+    addRelative: 'Ajouter un proche', expandChip: 'Ouvrir', refocusChip: 'Recentrer ici', deleteChip: 'Supprimer',
+    addRelativeFor: 'Ajouter un proche pour {name}',
+    kindParent: 'Parent', kindSpouse: 'Conjoint(e)', kindChild: 'Enfant', kindSibling: 'Frère ou sœur',
+    demoToast: 'La démo s’arrête ici — dans l’app complète, cela ouvre sa page : photos, enregistrements et histoires.',
     dlTitle: 'À très bientôt',
     dlSub: 'Echo se prépare pour l’App Store ; la version Android suivra.',
     ctTitle: 'Nous contacter',
     ctSub: 'Des idées, des retours, envie d’essayer en avant-première ? Écrivez-nous.',
     ctNote: 'Nous lisons chaque message.',
     footer: '© 2026 Echo 祖影 · Gardez l’histoire de votre famille',
-    deadLabel: 'en mémoire',
     styles: { soft: 'Soft Minimal', glass: 'Aurora Glass', candy: 'Warm Playful', paper: 'Heritage' },
   },
 
@@ -213,68 +225,117 @@ const I18N = {
     feat6T: 'चार शैलियाँ, छह भाषाएँ',
     feat6B: 'Soft Minimal, Aurora Glass, Warm Playful और Heritage थीम — इंटरफ़ेस 简体, 繁體, English, Español, Français और हिन्दी में।',
     demoTitle: 'यहीं आज़माकर देखें',
-    demoSub: 'एक छोटा डेमो: लोगों को छूकर रिश्तों के नाम देखें, बच्चा या जीवनसाथी जोड़ें, ऊपर दाईं ओर शैली बदलें।',
-    demoHint: '👆 पेड़ में किसी को छुएँ',
-    demoNote: 'असली ऐप में कार्ड पलटकर कहानियाँ और रिकॉर्डिंग भी हैं — यह बस एक झलक है।',
-    addChild: 'बच्चा जोड़ें', addSpouse: 'जीवनसाथी जोड़ें',
+    demoSub: 'असली इंटरफ़ेस का छोटा रूप: कैनवास खींचें और ज़ूम करें, लोगों को छूकर कार्ड और रिश्ते का नाम देखें, «रिश्तेदार जोड़ें» और «इन पर केंद्रित करें» आज़माएँ, ऊपर दाईं ओर शैली बदलें।',
+    demoHint: '👆 किसी को छुएँ · खींचें, ज़ूम करें',
+    demoNote: 'पूरे ऐप में एल्बम, कहानियाँ, रिकॉर्डिंग और गूँज भी हैं — यह बस एक झलक है।',
+    addRelative: 'रिश्तेदार जोड़ें', expandChip: 'खोलें', refocusChip: 'इन पर केंद्रित करें', deleteChip: 'हटाएँ',
+    addRelativeFor: '{name} के लिए रिश्तेदार जोड़ें',
+    kindParent: 'माता-पिता', kindSpouse: 'जीवनसाथी', kindChild: 'संतान', kindSibling: 'भाई-बहन',
+    demoToast: 'डेमो यहीं तक है — पूरे ऐप में यह उनका पेज खोलता है: तस्वीरें, रिकॉर्डिंग और कहानियाँ।',
     dlTitle: 'बहुत जल्द मिलते हैं',
     dlSub: 'Echo ऐप स्टोर के लिए आख़िरी तैयारी में है; Android इसके बाद आएगा।',
     ctTitle: 'संपर्क करें',
     ctSub: 'सुझाव, विचार, या सबसे पहले आज़माना चाहते हैं? हमें ईमेल भेजें।',
     ctNote: 'हम हर संदेश पढ़ते हैं।',
     footer: '© 2026 Echo 祖影 · अपने परिवार की कहानी संजोएँ',
-    deadLabel: 'स्मृति में',
     styles: { soft: 'Soft Minimal', glass: 'Aurora Glass', candy: 'Warm Playful', paper: 'Heritage' },
   },
 };
 
-/* Kinship terms for the demo tree — keys are relations to the ego (我). */
+/* ================== kinship terms (mini engine) ==================
+   [zh, en, es, fr, hi]; zh_Hant derives from zh via a char map,
+   with a few whole-word exceptions (Taiwan usage). */
+
 const KIN = {
-  ego:            { zh: '我', zh_Hant: '我', en: 'Me', es: 'Yo', fr: 'Moi', hi: 'मैं' },
-  grandpa:        { zh: '爷爷', zh_Hant: '爺爺', en: 'Grandpa', es: 'Abuelo', fr: 'Grand-père', hi: 'दादा' },
-  grandma:        { zh: '奶奶', zh_Hant: '奶奶', en: 'Grandma', es: 'Abuela', fr: 'Grand-mère', hi: 'दादी' },
-  dad:            { zh: '爸爸', zh_Hant: '爸爸', en: 'Dad', es: 'Papá', fr: 'Papa', hi: 'पिताजी' },
-  mom:            { zh: '妈妈', zh_Hant: '媽媽', en: 'Mom', es: 'Mamá', fr: 'Maman', hi: 'माँ' },
-  auntP:          { zh: '姑姑', zh_Hant: '姑姑', en: 'Aunt', es: 'Tía', fr: 'Tante', hi: 'बुआ' },
-  uncleP:         { zh: '叔叔', zh_Hant: '叔叔', en: 'Uncle', es: 'Tío', fr: 'Oncle', hi: 'चाचा' },
-  wife:           { zh: '妻子', zh_Hant: '妻子', en: 'Wife', es: 'Esposa', fr: 'Épouse', hi: 'पत्नी' },
-  husband:        { zh: '丈夫', zh_Hant: '丈夫', en: 'Husband', es: 'Esposo', fr: 'Époux', hi: 'पति' },
-  partner:        { zh: '配偶', zh_Hant: '配偶', en: 'Spouse', es: 'Cónyuge', fr: 'Conjoint', hi: 'जीवनसाथी' },
-  sisterY:        { zh: '妹妹', zh_Hant: '妹妹', en: 'Little sister', es: 'Hermana menor', fr: 'Petite sœur', hi: 'छोटी बहन' },
-  brotherY:       { zh: '弟弟', zh_Hant: '弟弟', en: 'Little brother', es: 'Hermano menor', fr: 'Petit frère', hi: 'छोटा भाई' },
-  son:            { zh: '儿子', zh_Hant: '兒子', en: 'Son', es: 'Hijo', fr: 'Fils', hi: 'बेटा' },
-  daughter:       { zh: '女儿', zh_Hant: '女兒', en: 'Daughter', es: 'Hija', fr: 'Fille', hi: 'बेटी' },
-  grandsonS:      { zh: '孙子', zh_Hant: '孫子', en: 'Grandson', es: 'Nieto', fr: 'Petit-fils', hi: 'पोता' },
-  granddaughterS: { zh: '孙女', zh_Hant: '孫女', en: 'Granddaughter', es: 'Nieta', fr: 'Petite-fille', hi: 'पोती' },
-  grandsonD:      { zh: '外孙', zh_Hant: '外孫', en: 'Grandson', es: 'Nieto', fr: 'Petit-fils', hi: 'नाती' },
-  granddaughterD: { zh: '外孙女', zh_Hant: '外孫女', en: 'Granddaughter', es: 'Nieta', fr: 'Petite-fille', hi: 'नातिन' },
-  nephewS:        { zh: '外甥', zh_Hant: '外甥', en: 'Nephew', es: 'Sobrino', fr: 'Neveu', hi: 'भांजा' },
-  nieceS:         { zh: '外甥女', zh_Hant: '外甥女', en: 'Niece', es: 'Sobrina', fr: 'Nièce', hi: 'भांजी' },
-  nephewB:        { zh: '侄子', zh_Hant: '姪子', en: 'Nephew', es: 'Sobrino', fr: 'Neveu', hi: 'भतीजा' },
-  nieceB:         { zh: '侄女', zh_Hant: '姪女', en: 'Niece', es: 'Sobrina', fr: 'Nièce', hi: 'भतीजी' },
-  cousinM:        { zh: '表弟', zh_Hant: '表弟', en: 'Cousin', es: 'Primo', fr: 'Cousin', hi: 'फुफेरा भाई' },
-  cousinF:        { zh: '表妹', zh_Hant: '表妹', en: 'Cousin', es: 'Prima', fr: 'Cousine', hi: 'फुफेरी बहन' },
-  cousinTM:       { zh: '堂弟', zh_Hant: '堂弟', en: 'Cousin', es: 'Primo', fr: 'Cousin', hi: 'चचेरा भाई' },
-  cousinTF:       { zh: '堂妹', zh_Hant: '堂妹', en: 'Cousin', es: 'Prima', fr: 'Cousine', hi: 'चचेरी बहन' },
-  sonInLaw:       { zh: '女婿', zh_Hant: '女婿', en: 'Son-in-law', es: 'Yerno', fr: 'Gendre', hi: 'दामाद' },
-  daughterInLaw:  { zh: '儿媳', zh_Hant: '兒媳', en: 'Daughter-in-law', es: 'Nuera', fr: 'Belle-fille', hi: 'बहू' },
-  broInLaw:       { zh: '妹夫', zh_Hant: '妹夫', en: 'Brother-in-law', es: 'Cuñado', fr: 'Beau-frère', hi: 'बहनोई' },
-  sisInLaw:       { zh: '弟媳', zh_Hant: '弟媳', en: 'Sister-in-law', es: 'Cuñada', fr: 'Belle-sœur', hi: 'भाभी' },
-  uncleA:         { zh: '姑父', zh_Hant: '姑丈', en: 'Uncle', es: 'Tío', fr: 'Oncle', hi: 'फूफा' },
-  auntU:          { zh: '婶婶', zh_Hant: '嬸嬸', en: 'Aunt', es: 'Tía', fr: 'Tante', hi: 'चाची' },
-  relative:       { zh: '亲人', zh_Hant: '親人', en: 'Family', es: 'Familiar', fr: 'Proche', hi: 'परिवार' },
+  me:            ['我', 'Me', 'Yo', 'Moi', 'मैं'],
+  father:        ['爸爸', 'Dad', 'Papá', 'Papa', 'पिताजी'],
+  mother:        ['妈妈', 'Mom', 'Mamá', 'Maman', 'माँ'],
+  gfP:           ['爷爷', 'Grandpa', 'Abuelo paterno', 'Grand-père paternel', 'दादा'],
+  gmP:           ['奶奶', 'Grandma', 'Abuela paterna', 'Grand-mère paternelle', 'दादी'],
+  gfM:           ['外公', 'Grandpa', 'Abuelo materno', 'Grand-père maternel', 'नाना'],
+  gmM:           ['外婆', 'Grandma', 'Abuela materna', 'Grand-mère maternelle', 'नानी'],
+  ggfP:          ['曾祖父', 'Great-grandpa', 'Bisabuelo', 'Arrière-grand-père', 'परदादा'],
+  ggmP:          ['曾祖母', 'Great-grandma', 'Bisabuela', 'Arrière-grand-mère', 'परदादी'],
+  ggfM:          ['外曾祖父', 'Great-grandpa', 'Bisabuelo', 'Arrière-grand-père', 'परनाना'],
+  ggmM:          ['外曾祖母', 'Great-grandma', 'Bisabuela', 'Arrière-grand-mère', 'परनानी'],
+  son:           ['儿子', 'Son', 'Hijo', 'Fils', 'बेटा'],
+  daughter:      ['女儿', 'Daughter', 'Hija', 'Fille', 'बेटी'],
+  grandsonS:     ['孙子', 'Grandson', 'Nieto', 'Petit-fils', 'पोता'],
+  granddaughterS: ['孙女', 'Granddaughter', 'Nieta', 'Petite-fille', 'पोती'],
+  grandsonD:     ['外孙', 'Grandson', 'Nieto', 'Petit-fils', 'नाती'],
+  granddaughterD: ['外孙女', 'Granddaughter', 'Nieta', 'Petite-fille', 'नातिन'],
+  ggsonS:        ['曾孙', 'Great-grandson', 'Bisnieto', 'Arrière-petit-fils', 'परपोता'],
+  ggdaughterS:   ['曾孙女', 'Great-granddaughter', 'Bisnieta', 'Arrière-petite-fille', 'परपोती'],
+  ggsonD:        ['外曾孙', 'Great-grandson', 'Bisnieto', 'Arrière-petit-fils', 'परनाती'],
+  ggdaughterD:   ['外曾孙女', 'Great-granddaughter', 'Bisnieta', 'Arrière-petite-fille', 'परनातिन'],
+  brotherE:      ['哥哥', 'Elder brother', 'Hermano mayor', 'Grand frère', 'बड़ा भाई'],
+  brotherY:      ['弟弟', 'Little brother', 'Hermano menor', 'Petit frère', 'छोटा भाई'],
+  sisterE:       ['姐姐', 'Elder sister', 'Hermana mayor', 'Grande sœur', 'बड़ी बहन'],
+  sisterY:       ['妹妹', 'Little sister', 'Hermana menor', 'Petite sœur', 'छोटी बहन'],
+  uncleFE:       ['伯伯', 'Uncle', 'Tío', 'Oncle', 'ताऊ'],
+  uncleFY:       ['叔叔', 'Uncle', 'Tío', 'Oncle', 'चाचा'],
+  auntF:         ['姑姑', 'Aunt', 'Tía', 'Tante', 'बुआ'],
+  uncleM:        ['舅舅', 'Uncle', 'Tío', 'Oncle', 'मामा'],
+  auntM:         ['姨妈', 'Aunt', 'Tía', 'Tante', 'मौसी'],
+  nephewB:       ['侄子', 'Nephew', 'Sobrino', 'Neveu', 'भतीजा'],
+  nieceB:        ['侄女', 'Niece', 'Sobrina', 'Nièce', 'भतीजी'],
+  nephewS:       ['外甥', 'Nephew', 'Sobrino', 'Neveu', 'भांजा'],
+  nieceS:        ['外甥女', 'Niece', 'Sobrina', 'Nièce', 'भांजी'],
+  cousinTME:     ['堂哥', 'Cousin', 'Primo', 'Cousin', 'चचेरा भाई'],
+  cousinTMY:     ['堂弟', 'Cousin', 'Primo', 'Cousin', 'चचेरा भाई'],
+  cousinTFE:     ['堂姐', 'Cousin', 'Prima', 'Cousine', 'चचेरी बहन'],
+  cousinTFY:     ['堂妹', 'Cousin', 'Prima', 'Cousine', 'चचेरी बहन'],
+  cousinBME:     ['表哥', 'Cousin', 'Primo', 'Cousin', 'फुफेरा भाई'],
+  cousinBMY:     ['表弟', 'Cousin', 'Primo', 'Cousin', 'फुफेरा भाई'],
+  cousinBFE:     ['表姐', 'Cousin', 'Prima', 'Cousine', 'फुफेरी बहन'],
+  cousinBFY:     ['表妹', 'Cousin', 'Prima', 'Cousine', 'फुफेरी बहन'],
+  husband:       ['丈夫', 'Husband', 'Esposo', 'Époux', 'पति'],
+  wife:          ['妻子', 'Wife', 'Esposa', 'Épouse', 'पत्नी'],
+  partner:       ['配偶', 'Spouse', 'Cónyuge', 'Conjoint(e)', 'जीवनसाथी'],
+  sisInLawE:     ['嫂子', 'Sister-in-law', 'Cuñada', 'Belle-sœur', 'भाभी'],
+  sisInLawY:     ['弟媳', 'Sister-in-law', 'Cuñada', 'Belle-sœur', 'भाभी'],
+  broInLawE:     ['姐夫', 'Brother-in-law', 'Cuñado', 'Beau-frère', 'जीजा'],
+  broInLawY:     ['妹夫', 'Brother-in-law', 'Cuñado', 'Beau-frère', 'बहनोई'],
+  daughterInLaw: ['儿媳', 'Daughter-in-law', 'Nuera', 'Belle-fille', 'बहू'],
+  sonInLaw:      ['女婿', 'Son-in-law', 'Yerno', 'Gendre', 'दामाद'],
+  auntFH:        ['姑父', 'Uncle', 'Tío', 'Oncle', 'फूफा'],
+  uncleFEW:      ['伯母', 'Aunt', 'Tía', 'Tante', 'ताई'],
+  uncleFYW:      ['婶婶', 'Aunt', 'Tía', 'Tante', 'चाची'],
+  uncleMW:       ['舅妈', 'Aunt', 'Tía', 'Tante', 'मामी'],
+  auntMH:        ['姨父', 'Uncle', 'Tío', 'Oncle', 'मौसा'],
+  fWife:         ['岳父', 'Father-in-law', 'Suegro', 'Beau-père', 'ससुर'],
+  mWife:         ['岳母', 'Mother-in-law', 'Suegra', 'Belle-mère', 'सास'],
+  fHusb:         ['公公', 'Father-in-law', 'Suegro', 'Beau-père', 'ससुर'],
+  mHusb:         ['婆婆', 'Mother-in-law', 'Suegra', 'Belle-mère', 'सास'],
+  bandSame:      ['同辈', 'Same generation', 'Misma generación', 'Même génération', 'समान पीढ़ी'],
+  bandParents:   ['父母辈', 'Parents’ generation', 'Generación de los padres', 'Génération des parents', 'माता-पिता की पीढ़ी'],
+  bandGrand:     ['祖辈', 'Grandparents’ generation', 'Generación de los abuelos', 'Génération des grands-parents', 'दादा-दादी की पीढ़ी'],
+  bandGreat:     ['曾祖辈', 'Great-grandparents', 'Bisabuelos', 'Arrière-grands-parents', 'परदादा की पीढ़ी'],
+  bandChildren:  ['子女辈', 'Children’s generation', 'Generación de los hijos', 'Génération des enfants', 'संतान की पीढ़ी'],
+  bandGrandCh:   ['孙辈', 'Grandchildren', 'Nietos', 'Petits-enfants', 'पोते-पोतियों की पीढ़ी'],
+  bandGreatCh:   ['曾孙辈', 'Great-grandchildren', 'Bisnietos', 'Arrière-petits-enfants', 'परपोतों की पीढ़ी'],
 };
 
-/* 生肖 (Chinese zodiac): index 0 = Rat = 1900. */
-const ZODIAC_EMOJI = ['🐀', '🐂', '🐯', '🐰', '🐲', '🐍', '🐴', '🐑', '🐵', '🐔', '🐶', '🐷'];
-const ZODIAC = {
-  zh:      ['鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴', '鸡', '狗', '猪'],
-  zh_Hant: ['鼠', '牛', '虎', '兔', '龍', '蛇', '馬', '羊', '猴', '雞', '狗', '豬'],
-  en: ['Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Goat', 'Monkey', 'Rooster', 'Dog', 'Pig'],
-  es: ['Rata', 'Buey', 'Tigre', 'Conejo', 'Dragón', 'Serpiente', 'Caballo', 'Cabra', 'Mono', 'Gallo', 'Perro', 'Cerdo'],
-  fr: ['Rat', 'Buffle', 'Tigre', 'Lapin', 'Dragon', 'Serpent', 'Cheval', 'Chèvre', 'Singe', 'Coq', 'Chien', 'Cochon'],
-  hi: ['चूहा', 'बैल', 'बाघ', 'खरगोश', 'ड्रैगन', 'साँप', 'घोड़ा', 'बकरी', 'बंदर', 'मुर्गा', 'कुत्ता', 'सुअर'],
+const HANT_CHARS = {
+  '妈': '媽', '爷': '爺', '孙': '孫', '儿': '兒', '婶': '嬸', '侄': '姪', '辈': '輩',
 };
+const HANT_EXCEPTIONS = { auntFH: '姑丈', auntMH: '姨丈' };
+const toHant = (s) => s.split('').map((c) => HANT_CHARS[c] || c).join('');
+
+function kinTerm(key) {
+  const row = KIN[key];
+  if (!row) return '';
+  switch (lang) {
+    case 'zh': return row[0];
+    case 'zh_Hant': return HANT_EXCEPTIONS[key] || toHant(row[0]);
+    case 'es': return row[2];
+    case 'fr': return row[3];
+    case 'hi': return row[4];
+    default: return row[1];
+  }
+}
+
+/* ============================ language ============================ */
 
 const LANGS = ['zh', 'zh_Hant', 'en', 'es', 'fr', 'hi'];
 const LANG_KEY = 'zuying_web_lang';
@@ -301,11 +362,6 @@ function t(key) {
   return (I18N[lang] && I18N[lang][k]) || I18N.zh[k] || k;
 }
 
-function kin(key) {
-  const row = KIN[key] || KIN.relative;
-  return row[lang] || row.en;
-}
-
 function applyLang() {
   document.documentElement.lang =
     { zh: 'zh-CN', zh_Hant: 'zh-Hant' }[lang] || lang;
@@ -318,8 +374,8 @@ function applyLang() {
   });
   const sel = document.getElementById('langSelect');
   if (sel.value !== lang) sel.value = lang;
-  renderTree();   // node labels
-  renderCard();   // open card, if any
+  renderTree();
+  if (!overlay.hidden && selectedId) openCard(byId(selectedId));
 }
 
 document.getElementById('langSelect').addEventListener('change', (e) => {
@@ -335,130 +391,335 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 const tree = document.getElementById('tree');
 const phone = document.getElementById('phone');
 
-/* Seed family: 4 generations around the ego. */
+/* --- people. Names stay as entered (like the real app); pinyin for
+   non-Chinese visitors. --- */
 let nextId = 1;
 const people = [];
 function addPerson(p) {
-  const full = Object.assign({ id: nextId++, deceased: false, spouseId: null, parentIds: [] }, p);
+  const full = Object.assign(
+    { id: nextId++, deceased: false, spouseId: null, parentIds: [] }, p);
   people.push(full);
   return full;
 }
-const gp  = addPerson({ key: 'grandpa', gender: 'male', gen: 0, birthY: 1935, deathY: 2001, deceased: true });
-const gm  = addPerson({ key: 'grandma', gender: 'female', gen: 0, birthY: 1938 });
-gp.spouseId = gm.id; gm.spouseId = gp.id;
-const dad = addPerson({ key: 'dad', gender: 'male', gen: 1, birthY: 1962, parentIds: [gp.id, gm.id] });
-const mom = addPerson({ key: 'mom', gender: 'female', gen: 1, birthY: 1965 });
-dad.spouseId = mom.id; mom.spouseId = dad.id;
-addPerson({ key: 'auntP', gender: 'female', gen: 1, birthY: 1968, parentIds: [gp.id, gm.id] });
-const ego = addPerson({ key: 'ego', gender: 'male', gen: 2, birthY: 1990, parentIds: [dad.id, mom.id] });
-const wife = addPerson({ key: 'wife', gender: 'female', gen: 2, birthY: 1991 });
-ego.spouseId = wife.id; wife.spouseId = ego.id;
-addPerson({ key: 'sisterY', gender: 'female', gen: 2, birthY: 1994, parentIds: [dad.id, mom.id] });
-addPerson({ key: 'daughter', gender: 'female', gen: 3, birthY: 2018, parentIds: [ego.id, wife.id] });
+function marry(a, b) { a.spouseId = b.id; b.spouseId = a.id; }
 
+const gp = addPerson({ nameZh: '李富贵', nameEn: 'Li Fugui', family: '李', gender: 'male', gen: 0, birthY: 1935, deathY: 2001, deceased: true, placeZh: '山东济南', placeEn: 'Jinan' });
+const gm = addPerson({ nameZh: '王秀兰', nameEn: 'Wang Xiulan', family: '王', gender: 'female', gen: 0, birthY: 1938, placeZh: '山东济南', placeEn: 'Jinan' });
+marry(gp, gm);
+const dad = addPerson({ nameZh: '李建国', nameEn: 'Li Jianguo', family: '李', gender: 'male', gen: 1, birthY: 1962, placeZh: '北京', placeEn: 'Beijing', parentIds: [gp.id, gm.id] });
+const mom = addPerson({ nameZh: '张丽华', nameEn: 'Zhang Lihua', family: '张', gender: 'female', gen: 1, birthY: 1965, placeZh: '北京', placeEn: 'Beijing' });
+marry(dad, mom);
+addPerson({ nameZh: '李桂芳', nameEn: 'Li Guifang', family: '李', gender: 'female', gen: 1, birthY: 1968, placeZh: '北京', placeEn: 'Beijing', parentIds: [gp.id, gm.id] });
+const ego = addPerson({ nameZh: '李明', nameEn: 'Li Ming', family: '李', gender: 'male', gen: 2, birthY: 1990, placeZh: '北京', placeEn: 'Beijing', parentIds: [dad.id, mom.id] });
+const wife = addPerson({ nameZh: '陈静', nameEn: 'Chen Jing', family: '陈', gender: 'female', gen: 2, birthY: 1991, placeZh: '上海', placeEn: 'Shanghai' });
+marry(ego, wife);
+addPerson({ nameZh: '李婷', nameEn: 'Li Ting', family: '李', gender: 'female', gen: 2, birthY: 1994, placeZh: '北京', placeEn: 'Beijing', parentIds: [dad.id, mom.id] });
+addPerson({ nameZh: '李朵朵', nameEn: 'Li Duoduo', family: '李', gender: 'female', gen: 3, birthY: 2018, placeZh: '北京', placeEn: 'Beijing', parentIds: [ego.id, wife.id] });
+
+let focalId = ego.id;
 let selectedId = null;
-let childToggle = 0; // alternate boy / girl
 
 const byId = (id) => people.find((p) => p.id === id);
+const parentsOf = (p) => p.parentIds.map(byId).filter(Boolean);
+const childrenOf = (p) => people.filter((c) => c.parentIds.includes(p.id));
+const displayName = (p) =>
+  lang === 'zh' || lang === 'zh_Hant' ? p.nameZh : p.nameEn;
+const displayPlace = (p) =>
+  lang === 'zh' || lang === 'zh_Hant' ? p.placeZh : p.placeEn;
 
-/* Which relation does a new child of `p` get? [maleKey, femaleKey] */
-function childKeys(p) {
-  // A spouse's child is the blood relative's child.
-  let anchor = p;
-  if (['wife', 'husband', 'partner', 'sonInLaw', 'daughterInLaw', 'broInLaw', 'sisInLaw', 'uncleA', 'auntU'].includes(p.key)) {
-    anchor = byId(p.spouseId) || p;
-  }
-  switch (anchor.key) {
-    case 'ego': return ['son', 'daughter'];
-    case 'dad': case 'mom': return ['brotherY', 'sisterY'];
-    case 'grandpa': case 'grandma': return ['uncleP', 'auntP'];
-    case 'auntP': return ['cousinM', 'cousinF'];
-    case 'uncleP': return ['cousinTM', 'cousinTF'];
-    case 'sisterY': return ['nephewS', 'nieceS'];
-    case 'brotherY': return ['nephewB', 'nieceB'];
-    case 'son': return ['grandsonS', 'granddaughterS'];
-    case 'daughter': return ['grandsonD', 'granddaughterD'];
-    default: return ['relative', 'relative'];
-  }
+/* --- name pools for newly added people --- */
+const SURNAME_PY = { '李': 'Li', '王': 'Wang', '张': 'Zhang', '陈': 'Chen', '刘': 'Liu', '杨': 'Yang', '赵': 'Zhao' };
+const GIVEN_M = [['强', 'Qiang'], ['军', 'Jun'], ['磊', 'Lei'], ['洋', 'Yang'], ['杰', 'Jie'], ['勇', 'Yong']];
+const GIVEN_F = [['芳', 'Fang'], ['娜', 'Na'], ['敏', 'Min'], ['雪', 'Xue'], ['琳', 'Lin'], ['丹', 'Dan']];
+const MARRY_IN = ['刘', '杨', '赵', '王', '陈'];
+let givenIdx = 0, marryIdx = 0;
+
+function makePerson(family, gender, gen, birthY, like) {
+  const g = (gender === 'male' ? GIVEN_M : GIVEN_F)[givenIdx++ % 6];
+  return addPerson({
+    nameZh: family + g[0],
+    nameEn: `${SURNAME_PY[family] || family} ${g[1]}`,
+    family, gender, gen,
+    birthY: Math.min(birthY, NOW_YEAR),
+    placeZh: like.placeZh, placeEn: like.placeEn,
+  });
 }
 
-/* Which relation does a new spouse of `p` get? (App rule: 丈夫/妻子 only
-   for a known man+woman pair; otherwise the neutral 配偶.) */
-function spouseKey(p, spouseGender) {
-  if (p.key === 'ego') {
-    if (p.gender === 'male' && spouseGender === 'female') return 'wife';
-    if (p.gender === 'female' && spouseGender === 'male') return 'husband';
+/* ------------------- kinship engine (mini port) ------------------- */
+
+/* ancestors of p: id → {depth, side: 'father'|'mother', below: child on path} */
+function ancestorsOf(p) {
+  const map = new Map();
+  const walk = (cur, depth, side) => {
+    for (const par of parentsOf(cur)) {
+      const s = depth === 0 ? (par.gender === 'male' ? 'father' : 'mother') : side;
+      if (!map.has(par.id) || map.get(par.id).depth > depth + 1) {
+        map.set(par.id, { depth: depth + 1, side: s, below: cur });
+        walk(par, depth + 1, s);
+      }
+    }
+  };
+  walk(p, 0, null);
+  return map;
+}
+
+/* descendants of p: id → {depth, side: 'son'|'daughter'} */
+function descendantsOf(p) {
+  const map = new Map();
+  const walk = (cur, depth, side) => {
+    for (const c of childrenOf(cur)) {
+      const s = depth === 0 ? (c.gender === 'male' ? 'son' : 'daughter') : side;
+      if (!map.has(c.id) || map.get(c.id).depth > depth + 1) {
+        map.set(c.id, { depth: depth + 1, side: s, via: cur });
+        walk(c, depth + 1, s);
+      }
+    }
+  };
+  walk(p, 0, null);
+  return map;
+}
+
+function bloodKey(focal, p) {
+  if (p.id === focal.id) return 'me';
+  const male = p.gender === 'male';
+
+  const anc = ancestorsOf(focal);
+  const ea = anc.get(p.id);
+  if (ea) {
+    if (ea.depth === 1) return male ? 'father' : 'mother';
+    if (ea.depth === 2) {
+      return ea.side === 'father' ? (male ? 'gfP' : 'gmP') : (male ? 'gfM' : 'gmM');
+    }
+    if (ea.depth === 3) {
+      return ea.side === 'father' ? (male ? 'ggfP' : 'ggmP') : (male ? 'ggfM' : 'ggmM');
+    }
+    return null;
+  }
+
+  const desc = descendantsOf(focal);
+  const ed = desc.get(p.id);
+  if (ed) {
+    if (ed.depth === 1) return male ? 'son' : 'daughter';
+    if (ed.depth === 2) {
+      return ed.side === 'son'
+        ? (male ? 'grandsonS' : 'granddaughterS')
+        : (male ? 'grandsonD' : 'granddaughterD');
+    }
+    if (ed.depth === 3) {
+      return ed.side === 'son'
+        ? (male ? 'ggsonS' : 'ggdaughterS') : (male ? 'ggsonD' : 'ggdaughterD');
+    }
+    return null;
+  }
+
+  // collateral: nearest common ancestor
+  const ancP = ancestorsOf(p);
+  let best = null;
+  for (const [aid, ef] of anc) {
+    const ep = ancP.get(aid);
+    if (ep && (!best || ef.depth + ep.depth < best.sum)) {
+      best = { sum: ef.depth + ep.depth, df: ef.depth, dp: ep.depth, ef, ep };
+    }
+  }
+  if (!best) return null;
+  const elder = p.birthY != null && focal.birthY != null && p.birthY < focal.birthY;
+
+  if (best.df === 1 && best.dp === 1) {
+    return male ? (elder ? 'brotherE' : 'brotherY') : (elder ? 'sisterE' : 'sisterY');
+  }
+  if (best.df === 2 && best.dp === 1) {
+    // parent's sibling; 伯/叔 by age against the father
+    if (best.ef.side === 'father') {
+      if (!male) return 'auntF';
+      const f = parentsOf(focal).find((x) => x.gender === 'male');
+      const olderThanDad = f && p.birthY != null && f.birthY != null && p.birthY < f.birthY;
+      return olderThanDad ? 'uncleFE' : 'uncleFY';
+    }
+    return male ? 'uncleM' : 'auntM';
+  }
+  if (best.df === 1 && best.dp === 2) {
+    const sib = best.ep.below; // focal's sibling on the path
+    return sib.gender === 'male'
+      ? (male ? 'nephewB' : 'nieceB') : (male ? 'nephewS' : 'nieceS');
+  }
+  if (best.df === 2 && best.dp === 2) {
+    // cousin: 堂 via the father's brother, 表 otherwise
+    const linkParent = best.ep.below; // p's parent (child of common ancestor)
+    const tang = best.ef.side === 'father' && linkParent.gender === 'male';
+    const base = tang ? 'cousinT' : 'cousinB';
+    return base + (male ? 'M' : 'F') + (elder ? 'E' : 'Y');
+  }
+  return null;
+}
+
+const SPOUSE_OF = {
+  brotherE: 'sisInLawE', brotherY: 'sisInLawY',
+  sisterE: 'broInLawE', sisterY: 'broInLawY',
+  son: 'daughterInLaw', daughter: 'sonInLaw',
+  auntF: 'auntFH', uncleFE: 'uncleFEW', uncleFY: 'uncleFYW',
+  uncleM: 'uncleMW', auntM: 'auntMH',
+};
+
+function relationKey(focal, p) {
+  const bk = bloodKey(focal, p);
+  if (bk) return bk;
+  // spouse (the app's pair rule: 丈夫/妻子 only for a man+woman couple)
+  if (focal.spouseId === p.id) {
+    if (focal.gender === 'male' && p.gender === 'female') return 'wife';
+    if (focal.gender === 'female' && p.gender === 'male') return 'husband';
     return 'partner';
   }
-  const opposite = p.gender !== spouseGender;
-  if (!opposite) return 'partner';
-  switch (p.key) {
-    case 'sisterY': return 'broInLaw';
-    case 'brotherY': return 'sisInLaw';
-    case 'son': return 'daughterInLaw';
-    case 'daughter': return 'sonInLaw';
-    case 'auntP': return 'uncleA';
-    case 'uncleP': return 'auntU';
-    default: return 'partner';
+  // spouse of my blood relative
+  if (p.spouseId) {
+    const b = byId(p.spouseId);
+    const k = b && bloodKey(focal, b);
+    if (k) {
+      if (p.gender === b.gender) return 'partner';
+      return SPOUSE_OF[k] || 'partner';
+    }
   }
+  // blood relative of my spouse
+  if (focal.spouseId) {
+    const s = byId(focal.spouseId);
+    const k = bloodKey(s, p);
+    if (k === 'father') return s.gender === 'female' ? 'fWife' : 'fHusb';
+    if (k === 'mother') return s.gender === 'female' ? 'mWife' : 'mHusb';
+  }
+  // generation-band fallback, like the app's _bandLabel
+  const g = p.gen - focal.gen;
+  return ['bandGreat', 'bandGrand', 'bandParents', 'bandSame',
+    'bandChildren', 'bandGrandCh', 'bandGreatCh'][Math.max(-3, Math.min(3, g)) + 3];
 }
 
-function rowOf(gen) {
-  const row = [];
-  for (const p of people) {
-    if (p.gen !== gen || row.includes(p)) continue;
-    row.push(p);
-    const s = p.spouseId && byId(p.spouseId);
-    if (s && s.gen === gen && !row.includes(s)) row.push(s);
-  }
-  return row;
+/* -------------- avatar (port of _PersonAvatarPainter) -------------- */
+
+const SHIRTS = ['#6B7A5E', '#96637B', '#4A6B85', '#B0524B', '#3E7D74',
+  '#7A5B3F', '#B06A75', '#5A6472', '#8A7BB4', '#C77B3B'];
+
+function hexLerp(a, b, t) {
+  const pa = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16));
+  const pb = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16));
+  return '#' + pa.map((v, i) =>
+    Math.round(v + (pb[i] - v) * t).toString(16).padStart(2, '0')).join('');
 }
 
-function maxGen() { return Math.max(...people.map((p) => p.gen)); }
+function avatarSvg(p, size, ctx) {
+  const mute = (c) => (p.deceased ? hexLerp('#9A9188', c, 0.4) : c);
+  const age = p.birthY == null ? 40 : Math.min(120, Math.max(0, NOW_YEAR - p.birthY));
+  const elder = age >= 68, child = age <= 12, baby = age <= 3;
+  const female = p.gender === 'female';
+  const skin = mute(child ? '#F6D4B4' : '#F1C6A0');
+  const hairC = mute(elder ? '#C9C4BB' : hexLerp('#3A342E', '#4A423A', (p.id % 7) / 6));
+  const shirt = mute(SHIRTS[p.id % SHIRTS.length]);
+  const ink = '#33291F';
+  const clip = `av${ctx}${p.id}`;
 
-function layout() {
-  const gens = maxGen() + 1;
-  const rowGap = gens > 4 ? 96 : 112;
-  const top = gens > 4 ? 56 : 70;
+  const top = `<path d="M18.6 26.5 A13.4 13.4 0 0 1 45.4 26.5 Z" fill="${hairC}"/>`;
+  let hair;
+  if (baby) {
+    hair = `<path d="M27 15.5 Q32 8.5 37 15.5 Q32 12.5 27 15.5 Z" fill="${hairC}"/>`;
+  } else if (female && child) {
+    hair = top + `<circle cx="15.8" cy="27" r="4.4" fill="${hairC}"/><circle cx="48.2" cy="27" r="4.4" fill="${hairC}"/>`;
+  } else if (female && elder) {
+    hair = top + `<circle cx="32" cy="12" r="4.6" fill="${hairC}"/>`;
+  } else if (female) {
+    hair = top +
+      `<rect x="17.4" y="24.5" width="4.8" height="12" rx="2.4" fill="${hairC}"/>` +
+      `<rect x="41.8" y="24.5" width="4.8" height="12" rx="2.4" fill="${hairC}"/>`;
+  } else if (elder) {
+    hair = `<path d="M21.5 30 Q22 43 32 44.5 Q42 43 42.5 30 Q37 38.5 32 38.5 Q27 38.5 21.5 30 Z" fill="${mute('#E3DFD6')}"/>`;
+  } else {
+    hair = top;
+  }
+
+  return `<svg viewBox="0 0 64 64" width="${size}" height="${size}">
+    <defs><clipPath id="${clip}"><circle cx="32" cy="32" r="32"/></clipPath></defs>
+    <g clip-path="url(#${clip})">
+      <rect width="64" height="64" fill="var(--ph-chip)"/>
+      <path d="M11 64 Q11 45 32 45 Q53 45 53 64 Z" fill="${shirt}"/>
+      <circle cx="32" cy="27" r="13" fill="${skin}"/>
+      ${hair}
+      <circle cx="26.5" cy="27.5" r="1.4" fill="${ink}"/>
+      <circle cx="37.5" cy="27.5" r="1.4" fill="${ink}"/>
+      <path d="M28 32.5 Q32 35.5 36 32.5" stroke="${ink}" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </g>
+  </svg>`;
+}
+
+/* -------------------- layout (tidy-ish rows) -------------------- */
+
+const NW = 148, NH = 56, CGAP = 8, HGAP = 22, VGAP = 110;
+
+function layoutTree() {
+  const gens = [...new Set(people.map((p) => p.gen))].sort((a, b) => a - b);
   const pos = new Map();
-  for (let g = 0; g < gens; g++) {
-    const row = rowOf(g);
-    row.forEach((p, i) => {
-      pos.set(p.id, { x: (390 * (i + 1)) / (row.length + 1), y: top + g * rowGap });
+  for (let ri = 0; ri < gens.length; ri++) {
+    const g = gens[ri];
+    const y = ri * (NH + VGAP);
+    const seen = new Set();
+    const units = [];
+    for (const p of people) {
+      if (p.gen !== g || seen.has(p.id)) continue;
+      const u = [p];
+      seen.add(p.id);
+      const s = p.spouseId && byId(p.spouseId);
+      if (s && s.gen === g && !seen.has(s.id)) { u.push(s); seen.add(s.id); }
+      units.push(u);
+    }
+    const bary = (u) => {
+      const xs = [];
+      for (const m of u) {
+        for (const pid of m.parentIds) {
+          const pp = pos.get(pid);
+          if (pp) xs.push(pp.x + NW / 2);
+        }
+      }
+      return xs.length ? xs.reduce((a, b) => a + b) / xs.length : null;
+    };
+    units.sort((a, b) => {
+      const ba = bary(a), bb = bary(b);
+      if (ba == null && bb == null) return 0;
+      if (ba == null) return 1;
+      if (bb == null) return -1;
+      return ba - bb;
     });
+    let x = 0;
+    const placed = [];
+    for (const u of units) {
+      const w = u.length * NW + (u.length - 1) * CGAP;
+      placed.push({ u, x, w });
+      x += w + HGAP;
+    }
+    const anchored = placed.filter((pl) => bary(pl.u) != null);
+    let shift;
+    if (anchored.length) {
+      const meanCenter = anchored.reduce((a, pl) => a + pl.x + pl.w / 2, 0) / anchored.length;
+      const meanBary = anchored.reduce((a, pl) => a + bary(pl.u), 0) / anchored.length;
+      shift = meanBary - meanCenter;
+    } else {
+      shift = -(x - HGAP) / 2;
+    }
+    for (const pl of placed) {
+      let mx = pl.x + shift;
+      for (const m of pl.u) {
+        pos.set(m.id, { x: mx, y });
+        mx += NW + CGAP;
+      }
+    }
   }
   return pos;
 }
 
-/* Is `p` on the ego's direct bloodline (ancestor or descendant)? */
-function bloodSet() {
-  const blood = new Set([ego.id]);
-  // ancestors
-  let frontier = [ego];
-  while (frontier.length) {
-    const next = [];
-    for (const p of frontier) {
-      for (const pid of p.parentIds) {
-        if (!blood.has(pid)) { blood.add(pid); next.push(byId(pid)); }
-      }
-    }
-    frontier = next;
-  }
-  // descendants
-  frontier = [ego];
-  while (frontier.length) {
-    const next = [];
-    for (const p of frontier) {
-      for (const c of people) {
-        if (c.parentIds.includes(p.id) && !blood.has(c.id)) {
-          blood.add(c.id); next.push(c);
-        }
-      }
-    }
-    frontier = next;
-  }
-  return blood;
+/* blood edges of the focal person: 'parentId>childId' along the
+   ancestor and descendant chains (blood flows down). */
+function bloodPairs(focal) {
+  const set = new Set();
+  for (const [aid, e] of ancestorsOf(focal)) set.add(`${aid}>${e.below.id}`);
+  for (const [did, e] of descendantsOf(focal)) set.add(`${e.via.id}>${did}`);
+  return set;
 }
+
+/* --------------------------- rendering --------------------------- */
 
 function el(name, attrs, parent) {
   const node = document.createElementNS(SVG_NS, name);
@@ -467,209 +728,321 @@ function el(name, attrs, parent) {
   return node;
 }
 
-const SHIRT_COLORS = ['#e8998d', '#8db4e8', '#9dc79b', '#e8c88d', '#b39ddb',
-  '#80cbc4', '#f48fb1', '#a1887f', '#90a4ae', '#ffcc80'];
+const world = el('g', {}, tree);
+const view = { x: 0, y: 0, k: 1 };
+function applyView() {
+  world.setAttribute('transform',
+    `translate(${view.x} ${view.y}) scale(${view.k})`);
+}
 
-/* Tiny illustrated avatar (ported feel from the app's PersonAvatar). */
-function avatarSvg(p, size) {
-  const shirt = SHIRT_COLORS[p.id % SHIRT_COLORS.length];
-  const hairC = '#4a3a2c';
-  const age = NOW_YEAR - p.birthY;
-  let hair = '';
-  if (age <= 3) {
-    hair = `<path d="M32 12 q4 -6 8 -3" stroke="${hairC}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
-  } else if (p.gender === 'female' && age >= 68) {
-    hair = `<circle cx="32" cy="11" r="6" fill="#8d8478"/>
-      <path d="M19 24 a13 13 0 0 1 26 0 v-4 a13 9 0 0 0 -26 0 Z" fill="#8d8478"/>`;
-  } else if (p.gender === 'female') {
-    hair = `<path d="M19 26 a13 13 0 0 1 26 0 l0 10 q-3 3 -5 0 l0 -9 a9 9 0 0 0 -16 0 l0 9 q-2 3 -5 0 Z" fill="${hairC}"/>`;
-  } else if (age >= 68) {
-    hair = `<path d="M24 36 q8 7 16 0 l0 4 q-8 6 -16 0 Z" fill="#b9b0a3"/>`;
-  } else {
-    hair = `<path d="M19 25 a13 13 0 0 1 26 0 l-2 0 a11 10 0 0 0 -22 0 Z" fill="${hairC}"/>`;
+function fitView(pos) {
+  let minX = 1e9, minY = 1e9, maxX = -1e9, maxY = -1e9;
+  for (const { x, y } of pos.values()) {
+    minX = Math.min(minX, x); minY = Math.min(minY, y);
+    maxX = Math.max(maxX, x + NW); maxY = Math.max(maxY, y + NH);
   }
-  return `<svg viewBox="0 0 64 64" width="${size}" height="${size}">
-    <path d="M11 64 Q11 45 32 45 Q53 45 53 64 Z" fill="${shirt}"/>
-    <circle cx="32" cy="27" r="13" fill="#f2d7bd"/>
-    ${hair}
-    <circle cx="27" cy="27" r="1.6" fill="#3b2f24"/>
-    <circle cx="37" cy="27" r="1.6" fill="#3b2f24"/>
-    <path d="M27 33 q5 4 10 0" stroke="#3b2f24" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-  </svg>`;
+  const pad = 26;
+  const w = maxX - minX + pad * 2, h = maxY - minY + pad * 2 + 22; // room for years text
+  view.k = Math.min(390 / w, 614 / h, 1.05);
+  view.x = (390 - (maxX - minX) * view.k) / 2 - minX * view.k;
+  view.y = (614 - (maxY - minY) * view.k) / 2 - minY * view.k;
+  applyView();
 }
 
-function yearsLabel(p) {
-  if (p.deceased) return `${p.birthY}–${p.deathY || '?'}`;
-  return `${p.birthY}–`;
-}
+const truncate = (s) => {
+  const max = /[㐀-鿿]/.test(s) ? 7 : 14;
+  return s.length > max ? s.slice(0, max - 1) + '…' : s;
+};
 
 function renderTree() {
   if (!tree) return;
-  tree.innerHTML = '';
-  const pos = layout();
-  const blood = bloodSet();
-  const edges = el('g', {}, tree);
-  const hearts = el('g', {}, tree);
-  const nodes = el('g', {}, tree);
+  world.innerHTML = '';
+  const pos = layoutTree();
+  const focal = byId(focalId);
+  const blood = bloodPairs(focal);
+  const edges = el('g', {}, world);
+  const hearts = el('g', {}, world);
+  const nodes = el('g', {}, world);
 
-  const coupleMid = (a, b) => {
-    const pa = pos.get(a.id), pb = pos.get(b.id);
-    return { x: (pa.x + pb.x) / 2, y: pa.y };
-  };
-
-  // partner edges + hearts
+  // partner lines + 连理结 hearts
   const drawn = new Set();
   for (const p of people) {
     if (!p.spouseId || drawn.has(p.id)) continue;
     const s = byId(p.spouseId);
     drawn.add(p.id); drawn.add(s.id);
     const pa = pos.get(p.id), pb = pos.get(s.id);
-    el('line', { x1: pa.x, y1: pa.y, x2: pb.x, y2: pb.y, class: 'edge' }, edges);
-    const m = coupleMid(p, s);
-    el('circle', { cx: m.x, cy: m.y, r: 9, class: 'heart-ring' }, hearts);
-    const heart = el('path', {
+    const [l, r] = pa.x < pb.x ? [pa, pb] : [pb, pa];
+    const cy = pa.y + NH / 2;
+    el('line', { x1: l.x + NW, y1: cy, x2: r.x, y2: cy, class: 'edge partner' }, edges);
+    const mx = (l.x + NW + r.x) / 2;
+    const lit = p.id === focalId || s.id === focalId;
+    const hg = el('g', { class: lit ? 'heart-lit' : '' }, hearts);
+    el('circle', { cx: mx, cy, r: 11, class: 'heart-ring' }, hg);
+    el('path', {
       class: 'heart',
-      d: 'M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.4 5 7.9 5c1.7 0 3.2.9 4.1 2.4C12.9 5.9 14.4 5 16.1 5c2.5 0 4.4 2 4.4 4.6 0 3.7-3.5 6.9-8.5 10.9z',
-    }, hearts);
-    heart.setAttribute('transform', `translate(${m.x - 6.6}, ${m.y - 6.9}) scale(0.55)`);
+      // the prototype's 24-unit heart, scaled 13/24 like the app
+      d: 'M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.8 4 2.1C12.9 5.8 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 4.1-3.5 6.9-8.5 10.9z',
+      transform: `translate(${mx - 6.5}, ${cy - 6.8}) scale(0.542)`,
+    }, hg);
   }
 
-  // parent-child edges
+  // parent → child elbows
   for (const c of people) {
-    if (!c.parentIds.length) continue;
-    const parents = c.parentIds.map(byId).filter(Boolean);
+    const parents = parentsOf(c);
+    if (!parents.length) continue;
     let ax, ay;
-    if (parents.length === 2) {
-      const m = coupleMid(parents[0], parents[1]);
-      ax = m.x; ay = m.y + 9;
+    if (parents.length === 2 && parents[0].spouseId === parents[1].id) {
+      const pa = pos.get(parents[0].id), pb = pos.get(parents[1].id);
+      const [l, r] = pa.x < pb.x ? [pa, pb] : [pb, pa];
+      ax = (l.x + NW + r.x) / 2;
+      ay = pa.y + NH / 2 + 11; // below the heart chip
     } else {
       const pa = pos.get(parents[0].id);
-      ax = pa.x; ay = pa.y + 26;
+      ax = pa.x + NW / 2;
+      ay = pa.y + NH;
     }
     const pc = pos.get(c.id);
-    const isBlood = blood.has(c.id) &&
-      parents.some((pp) => blood.has(pp.id));
-    const midY = ay + (pc.y - 26 - ay) / 2;
+    const cx = pc.x + NW / 2, cyTop = pc.y;
+    const midY = ay + (cyTop - ay) / 2;
+    const lit = parents.some((pp) => blood.has(`${pp.id}>${c.id}`));
     el('path', {
-      class: isBlood ? 'edge blood' : 'edge',
-      d: `M ${ax} ${ay} L ${ax} ${midY} L ${pc.x} ${midY} L ${pc.x} ${pc.y - 26}`,
+      class: lit ? 'edge blood' : 'edge',
+      d: `M ${ax} ${ay} L ${ax} ${midY} L ${cx} ${midY} L ${cx} ${cyTop}`,
     }, edges);
   }
 
-  // person nodes
+  // chip-card nodes (like _PersonNode's card LOD)
   for (const p of people) {
     const pt = pos.get(p.id);
+    const isFocal = p.id === focalId;
     const g = el('g', {
-      class: `node${p.deceased ? ' dead' : ''}${p.id === selectedId ? ' is-selected' : ''}`,
+      class: `node${isFocal ? ' is-ego' : ''}${p.deceased ? ' dead' : ''}`,
       transform: `translate(${pt.x}, ${pt.y})`,
+      'data-id': p.id,
     }, nodes);
-    el('circle', { class: 'ring', r: 26, cx: 0, cy: 0 }, g);
-    const fo = el('foreignObject', { x: -22, y: -22, width: 44, height: 44 }, g);
-    const div = document.createElement('div');
-    div.innerHTML = avatarSvg(p, 44);
-    div.style.borderRadius = '50%';
-    div.style.overflow = 'hidden';
-    fo.appendChild(div);
-    const name = el('text', { y: 42 }, g);
-    name.textContent = kin(p.key);
-    if (!p.deceased) {
-      const yrs = el('text', { y: 55, class: 'years' }, g);
-      yrs.textContent = yearsLabel(p);
+    el('rect', { class: 'body', width: NW, height: NH, rx: 12 }, g);
+    const fo = el('g', { transform: 'translate(10, 10)' }, g);
+    fo.innerHTML = avatarSvg(p, 36, 'n');
+    const name = el('text', { class: 'name', x: 54, y: 25 }, g);
+    name.textContent = truncate(displayName(p));
+    const kinLabel = isFocal ? null : kinTerm(relationKey(focal, p));
+    const years = p.deceased || p.birthY == null ? '' : `${p.birthY}–`;
+    const subText = [kinLabel, years].filter(Boolean).join(' · ');
+    if (subText) {
+      const sub = el('text', {
+        class: `sub${kinLabel ? '' : ' no-kin'}`, x: 54, y: 42,
+      }, g);
+      sub.textContent = subText;
     }
     g.addEventListener('click', (ev) => {
       ev.stopPropagation();
-      selectedId = p.id;
+      if (panMoved) return;
       hideHint();
-      renderTree();
-      renderCard();
+      openCard(p);
     });
   }
 }
 
-/* ------------------------- person card ------------------------- */
+/* --------------------------- pan / zoom --------------------------- */
 
-const card = document.getElementById('personCard');
+let panMoved = false;
+const pointers = new Map();
+let pinchBase = null;
+
+function svgPoint(e) {
+  const pt = tree.createSVGPoint();
+  pt.x = e.clientX; pt.y = e.clientY;
+  return pt.matrixTransform(tree.getScreenCTM().inverse());
+}
+
+tree.addEventListener('pointerdown', (e) => {
+  tree.setPointerCapture(e.pointerId);
+  pointers.set(e.pointerId, svgPoint(e));
+  panMoved = false;
+  if (pointers.size === 2) {
+    const [a, b] = [...pointers.values()];
+    pinchBase = { d: Math.hypot(a.x - b.x, a.y - b.y), k: view.k };
+  }
+});
+tree.addEventListener('pointermove', (e) => {
+  if (!pointers.has(e.pointerId)) return;
+  const prev = pointers.get(e.pointerId);
+  const cur = svgPoint(e);
+  pointers.set(e.pointerId, cur);
+  if (pointers.size === 1) {
+    const dx = cur.x - prev.x, dy = cur.y - prev.y;
+    if (Math.abs(dx) + Math.abs(dy) > 1.5) panMoved = true;
+    view.x += dx; view.y += dy;
+    applyView();
+  } else if (pointers.size === 2 && pinchBase) {
+    panMoved = true;
+    const [a, b] = [...pointers.values()];
+    const d = Math.hypot(a.x - b.x, a.y - b.y);
+    const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+    zoomAt(mid, (pinchBase.k * d / pinchBase.d) / view.k);
+  }
+});
+const endPointer = (e) => {
+  pointers.delete(e.pointerId);
+  if (pointers.size < 2) pinchBase = null;
+  setTimeout(() => { panMoved = false; }, 0);
+};
+tree.addEventListener('pointerup', endPointer);
+tree.addEventListener('pointercancel', endPointer);
+
+tree.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  zoomAt(svgPoint(e), Math.pow(1.0015, -e.deltaY));
+}, { passive: false });
+
+function zoomAt(pt, factor) {
+  const k = Math.min(2.6, Math.max(0.25, view.k * factor));
+  const f = k / view.k;
+  view.x = pt.x - (pt.x - view.x) * f;
+  view.y = pt.y - (pt.y - view.y) * f;
+  view.k = k;
+  applyView();
+}
+
+tree.addEventListener('click', () => { /* background tap: nothing (card is a dialog) */ });
+
+/* ---------------- trading-card dialog + action chips ---------------- */
+
+const overlay = document.getElementById('simOverlay');
 const hint = document.getElementById('phoneHint');
-
 function hideHint() { if (hint) hint.style.display = 'none'; }
 
-function zodiacChip(p) {
-  const i = ((p.birthY - 1900) % 12 + 12) % 12;
-  return `${ZODIAC_EMOJI[i]} ${(ZODIAC[lang] || ZODIAC.en)[i]}`;
+function lifespan(p) {
+  if (p.deceased) return `${p.birthY ?? '?'}–${p.deathY ?? '?'}`;
+  return p.birthY != null ? `${p.birthY}–` : '';
 }
 
-function renderCard() {
-  if (!card) return;
-  const p = selectedId && byId(selectedId);
-  if (!p) { card.hidden = true; return; }
-  card.hidden = false;
-  document.getElementById('cardAvatar').innerHTML = avatarSvg(p, 52);
-  document.getElementById('cardName').textContent = kin(p.key);
-  document.getElementById('cardMeta').textContent =
-    p.deceased ? `${p.birthY}–${p.deathY || '?'}` : yearsLabel(p);
-  const chips = document.getElementById('cardChips');
-  chips.innerHTML = '';
-  const z = document.createElement('span');
-  z.className = 'chip';
-  z.textContent = zodiacChip(p);
-  chips.appendChild(z);
-  if (p.deceased) {
-    const d = document.createElement('span');
-    d.className = 'chip dead';
-    d.textContent = `🕯️ ${t('deadLabel')}`;
-    chips.appendChild(d);
+function openCard(p) {
+  selectedId = p.id;
+  const focal = byId(focalId);
+  const isFocal = p.id === focalId;
+  document.getElementById('tcWatermark').textContent = p.family;
+  document.getElementById('tcAvatar').innerHTML = avatarSvg(p, 108, 'c');
+  document.getElementById('tcKin').textContent =
+    isFocal ? '' : kinTerm(relationKey(focal, p));
+  document.getElementById('tcSeal').textContent = p.family;
+  document.getElementById('tcName').textContent = displayName(p);
+  document.getElementById('tcYears').textContent = lifespan(p);
+  document.getElementById('tcPlace').textContent = displayPlace(p) || '';
+  document.getElementById('tcDot').className = `tc-dot${p.deceased ? ' dead' : ''}`;
+  document.getElementById('tcPortrait').style.setProperty('--tc-life',
+    p.deceased ? 'rgba(138,129,119,.30)' : 'rgba(95,132,104,.30)');
+  document.getElementById('chipRefocus').style.display = isFocal ? 'none' : '';
+  document.getElementById('chipDelete').disabled =
+    isFocal || childrenOf(p).length > 0;
+  overlay.hidden = false;
+}
+
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) { overlay.hidden = true; selectedId = null; }
+});
+document.getElementById('chipRefocus').addEventListener('click', () => {
+  focalId = selectedId;
+  overlay.hidden = true;
+  renderTree();
+});
+document.getElementById('chipExpand').addEventListener('click', () => {
+  overlay.hidden = true;
+  showToast(t('demoToast'));
+});
+document.getElementById('chipDelete').addEventListener('click', () => {
+  const p = byId(selectedId);
+  if (!p || childrenOf(p).length) return;
+  if (p.spouseId) byId(p.spouseId).spouseId = null;
+  people.splice(people.indexOf(p), 1);
+  overlay.hidden = true;
+  selectedId = null;
+  renderTree();
+  fitView(layoutTree());
+});
+document.getElementById('chipAdd').addEventListener('click', () => {
+  overlay.hidden = true;
+  openSheet(byId(selectedId));
+});
+
+/* ------------------- add-relative bottom sheet ------------------- */
+
+const sheet = document.getElementById('simSheet');
+const scrim = document.getElementById('sheetScrim');
+let sheetFor = null;
+
+function openSheet(p) {
+  sheetFor = p;
+  document.getElementById('sheetTitle').textContent =
+    t('addRelativeFor').replace('{name}', displayName(p));
+  const rows = sheet.querySelectorAll('.sheet-row');
+  for (const row of rows) {
+    const kind = row.dataset.kind;
+    row.disabled =
+      (kind === 'parent' && parentsOf(p).length >= 2) ||
+      (kind === 'spouse' && !!p.spouseId) ||
+      (kind === 'sibling' && parentsOf(p).length === 0) ||
+      people.length >= 24;
   }
-  const kids = people.filter((c) => c.parentIds.includes(p.id)).length;
-  document.getElementById('btnAddChild').disabled =
-    p.gen >= 4 || kids >= 3 || people.length >= 18;
-  document.getElementById('btnAddSpouse').disabled =
-    !!p.spouseId || people.length >= 18;
+  scrim.hidden = false;
+  sheet.hidden = false;
+}
+function closeSheet() { scrim.hidden = true; sheet.hidden = true; }
+scrim.addEventListener('click', closeSheet);
+
+sheet.addEventListener('click', (e) => {
+  const row = e.target.closest('.sheet-row');
+  if (!row || row.disabled || !sheetFor) return;
+  addRelative(sheetFor, row.dataset.kind);
+  closeSheet();
+  renderTree();
+  fitView(layoutTree());
+});
+
+let childFlip = 0;
+function addRelative(p, kind) {
+  if (kind === 'child') {
+    const gender = childFlip++ % 2 === 0 ? 'male' : 'female';
+    const spouse = p.spouseId && byId(p.spouseId);
+    const father = p.gender === 'male' ? p : (spouse && spouse.gender === 'male' ? spouse : p);
+    const kids = childrenOf(p).length;
+    const c = makePerson(father.family, gender, p.gen + 1,
+      Math.max(p.birthY, spouse ? spouse.birthY : 0) + 24 + kids * 3, p);
+    c.parentIds = spouse ? [p.id, spouse.id] : [p.id];
+  } else if (kind === 'spouse') {
+    const gender = p.gender === 'male' ? 'female' : 'male';
+    const family = gender === 'male' ? MARRY_IN[marryIdx++ % 5] : MARRY_IN[marryIdx++ % 5];
+    const s = makePerson(family, gender, p.gen,
+      p.birthY + (gender === 'female' ? 2 : -2), p);
+    marry(p, s);
+  } else if (kind === 'sibling') {
+    const gender = childFlip++ % 2 === 0 ? 'female' : 'male';
+    const sibs = parentsOf(p).length ? childrenOf(parentsOf(p)[0]).length : 1;
+    const father = parentsOf(p).find((x) => x.gender === 'male');
+    const s = makePerson(father ? father.family : p.family, gender, p.gen,
+      p.birthY + sibs * 3, p);
+    s.parentIds = [...p.parentIds];
+  } else if (kind === 'parent') {
+    const existing = parentsOf(p)[0];
+    const gender = existing
+      ? (existing.gender === 'male' ? 'female' : 'male') : 'male';
+    const family = gender === 'male' ? p.family : MARRY_IN[marryIdx++ % 5];
+    const par = makePerson(family, gender, p.gen - 1, p.birthY - 27, p);
+    p.parentIds.push(par.id);
+    if (existing) marry(existing, par);
+  }
 }
 
-document.getElementById('cardClose').addEventListener('click', () => {
-  selectedId = null;
-  renderTree();
-  renderCard();
-});
+/* ----------------------------- toast ----------------------------- */
 
-tree.addEventListener('click', () => {
-  selectedId = null;
-  renderTree();
-  renderCard();
-});
-
-document.getElementById('btnAddChild').addEventListener('click', () => {
-  const p = byId(selectedId);
-  if (!p) return;
-  const gender = childToggle++ % 2 === 0 ? 'female' : 'male';
-  const keys = childKeys(p);
-  const parents = p.spouseId ? [p.id, p.spouseId] : [p.id];
-  addPerson({
-    key: gender === 'male' ? keys[0] : keys[1],
-    gender,
-    gen: p.gen + 1,
-    birthY: Math.min(NOW_YEAR, p.birthY + 26 + ((childToggle * 3) % 7)),
-    parentIds: parents,
-  });
-  renderTree();
-  renderCard();
-});
-
-document.getElementById('btnAddSpouse').addEventListener('click', () => {
-  const p = byId(selectedId);
-  if (!p || p.spouseId) return;
-  const gender = p.gender === 'male' ? 'female' : 'male';
-  const s = addPerson({
-    key: spouseKey(p, gender),
-    gender,
-    gen: p.gen,
-    birthY: p.birthY + (gender === 'female' ? 2 : -2),
-  });
-  p.spouseId = s.id;
-  s.spouseId = p.id;
-  renderTree();
-  renderCard();
-});
+const toast = document.getElementById('simToast');
+let toastTimer = null;
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { toast.hidden = true; }, 3200);
+}
 
 /* ------------------------- style switcher ------------------------- */
 
@@ -684,3 +1057,4 @@ document.getElementById('styleDots').addEventListener('click', (e) => {
 /* ------------------------------ boot ------------------------------ */
 
 applyLang();
+fitView(layoutTree());
