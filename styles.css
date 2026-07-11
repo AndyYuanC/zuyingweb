@@ -428,6 +428,27 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
 .mail-btn:hover { transform: translateY(-2px); }
 .ct-note { margin-top: 14px; color: var(--dim); font-size: .9rem; }
 
+/* ---------- legal pages ---------- */
+.legal {
+  max-width: 720px; margin: 0 auto; padding: 48px 20px 72px;
+}
+.legal h1 { font-size: 1.8rem; margin: 18px 0 6px; }
+.legal h2 { font-size: 1.12rem; text-align: left; margin: 30px 0 8px; }
+.legal p, .legal li { color: var(--ink); font-size: .98rem; }
+.legal ul { padding-left: 1.4em; margin-top: 6px; }
+.legal li { margin: 4px 0; }
+.legal a { color: var(--cinnabar); text-decoration: underline; }
+.back-link {
+  display: inline-block; color: var(--dim) !important;
+  text-decoration: none !important; font-size: .92rem;
+}
+.back-link:hover { color: var(--ink) !important; }
+.legal-updated { color: var(--dim); font-size: .88rem; margin-bottom: 22px; }
+.legal-note {
+  margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line);
+  color: var(--dim); font-size: .88rem;
+}
+
 /* ---------- footer ---------- */
 .footer {
   border-top: 1px solid var(--line);
