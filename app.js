@@ -19,7 +19,7 @@ const I18N = {
     shotsTitle: '真实界面抢先看',
     shotsSub: '以下截图来自正在开发中的 iPhone 版本。',
     shotCapTree: '家族树画布', shotCapCard: '人物卡',
-    shotCapGallery: '个人主页：故事与回声', shotCapNight: '夜潮主题',
+    shotCapGallery: '个人主页：故事与回声',
     shotCapStyles: '初次见面，先选风格',
     legendCouple: '连理结 = 夫妻', legendBlood: '流动虚线 = 血脉',
     legendDeceased: '变淡 = 已故亲人',
@@ -39,13 +39,18 @@ const I18N = {
     feat6T: '四种风格，六种语言',
     feat6B: '晨白、夜潮、暖橘、雅纸四套主题随心换；界面支持简体、繁體、English、Español、Français、हिन्दी。',
     demoTitle: '在这里先试一试',
-    demoSub: '这是真实界面的迷你版：拖动、缩放画布，点人看卡片和称谓；试试「添加亲人」和「以TA为中心」；右上角换风格。',
+    demoSub: '这是真实界面的迷你版：拖动、缩放画布，点人看卡片和称谓；点「展开」逛逛 TA 的个人主页；右上角换风格。',
     demoHint: '👆 点一点树上的人 · 可拖动、缩放',
-    demoNote: '完整版 App 还有个人相册、故事、录音和回声——这里只是浅浅一瞥。',
+    demoNote: '这里只是浅浅一瞥——想亲手添加家人、写故事、录声音？都在 App 里。',
     addRelative: '添加亲人', expandChip: '展开', refocusChip: '以TA为中心', deleteChip: '删除',
-    addRelativeFor: '为「{name}」添加亲人',
-    kindParent: '父母', kindSpouse: '配偶', kindChild: '子女', kindSibling: '兄弟姐妹',
-    demoToast: '演示到这里啦——完整 App 中会打开 TA 的个人主页：照片、录音与故事。',
+    tryInApp: '想亲手添加？这些要在 App 里完成——即将上架，敬请期待。',
+    gStories: '故事', gTellOne: '讲一个', gAlbum: '相册', gPhotos: '照片',
+    gAudio: '录音', gVideo: '视频', gEchoes: '回声', gAddMedia: '添加',
+    gStoryTitle: '天井里的夏夜',
+    gStoryBody: '外婆摇着蒲扇讲古，说曾祖父当年挑着担子下南洋。',
+    gCapFam: '1998 年全家福', gCapYard: '祖屋的天井',
+    echoZodiac: '和你一样属{z}', meBadge: '我',
+    zodiac: ['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪'],
     dlTitle: '即将与你见面',
     dlSub: '祖影 Echo 正在为 App Store 上架做最后准备，Android 版随后跟上。',
     ctTitle: '联系我们',
@@ -67,7 +72,7 @@ const I18N = {
     shotsTitle: '真實介面搶先看',
     shotsSub: '以下截圖來自正在開發中的 iPhone 版本。',
     shotCapTree: '家族樹畫布', shotCapCard: '人物卡',
-    shotCapGallery: '個人主頁：故事與回聲', shotCapNight: '夜潮主題',
+    shotCapGallery: '個人主頁：故事與回聲',
     shotCapStyles: '初次見面，先選風格',
     legendCouple: '連理結 = 夫妻', legendBlood: '流動虛線 = 血脈',
     legendDeceased: '變淡 = 已故親人',
@@ -87,13 +92,18 @@ const I18N = {
     feat6T: '四種風格，六種語言',
     feat6B: '晨白、夜潮、暖橘、雅紙四套主題隨心換；介面支援簡體、繁體、English、Español、Français、हिन्दी。',
     demoTitle: '在這裡先試一試',
-    demoSub: '這是真實介面的迷你版：拖動、縮放畫布，點人看卡片和稱謂；試試「添加親人」和「以TA為中心」；右上角換風格。',
+    demoSub: '這是真實介面的迷你版：拖動、縮放畫布，點人看卡片和稱謂；點「展開」逛逛 TA 的個人主頁；右上角換風格。',
     demoHint: '👆 點一點樹上的人 · 可拖動、縮放',
-    demoNote: '完整版 App 還有個人相簿、故事、錄音和回聲——這裡只是淺淺一瞥。',
+    demoNote: '這裡只是淺淺一瞥——想親手添加家人、寫故事、錄聲音？都在 App 裡。',
     addRelative: '添加親人', expandChip: '展開', refocusChip: '以TA為中心', deleteChip: '刪除',
-    addRelativeFor: '為「{name}」添加親人',
-    kindParent: '父母', kindSpouse: '配偶', kindChild: '子女', kindSibling: '兄弟姊妹',
-    demoToast: '示範到這裡啦——完整 App 中會打開 TA 的個人主頁：照片、錄音與故事。',
+    tryInApp: '想親手添加？這些要在 App 裡完成——即將上架，敬請期待。',
+    gStories: '故事', gTellOne: '講一個', gAlbum: '相簿', gPhotos: '照片',
+    gAudio: '錄音', gVideo: '影片', gEchoes: '回聲', gAddMedia: '新增',
+    gStoryTitle: '天井裡的夏夜',
+    gStoryBody: '外婆搖著蒲扇講古，說曾祖父當年挑著擔子下南洋。',
+    gCapFam: '1998 年全家福', gCapYard: '祖屋的天井',
+    echoZodiac: '和你一樣屬{z}', meBadge: '我',
+    zodiac: ['鼠','牛','虎','兔','龍','蛇','馬','羊','猴','雞','狗','豬'],
     dlTitle: '即將與你見面',
     dlSub: '祖影 Echo 正在為 App Store 上架做最後準備，Android 版隨後跟上。',
     ctTitle: '聯絡我們',
@@ -115,7 +125,7 @@ const I18N = {
     shotsTitle: 'A first look at the real app',
     shotsSub: 'Screenshots from the iPhone build in development.',
     shotCapTree: 'The tree canvas', shotCapCard: 'Person card',
-    shotCapGallery: 'Person page: stories & echoes', shotCapNight: 'Night Tide theme',
+    shotCapGallery: 'Person page: stories & echoes',
     shotCapStyles: 'Pick your style on first launch',
     legendCouple: 'Heart = couple', legendBlood: 'Marching dashes = bloodline',
     legendDeceased: 'Faded = passed away',
@@ -135,13 +145,18 @@ const I18N = {
     feat6T: 'Four styles, six languages',
     feat6B: 'Soft Minimal, Aurora Glass, Warm Playful and Heritage themes — with an interface in 简体, 繁體, English, Español, Français and हिन्दी.',
     demoTitle: 'Try it right here',
-    demoSub: 'A miniature of the real UI: drag and zoom the canvas, tap people for their card and kinship term, try “Add relative” and “Center on them”, switch styles at the top right.',
+    demoSub: 'A miniature of the real UI: drag and zoom the canvas, tap people for cards and kinship terms, tap “Open” to browse their page, switch styles top-right.',
     demoHint: '👆 Tap someone · drag & pinch to move',
-    demoNote: 'The full app adds galleries, stories, recordings and echoes — this is just a peek.',
+    demoNote: 'This is just a glimpse — adding family, writing stories and recording voices all happen in the app.',
     addRelative: 'Add relative', expandChip: 'Expand', refocusChip: 'Center on them', deleteChip: 'Delete',
-    addRelativeFor: 'Add a relative for {name}',
-    kindParent: 'Parent', kindSpouse: 'Spouse', kindChild: 'Child', kindSibling: 'Sibling',
-    demoToast: 'That’s the end of the demo — in the full app this opens their page: photos, recordings and stories.',
+    tryInApp: 'Want to add your own? That happens in the app — coming soon.',
+    gStories: 'Stories', gTellOne: 'Tell one', gAlbum: 'Album', gPhotos: 'Photos',
+    gAudio: 'Recordings', gVideo: 'Videos', gEchoes: 'Echoes', gAddMedia: 'Add',
+    gStoryTitle: 'Summer nights in the courtyard',
+    gStoryBody: 'Grandma waved her fan and told how great-grandfather carried his load south across the sea.',
+    gCapFam: 'Family photo, 1998', gCapYard: 'The old courtyard',
+    echoZodiac: 'Year of the {z}, same as you', meBadge: 'Me',
+    zodiac: ['Rat','Ox','Tiger','Rabbit','Dragon','Snake','Horse','Goat','Monkey','Rooster','Dog','Pig'],
     dlTitle: 'See you very soon',
     dlSub: 'Echo is in final preparation for the App Store; Android will follow.',
     ctTitle: 'Contact us',
@@ -163,7 +178,7 @@ const I18N = {
     shotsTitle: 'Un vistazo a la app real',
     shotsSub: 'Capturas de la versión para iPhone en desarrollo.',
     shotCapTree: 'El lienzo del árbol', shotCapCard: 'Tarjeta de persona',
-    shotCapGallery: 'Página personal: historias y ecos', shotCapNight: 'Tema nocturno',
+    shotCapGallery: 'Página personal: historias y ecos',
     shotCapStyles: 'Elige tu estilo al empezar',
     legendCouple: 'Corazón = pareja', legendBlood: 'Guiones en movimiento = linaje',
     legendDeceased: 'Difuminado = fallecido',
@@ -183,13 +198,18 @@ const I18N = {
     feat6T: 'Cuatro estilos, seis idiomas',
     feat6B: 'Temas Soft Minimal, Aurora Glass, Warm Playful y Heritage, con interfaz en 简体, 繁體, English, Español, Français y हिन्दी.',
     demoTitle: 'Pruébalo aquí mismo',
-    demoSub: 'Una miniatura de la interfaz real: arrastra y haz zoom, toca a las personas para ver su tarjeta y parentesco, prueba «Añadir familiar» y «Centrar aquí», cambia el estilo arriba a la derecha.',
+    demoSub: 'Una miniatura de la interfaz real: arrastra y haz zoom, toca a las personas para ver su tarjeta y parentesco, toca «Abrir» para ver su página, cambia el estilo arriba a la derecha.',
     demoHint: '👆 Toca a alguien · arrastra y haz zoom',
-    demoNote: 'La app completa añade álbumes, historias, grabaciones y ecos; esto es solo un vistazo.',
+    demoNote: 'Esto es solo un vistazo: añadir familiares, escribir historias y grabar voces se hace en la app.',
     addRelative: 'Añadir familiar', expandChip: 'Abrir', refocusChip: 'Centrar aquí', deleteChip: 'Eliminar',
-    addRelativeFor: 'Añadir un familiar para {name}',
-    kindParent: 'Padre o madre', kindSpouse: 'Cónyuge', kindChild: 'Hijo/a', kindSibling: 'Hermano/a',
-    demoToast: 'Aquí termina la demo: en la app completa se abre su página con fotos, grabaciones e historias.',
+    tryInApp: '¿Quieres añadir a los tuyos? Eso se hace en la app — muy pronto.',
+    gStories: 'Historias', gTellOne: 'Contar una', gAlbum: 'Álbum', gPhotos: 'Fotos',
+    gAudio: 'Grabaciones', gVideo: 'Vídeos', gEchoes: 'Ecos', gAddMedia: 'Añadir',
+    gStoryTitle: 'Noches de verano en el patio',
+    gStoryBody: 'La abuela contaba, abanico en mano, cómo el bisabuelo cruzó el mar con su carga al hombro.',
+    gCapFam: 'Foto familiar, 1998', gCapYard: 'El patio de la casa antigua',
+    echoZodiac: 'Año del {z}, igual que tú', meBadge: 'Yo',
+    zodiac: ['Rata','Buey','Tigre','Conejo','Dragón','Serpiente','Caballo','Cabra','Mono','Gallo','Perro','Cerdo'],
     dlTitle: 'Nos vemos muy pronto',
     dlSub: 'Echo se prepara para llegar al App Store; la versión Android vendrá después.',
     ctTitle: 'Contacto',
@@ -211,7 +231,7 @@ const I18N = {
     shotsTitle: 'Un aperçu de la vraie app',
     shotsSub: 'Captures de la version iPhone en développement.',
     shotCapTree: 'Le canevas de l’arbre', shotCapCard: 'Carte de personne',
-    shotCapGallery: 'Page personnelle : histoires et échos', shotCapNight: 'Thème nocturne',
+    shotCapGallery: 'Page personnelle : histoires et échos',
     shotCapStyles: 'Choisissez votre style au départ',
     legendCouple: 'Cœur = couple', legendBlood: 'Tirets animés = lignage',
     legendDeceased: 'Estompé = disparu',
@@ -231,13 +251,18 @@ const I18N = {
     feat6T: 'Quatre styles, six langues',
     feat6B: 'Thèmes Soft Minimal, Aurora Glass, Warm Playful et Heritage — interface en 简体, 繁體, English, Español, Français et हिन्दी.',
     demoTitle: 'Essayez ici même',
-    demoSub: 'Une miniature de la vraie interface : déplacez et zoomez, touchez les personnes pour voir leur carte et leur lien de parenté, essayez « Ajouter un proche » et « Recentrer ici », changez de style en haut à droite.',
+    demoSub: 'Une miniature de la vraie interface : déplacez et zoomez, touchez les personnes pour voir carte et lien de parenté, touchez « Ouvrir » pour parcourir leur page, changez de style en haut à droite.',
     demoHint: '👆 Touchez quelqu’un · glissez, zoomez',
-    demoNote: 'La vraie app ajoute albums, histoires, enregistrements et échos — ceci n’est qu’un aperçu.',
+    demoNote: 'Ce n’est qu’un aperçu — ajouter des proches, écrire des histoires et enregistrer des voix, tout cela se passe dans l’app.',
     addRelative: 'Ajouter un proche', expandChip: 'Ouvrir', refocusChip: 'Recentrer ici', deleteChip: 'Supprimer',
-    addRelativeFor: 'Ajouter un proche pour {name}',
-    kindParent: 'Parent', kindSpouse: 'Conjoint(e)', kindChild: 'Enfant', kindSibling: 'Frère ou sœur',
-    demoToast: 'La démo s’arrête ici — dans l’app complète, cela ouvre sa page : photos, enregistrements et histoires.',
+    tryInApp: 'Envie d’ajouter les vôtres ? Cela se passe dans l’app — bientôt disponible.',
+    gStories: 'Histoires', gTellOne: 'En raconter une', gAlbum: 'Album', gPhotos: 'Photos',
+    gAudio: 'Enregistrements', gVideo: 'Vidéos', gEchoes: 'Échos', gAddMedia: 'Ajouter',
+    gStoryTitle: 'Nuits d’été dans la cour',
+    gStoryBody: 'Grand-mère racontait, éventail à la main, comment l’arrière-grand-père partit au sud, sa charge sur l’épaule.',
+    gCapFam: 'Photo de famille, 1998', gCapYard: 'La cour de la vieille maison',
+    echoZodiac: 'Année du {z}, comme toi', meBadge: 'Moi',
+    zodiac: ['Rat','Buffle','Tigre','Lapin','Dragon','Serpent','Cheval','Chèvre','Singe','Coq','Chien','Cochon'],
     dlTitle: 'À très bientôt',
     dlSub: 'Echo se prépare pour l’App Store ; la version Android suivra.',
     ctTitle: 'Nous contacter',
@@ -259,7 +284,7 @@ const I18N = {
     shotsTitle: 'असली ऐप की पहली झलक',
     shotsSub: 'विकासाधीन iPhone संस्करण के स्क्रीनशॉट।',
     shotCapTree: 'वंश-वृक्ष कैनवास', shotCapCard: 'व्यक्ति कार्ड',
-    shotCapGallery: 'व्यक्तिगत पेज: कहानियाँ और गूँज', shotCapNight: 'रात्रि थीम',
+    shotCapGallery: 'व्यक्तिगत पेज: कहानियाँ और गूँज',
     shotCapStyles: 'शुरुआत में शैली चुनें',
     legendCouple: 'दिल = दंपती', legendBlood: 'चलती धारियाँ = वंश',
     legendDeceased: 'धुँधला = दिवंगत',
@@ -279,13 +304,18 @@ const I18N = {
     feat6T: 'चार शैलियाँ, छह भाषाएँ',
     feat6B: 'Soft Minimal, Aurora Glass, Warm Playful और Heritage थीम — इंटरफ़ेस 简体, 繁體, English, Español, Français और हिन्दी में।',
     demoTitle: 'यहीं आज़माकर देखें',
-    demoSub: 'असली इंटरफ़ेस का छोटा रूप: कैनवास खींचें और ज़ूम करें, लोगों को छूकर कार्ड और रिश्ते का नाम देखें, «रिश्तेदार जोड़ें» और «इन पर केंद्रित करें» आज़माएँ, ऊपर दाईं ओर शैली बदलें।',
+    demoSub: 'असली इंटरफ़ेस की झलक: कैनवास खींचें-ज़ूम करें, लोगों पर टैप कर कार्ड और रिश्ते देखें, «खोलें» से उनका पेज घूमें, ऊपर दाईं ओर से थीम बदलें।',
     demoHint: '👆 किसी को छुएँ · खींचें, ज़ूम करें',
-    demoNote: 'पूरे ऐप में एल्बम, कहानियाँ, रिकॉर्डिंग और गूँज भी हैं — यह बस एक झलक है।',
+    demoNote: 'यह बस एक झलक है — परिजन जोड़ना, कहानियाँ लिखना और आवाज़ रिकॉर्ड करना, सब ऐप में होता है।',
     addRelative: 'रिश्तेदार जोड़ें', expandChip: 'खोलें', refocusChip: 'इन पर केंद्रित करें', deleteChip: 'हटाएँ',
-    addRelativeFor: '{name} के लिए रिश्तेदार जोड़ें',
-    kindParent: 'माता-पिता', kindSpouse: 'जीवनसाथी', kindChild: 'संतान', kindSibling: 'भाई-बहन',
-    demoToast: 'डेमो यहीं तक है — पूरे ऐप में यह उनका पेज खोलता है: तस्वीरें, रिकॉर्डिंग और कहानियाँ।',
+    tryInApp: 'खुद जोड़ना चाहते हैं? यह ऐप में होता है — जल्द आ रहा है।',
+    gStories: 'कहानियाँ', gTellOne: 'एक सुनाएँ', gAlbum: 'एल्बम', gPhotos: 'तस्वीरें',
+    gAudio: 'रिकॉर्डिंग', gVideo: 'वीडियो', gEchoes: 'गूँज', gAddMedia: 'जोड़ें',
+    gStoryTitle: 'आँगन की गर्मियों की रातें',
+    gStoryBody: 'दादी पंखा झलते हुए बतातीं कि परदादा कैसे बोझ उठाए दक्षिण के समुद्र पार गए।',
+    gCapFam: 'पारिवारिक फ़ोटो, 1998', gCapYard: 'पुराने घर का आँगन',
+    echoZodiac: '{z} वर्ष — आपकी तरह', meBadge: 'मैं',
+    zodiac: ['चूहा','बैल','बाघ','ख़रगोश','ड्रैगन','साँप','घोड़ा','बकरी','बंदर','मुर्गा','कुत्ता','सुअर'],
     dlTitle: 'बहुत जल्द मिलते हैं',
     dlSub: 'Echo ऐप स्टोर के लिए आख़िरी तैयारी में है; Android इसके बाद आएगा।',
     ctTitle: 'संपर्क करें',
@@ -457,7 +487,7 @@ function addPerson(p) {
 }
 function marry(a, b) { a.spouseId = b.id; b.spouseId = a.id; }
 
-const gp = addPerson({ nameZh: '李富贵', nameEn: 'Li Fugui', family: '李', gender: 'male', gen: 0, birthY: 1935, deathY: 2001, deceased: true, placeZh: '山东济南', placeEn: 'Jinan' });
+const gp = addPerson({ nameZh: '李富贵', nameEn: 'Li Fugui', family: '李', gender: 'male', gen: 0, birthY: 1930, deathY: 2001, deceased: true, placeZh: '山东济南', placeEn: 'Jinan' });
 const gm = addPerson({ nameZh: '王秀兰', nameEn: 'Wang Xiulan', family: '王', gender: 'female', gen: 0, birthY: 1938, placeZh: '山东济南', placeEn: 'Jinan' });
 marry(gp, gm);
 const dad = addPerson({ nameZh: '李建国', nameEn: 'Li Jianguo', family: '李', gender: 'male', gen: 1, birthY: 1962, placeZh: '北京', placeEn: 'Beijing', parentIds: [gp.id, gm.id] });
@@ -468,7 +498,7 @@ const ego = addPerson({ nameZh: '李明', nameEn: 'Li Ming', family: '李', gend
 const wife = addPerson({ nameZh: '陈静', nameEn: 'Chen Jing', family: '陈', gender: 'female', gen: 2, birthY: 1991, placeZh: '上海', placeEn: 'Shanghai' });
 marry(ego, wife);
 addPerson({ nameZh: '李婷', nameEn: 'Li Ting', family: '李', gender: 'female', gen: 2, birthY: 1994, placeZh: '北京', placeEn: 'Beijing', parentIds: [dad.id, mom.id] });
-addPerson({ nameZh: '李朵朵', nameEn: 'Li Duoduo', family: '李', gender: 'female', gen: 3, birthY: 2018, placeZh: '北京', placeEn: 'Beijing', parentIds: [ego.id, wife.id] });
+addPerson({ nameZh: '李朵朵', nameEn: 'Li Duoduo', family: '李', gender: 'female', gen: 3, birthY: 2014, placeZh: '北京', placeEn: 'Beijing', parentIds: [ego.id, wife.id] });
 
 let focalId = ego.id;
 let selectedId = null;
@@ -1036,8 +1066,6 @@ function openCard(p) {
   document.getElementById('tcPortrait').style.setProperty('--tc-life',
     p.deceased ? 'rgba(138,129,119,.30)' : 'rgba(95,132,104,.30)');
   document.getElementById('chipRefocus').style.display = isFocal ? 'none' : '';
-  document.getElementById('chipDelete').disabled =
-    isFocal || childrenOf(p).length > 0;
   overlay.hidden = false;
 }
 
@@ -1050,99 +1078,62 @@ document.getElementById('chipRefocus').addEventListener('click', () => {
   renderTree();
 });
 document.getElementById('chipExpand').addEventListener('click', () => {
-  overlay.hidden = true;
-  showToast(t('demoToast'));
-});
-document.getElementById('chipDelete').addEventListener('click', () => {
   const p = byId(selectedId);
-  if (!p || childrenOf(p).length) return;
-  if (p.spouseId) byId(p.spouseId).spouseId = null;
-  people.splice(people.indexOf(p), 1);
   overlay.hidden = true;
-  selectedId = null;
-  renderTree();
-  fitView(layoutTree());
+  if (p) openGallery(p);
+});
+// Editing the family is the app's job — the demo only shows it off.
+document.getElementById('chipDelete').addEventListener('click', () => {
+  overlay.hidden = true;
+  showToast(t('tryInApp'));
 });
 document.getElementById('chipAdd').addEventListener('click', () => {
   overlay.hidden = true;
-  openSheet(byId(selectedId));
+  showToast(t('tryInApp'));
 });
 
-/* ------------------- add-relative bottom sheet ------------------- */
+/* ---------- person page (展开): the app's second tap, mocked ---------- */
 
-const sheet = document.getElementById('simSheet');
-const scrim = document.getElementById('sheetScrim');
-let sheetFor = null;
+const gallery = document.getElementById('simGallery');
 
-function openSheet(p) {
-  sheetFor = p;
-  document.getElementById('sheetTitle').textContent =
-    t('addRelativeFor').replace('{name}', displayName(p));
-  const rows = sheet.querySelectorAll('.sheet-row');
-  for (const row of rows) {
-    const kind = row.dataset.kind;
-    row.disabled =
-      (kind === 'parent' && parentsOf(p).length >= 2) ||
-      (kind === 'spouse' && !!p.spouseId) ||
-      (kind === 'sibling' && parentsOf(p).length === 0) ||
-      people.length >= 24;
-  }
-  scrim.hidden = false;
-  sheet.hidden = false;
+function zodiacOf(year) {
+  return t('zodiac')[(((year - 1900) % 12) + 12) % 12];
 }
-function closeSheet() { scrim.hidden = true; sheet.hidden = true; }
-scrim.addEventListener('click', closeSheet);
 
-sheet.addEventListener('click', (e) => {
-  const row = e.target.closest('.sheet-row');
-  if (!row || row.disabled || !sheetFor) return;
-  const added = addRelative(sheetFor, row.dataset.kind);
-  lastAddedId = added ? added.id : null;
-  closeSheet();
-  renderTree();
-  fitView(layoutTree());
+function openGallery(p) {
+  const focal = byId(focalId);
+  const isFocal = p.id === focalId;
+  document.getElementById('gTitle').textContent = displayName(p);
+  document.getElementById('gAvatar').innerHTML = avatarSvg(p, 76, 'g');
+  document.getElementById('gName').textContent = displayName(p);
+  document.getElementById('gKin').textContent =
+    isFocal ? t('meBadge') : kinTerm(relationKey(focal, p));
+  document.getElementById('gYears').textContent = lifespan(p);
+  document.getElementById('gPlace').textContent = displayPlace(p) || '';
+  document.getElementById('gZodiac').textContent =
+    p.birthY != null ? zodiacOf(p.birthY) : '—';
+  // 回声: the demo derives the same-zodiac echo; the app finds many more
+  // (star sign, birth month, trade…).
+  const echoes = document.getElementById('gEchoes');
+  const sameZodiac = !isFocal && p.birthY != null && focal.birthY != null &&
+    (((p.birthY - focal.birthY) % 12) + 12) % 12 === 0;
+  echoes.hidden = !sameZodiac;
+  if (sameZodiac) {
+    echoes.innerHTML =
+      `<span class="g-echo-label">${t('gEchoes')}</span>` +
+      `<span class="g-echo-chip">✦ ${t('echoZodiac')
+        .replace('{z}', zodiacOf(p.birthY))}</span>`;
+  }
+  gallery.hidden = false;
+  gallery.querySelector('.g-scroll').scrollTop = 0;
+}
+
+document.getElementById('gBack').addEventListener('click', () => {
+  gallery.hidden = true;
 });
-
-let childFlip = 0;
-function addRelative(p, kind) {
-  if (kind === 'child') {
-    const gender = childFlip++ % 2 === 0 ? 'male' : 'female';
-    const spouse = p.spouseId && byId(p.spouseId);
-    const father = p.gender === 'male' ? p : (spouse && spouse.gender === 'male' ? spouse : p);
-    const kids = childrenOf(p).length;
-    const c = makePerson(father.family, gender, p.gen + 1,
-      Math.max(p.birthY, spouse ? spouse.birthY : 0) + 24 + kids * 3, p);
-    c.parentIds = spouse ? [p.id, spouse.id] : [p.id];
-    return c;
-  }
-  if (kind === 'spouse') {
-    const gender = p.gender === 'male' ? 'female' : 'male';
-    const s = makePerson(MARRY_IN[marryIdx++ % 5], gender, p.gen,
-      p.birthY + (gender === 'female' ? 2 : -2), p);
-    marry(p, s);
-    return s;
-  }
-  if (kind === 'sibling') {
-    const gender = childFlip++ % 2 === 0 ? 'female' : 'male';
-    const sibs = parentsOf(p).length ? childrenOf(parentsOf(p)[0]).length : 1;
-    const father = parentsOf(p).find((x) => x.gender === 'male');
-    const s = makePerson(father ? father.family : p.family, gender, p.gen,
-      p.birthY + sibs * 3, p);
-    s.parentIds = [...p.parentIds];
-    return s;
-  }
-  if (kind === 'parent') {
-    const existing = parentsOf(p)[0];
-    const gender = existing
-      ? (existing.gender === 'male' ? 'female' : 'male') : 'male';
-    const family = gender === 'male' ? p.family : MARRY_IN[marryIdx++ % 5];
-    const par = makePerson(family, gender, p.gen - 1, p.birthY - 27, p);
-    p.parentIds.push(par.id);
-    if (existing) marry(existing, par);
-    return par;
-  }
-  return null;
-}
+gallery.addEventListener('click', (e) => {
+  if (e.target.closest('[data-try]')) showToast(t('tryInApp'));
+});
 
 /* ----------------------------- toast ----------------------------- */
 
@@ -1167,10 +1158,11 @@ document.getElementById('fabZoomOut').addEventListener('click', () => {
   zoomAt({ x: 195, y: 307 }, 1 / 1.3);
 });
 
-/* tapping the trading card itself = opening the gallery in the app */
+/* tapping the trading card itself = the app's second tap → person page */
 document.getElementById('tradingCard').addEventListener('click', () => {
+  const p = byId(selectedId);
   overlay.hidden = true;
-  showToast(t('demoToast'));
+  if (p) openGallery(p);
 });
 
 /* ------------------------- style switcher ------------------------- */
