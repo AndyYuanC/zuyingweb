@@ -167,6 +167,9 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
   flex: none; width: 218px; scroll-snap-align: center;
   text-align: center;
 }
+/* center the strip when it fits; auto margins collapse safely when it overflows */
+.shot:first-child { margin-left: auto; }
+.shot:last-child { margin-right: auto; }
 .shot img {
   width: 100%; border-radius: 26px;
   border: 6px solid #10131c;
@@ -181,10 +184,10 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
 
 .phone {
   position: relative;
-  width: min(390px, 92vw); aspect-ratio: 390 / 660;
-  border-radius: 38px;
-  border: 10px solid #10131c;
-  box-shadow: 0 30px 70px rgba(16, 19, 28, .35), inset 0 0 0 2px #2a2f3d;
+  width: min(540px, 96vw); aspect-ratio: 390 / 660;
+  border-radius: 40px;
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 60px rgba(44, 35, 27, .14);
   overflow: hidden;
   background: var(--ph-bg);
   transition: background .3s ease;

@@ -733,7 +733,7 @@ function avatarSvg(p, size, ctx) {
 
 /* -------------------- layout (tidy-ish rows) -------------------- */
 
-const NW = 148, NH = 56, CGAP = 8, HGAP = 22, VGAP = 110;
+const NW = 148, NH = 56, CGAP = 30, HGAP = 22, VGAP = 110; // CGAP fits the r=11 heart chip between spouses
 
 /* Tidy layout, like the app's tree_layout: couples form units, each
    parent unit is centered over the span of its children. */
@@ -824,6 +824,7 @@ function el(name, attrs, parent) {
 
 const world = el('g', {}, tree);
 const view = { x: 0, y: 0, k: 1 };
+let bandZoneW = 82; // width of the generation-label gutter; measured in renderTree
 function applyView() {
   world.setAttribute('transform',
     `translate(${view.x} ${view.y}) scale(${view.k})`);
@@ -835,7 +836,7 @@ function fitView(pos) {
     minX = Math.min(minX, x); minY = Math.min(minY, y);
     maxX = Math.max(maxX, x + NW); maxY = Math.max(maxY, y + NH);
   }
-  minX -= 82; // generation band labels sit left of the tree
+  minX -= bandZoneW; // generation band labels sit left of the tree
   const pad = 26;
   const w = maxX - minX + pad * 2, h = maxY - minY + pad * 2 + 22; // room for years text
   view.k = Math.min(390 / w, 614 / h, 1.05);
@@ -844,10 +845,19 @@ function fitView(pos) {
   applyView();
 }
 
-const truncate = (s) => {
-  const max = /[㐀-鿿]/.test(s) ? 7 : 14;
-  return s.length > max ? s.slice(0, max - 1) + '…' : s;
-};
+/* Ellipsize an SVG <text> to the card's text column (avatar ends at x=54,
+   8px right pad) by measuring rendered glyphs — char counts misjudge mixed
+   CJK/Latin/Devanagari widths. */
+const TEXT_MAX = NW - 54 - 8;
+function fitText(textEl, s, max = TEXT_MAX) {
+  textEl.textContent = s;
+  if (textEl.getComputedTextLength() <= max) return;
+  let t = s;
+  do {
+    t = t.slice(0, -1);
+    textEl.textContent = t + '…';
+  } while (t.length > 1 && textEl.getComputedTextLength() > max);
+}
 
 function renderTree() {
   if (!tree) return;
@@ -869,20 +879,26 @@ function renderTree() {
       minGenX = Math.min(minGenX, x);
       rows.set(`${p.gen}`, Math.min(rows.get(`${p.gen}`) ?? 1e9, y));
     }
+    const labels = [];
     for (const [genStr, y] of rows) {
       const diff = Number(genStr) - focal.gen;
       const key = ['bandGreat', 'bandGrand', 'bandParents', 'bandSame',
         'bandChildren', 'bandGrandCh', 'bandGreatCh'][Math.max(-3, Math.min(3, diff)) + 3];
       const label = el('text', {
-        class: 'band-label', x: minGenX - 18, y: y + NH / 2 + 4,
-        'text-anchor': 'end',
+        class: 'band-label', y: y + NH / 2 + 4, 'text-anchor': 'start',
       }, bands);
       label.textContent = kinTerm(key);
+      labels.push(label);
       el('line', {
         class: 'band-rail', x1: minGenX - 10, y1: y + NH / 2,
         x2: minGenX + 2, y2: y + NH / 2,
       }, bands);
     }
+    // flush-left labels: the widest one ends just before the rail, the rest
+    // share its left edge — so no label can reach the dashes or the cards
+    const maxW = Math.max(0, ...labels.map((t) => t.getComputedTextLength()));
+    for (const t of labels) t.setAttribute('x', minGenX - 18 - maxW);
+    bandZoneW = maxW + 26; // label width + rail gap + padding; fitView reserves this
   }
 
   // partner lines + 连理结 hearts
@@ -946,7 +962,7 @@ function renderTree() {
     const fo = el('g', { transform: 'translate(10, 10)' }, g);
     fo.innerHTML = avatarSvg(p, 36, 'n');
     const name = el('text', { class: 'name', x: 54, y: 25 }, g);
-    name.textContent = truncate(displayName(p));
+    fitText(name, displayName(p));
     const kinLabel = isFocal ? null : kinTerm(relationKey(focal, p));
     const years = p.deceased || p.birthY == null ? '' : `${p.birthY}–`;
     const subText = [kinLabel, years].filter(Boolean).join(' · ');
@@ -954,7 +970,11 @@ function renderTree() {
       const sub = el('text', {
         class: `sub${kinLabel ? '' : ' no-kin'}`, x: 54, y: 42,
       }, g);
+      // prefer dropping the years over chopping the kin term mid-word
       sub.textContent = subText;
+      if (sub.getComputedTextLength() > TEXT_MAX) {
+        fitText(sub, kinLabel && years ? kinLabel : subText);
+      }
     }
   }
   lastAddedId = null;
