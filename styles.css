@@ -462,14 +462,19 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
   100% { stroke: var(--ph-line); stroke-width: 1; }
 }
 
-/* small toast inside the phone */
+/* toast triggered inside the phone — pinned to the viewport so it's seen
+   even when the phone's bottom edge is scrolled out of view (fixed escapes
+   the phone's overflow clip; it still inherits the --ph-* palette) */
 .sim-toast {
-  position: absolute; left: 18px; right: 18px; bottom: 20px; z-index: 8;
+  position: fixed; left: 50%; bottom: 72px; z-index: 60;
+  transform: translate(-50%, 0);
+  width: max-content; max-width: min(480px, 92vw);
   background: var(--ph-ink); color: var(--ph-bg);
-  border-radius: 12px; padding: 10px 14px; font-size: .82rem;
+  border-radius: 12px; padding: 10px 16px; font-size: .82rem;
   text-align: center; animation: toast-in .2s ease;
+  box-shadow: 0 10px 30px rgba(44, 35, 27, .25);
 }
-@keyframes toast-in { from { opacity: 0; transform: translateY(8px); } }
+@keyframes toast-in { from { opacity: 0; transform: translate(-50%, 8px); } }
 
 .phone-hint {
   position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
