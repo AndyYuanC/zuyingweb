@@ -150,19 +150,22 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
 }
 .feat:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(44, 35, 27, .08); }
 .feat-icon { font-size: 1.7rem; }
-.feat h3 { margin: 12px 0 8px; font-size: 1.08rem; }
+.feat h3 { margin: 20px 0 8px; font-size: 1.08rem; }
 .feat p { color: var(--dim); font-size: .95rem; }
 @media (max-width: 900px) { .feat-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .feat-grid { grid-template-columns: 1fr; } }
 
 /* ---------- real screenshots ---------- */
-.shots { padding: 72px 0 24px; max-width: var(--maxw); margin: 0 auto; }
+/* wider than --maxw so all five 218px shots fit in one centered row */
+.shots { padding: 72px 0 24px; max-width: 1240px; margin: 0 auto; }
 .shots-strip {
   display: flex; gap: 22px; margin-top: 36px;
   overflow-x: auto; padding: 8px 20px 18px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* still swipeable/scrollable, just no bar */
 }
+.shots-strip::-webkit-scrollbar { display: none; }
 .shot {
   flex: none; width: 218px; scroll-snap-align: center;
   text-align: center;
