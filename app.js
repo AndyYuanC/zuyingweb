@@ -505,7 +505,8 @@ function t(key) {
    rest are photographed on a real phone and are Simplified Chinese only for
    now — an <img> whose name is not listed here keeps its base file rather
    than 404ing (founder 2026-08-09: 切换语言后照片也换语言吗). */
-const SHOT_LANGS = { route: ['zh', 'zh_Hant', 'en', 'es', 'fr', 'hi'] };
+const ALL_LANGS = ['zh', 'zh_Hant', 'en', 'es', 'fr', 'hi'];
+const SHOT_LANGS = { tree: ALL_LANGS, route: ALL_LANGS };
 
 function applyShotLangs() {
   document.querySelectorAll('img[data-shot]').forEach((img) => {
