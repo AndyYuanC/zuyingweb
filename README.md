@@ -29,9 +29,43 @@ python3 -m http.server 8000
 1. 推到 GitHub 仓库。
 2. 仓库 Settings → Pages → Source 选 `main` 分支根目录。
 3. 几分钟后网站上线于 `https://<用户名>.github.io/<仓库名>/`。
-4. 有自己的域名后，在 Pages 设置里填 Custom domain 即可。
+现在的地址：<https://andyyuanc.github.io/zuyingweb/>
 
 也可以直接拖进 Vercel / Netlify / Cloudflare Pages，零配置。
+
+### 绑定 zuyingapp.com（域名在 AWS Route 53）
+
+**顺序不能反。** 仓库根目录的 `CNAME` 文件会让 GitHub Pages 把 github.io
+地址 301 跳到自定义域名；如果那时 DNS 还没指回来，两个地址就都打不开了。
+所以先配 DNS，确认生效，最后才加 CNAME 文件。
+
+1. Route 53 → Hosted zones → `zuyingapp.com` → Create record，
+   给**根域名**（Record name 留空）加一条 A 记录，Value 填四行：
+
+   ```
+   185.199.108.153
+   185.199.109.153
+   185.199.110.153
+   185.199.111.153
+   ```
+
+   不能用 Route 53 的 Alias —— 那只能指向 AWS 自己的资源。
+
+2. 再建一条：Record name `www`，类型 CNAME，值 `andyyuanc.github.io`。
+
+3. 等生效，用这个确认（要看到上面四个 IP）：
+
+   ```
+   dig zuyingapp.com +short
+   ```
+
+4. 仓库根目录建 `CNAME` 文件，内容就一行 `zuyingapp.com`，推上去。
+
+5. GitHub 仓库 → Settings → Pages → Custom domain 填 `zuyingapp.com` → Save。
+
+6. 证书签好后（几分钟到几小时），勾上 **Enforce HTTPS**。
+
+全程 $0；域名本身的续费在 AWS 那边。
 
 ## 品牌资产
 
