@@ -23,6 +23,11 @@ const I18N = {
     shotCapWide: '全家总览：五代同堂',
     shotCapMap: '地图上的家族 —— 每个人的出生地，一眼看见家族的版图',
     shotCapRoute: '家族版图 —— 沿着直系一脉，看这个家走了多远',
+    shotCapPage: '再深一层 —— 星座、生肖、故事，还有跨代的「回声」',
+    shotCapCard: '点开一个人 —— 一张卡片，谁是谁一目了然',
+    shotCapTree: '缩放漫游 —— 血脉沿着线路流动，称谓自动算出来',
+    shotCapWhole: '一眼看完整棵树 —— 几代人，一屏之内',
+    shotCapStyles: '先选一种风格 —— 四套主题，随时可换',
     shotCapStyles: '初次见面，先选风格',
     legendCouple: '连理结 = 夫妻', legendBlood: '流动虚线 = 血脉',
     legendDeceased: '变淡 = 已故亲人',
@@ -85,6 +90,11 @@ const I18N = {
     shotCapWide: '全家總覽：五代同堂',
     shotCapMap: '地圖上的家族 —— 每個人的出生地，一眼看見家族的版圖',
     shotCapRoute: '家族版圖 —— 沿著直系一脈，看這個家走了多遠',
+    shotCapPage: '再深一層 —— 星座、生肖、故事，還有跨代的「回聲」',
+    shotCapCard: '點開一個人 —— 一張卡片，誰是誰一目了然',
+    shotCapTree: '縮放漫遊 —— 血脈沿著線路流動，稱謂自動算出來',
+    shotCapWhole: '一眼看完整棵樹 —— 幾代人，一屏之內',
+    shotCapStyles: '先選一種風格 —— 四套主題，隨時可換',
     shotCapStyles: '初次見面，先選風格',
     legendCouple: '連理結 = 夫妻', legendBlood: '流動虛線 = 血脈',
     legendDeceased: '變淡 = 已故親人',
@@ -147,6 +157,11 @@ const I18N = {
     shotCapWide: 'The whole tree: five generations at a glance',
     shotCapMap: 'The family on a map — everyone’s birthplace, the whole spread at a glance',
     shotCapRoute: 'Family Atlas — follow one direct line and see how far the family came',
+    shotCapPage: 'Go deeper — star sign, zodiac, stories, and the echoes across generations',
+    shotCapCard: 'Tap someone — one card, and you know who they are',
+    shotCapTree: 'Zoom and roam — the bloodline flows, and every kinship term is worked out for you',
+    shotCapWhole: 'The whole tree at once — generations in a single frame',
+    shotCapStyles: 'Pick a look first — four themes, changeable any time',
     shotCapStyles: 'Pick your style on first launch',
     legendCouple: 'Heart = couple', legendBlood: 'Marching dashes = bloodline',
     legendDeceased: 'Faded = passed away',
@@ -209,6 +224,11 @@ const I18N = {
     shotCapWide: 'Todo el árbol: cinco generaciones de un vistazo',
     shotCapMap: 'La familia en el mapa: el lugar de nacimiento de cada uno, de un vistazo',
     shotCapRoute: 'Atlas familiar: sigue una línea directa y mira cuánto ha recorrido la familia',
+    shotCapPage: 'Profundiza: signo, zodiaco, historias y los ecos entre generaciones',
+    shotCapCard: 'Toca a alguien: una tarjeta y sabes quién es',
+    shotCapTree: 'Acerca y recorre: el linaje fluye y cada parentesco se calcula solo',
+    shotCapWhole: 'El árbol entero de un vistazo: generaciones en una sola pantalla',
+    shotCapStyles: 'Elige primero un estilo: cuatro temas, cambiables cuando quieras',
     shotCapStyles: 'Elige tu estilo al empezar',
     legendCouple: 'Corazón = pareja', legendBlood: 'Guiones en movimiento = linaje',
     legendDeceased: 'Difuminado = fallecido',
@@ -271,6 +291,11 @@ const I18N = {
     shotCapWide: 'L’arbre entier : cinq générations d’un coup d’œil',
     shotCapMap: 'La famille sur une carte : le lieu de naissance de chacun, d’un seul coup d’œil',
     shotCapRoute: 'Atlas familial — suivez une lignée directe et voyez le chemin parcouru',
+    shotCapPage: 'Allez plus loin : signe, zodiaque, histoires, et les échos entre générations',
+    shotCapCard: 'Touchez quelqu’un : une carte, et vous savez qui c’est',
+    shotCapTree: 'Zoomez et parcourez : la lignée coule, et chaque lien de parenté est calculé',
+    shotCapWhole: 'L’arbre entier d’un coup d’œil : des générations en un seul écran',
+    shotCapStyles: 'Choisissez d’abord un style : quatre thèmes, modifiables à tout moment',
     shotCapStyles: 'Choisissez votre style au départ',
     legendCouple: 'Cœur = couple', legendBlood: 'Tirets animés = lignage',
     legendDeceased: 'Estompé = disparu',
@@ -333,6 +358,11 @@ const I18N = {
     shotCapWide: 'पूरा वृक्ष: एक नज़र में पाँच पीढ़ियाँ',
     shotCapMap: 'नक़्शे पर परिवार — हर किसी का जन्मस्थान, एक ही नज़र में',
     shotCapRoute: 'पारिवारिक एटलस — एक सीधी वंश-रेखा पर चलकर देखिए परिवार कितनी दूर आया',
+    shotCapPage: 'और गहरे जाइए — राशि, ज़ोडियक, कहानियाँ, और पीढ़ियों के बीच की गूँज',
+    shotCapCard: 'किसी पर टैप कीजिए — एक कार्ड, और आप जान जाते हैं वे कौन हैं',
+    shotCapTree: 'ज़ूम कीजिए और घूमिए — वंश-रेखा बहती है, और हर रिश्ता अपने आप निकलता है',
+    shotCapWhole: 'पूरा वंशवृक्ष एक साथ — कई पीढ़ियाँ, एक ही स्क्रीन में',
+    shotCapStyles: 'पहले एक रूप चुनिए — चार थीम, कभी भी बदलिए',
     shotCapStyles: 'शुरुआत में शैली चुनें',
     legendCouple: 'दिल = दंपती', legendBlood: 'चलती धारियाँ = वंश',
     legendDeceased: 'धुँधला = दिवंगत',
@@ -506,7 +536,10 @@ function t(key) {
    now — an <img> whose name is not listed here keeps its base file rather
    than 404ing (founder 2026-08-09: 切换语言后照片也换语言吗). */
 const ALL_LANGS = ['zh', 'zh_Hant', 'en', 'es', 'fr', 'hi'];
-const SHOT_LANGS = { tree: ALL_LANGS, route: ALL_LANGS };
+const SHOT_LANGS = {
+  styles: ALL_LANGS, whole: ALL_LANGS, tree: ALL_LANGS,
+  card: ALL_LANGS, page: ALL_LANGS, route: ALL_LANGS,
+};
 
 function applyShotLangs() {
   document.querySelectorAll('img[data-shot]').forEach((img) => {
