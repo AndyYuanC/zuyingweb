@@ -1,4 +1,4 @@
-# 祖影 Echo — 官网 (marketing site)
+# 祖影 Zuying — 官网 (marketing site)
 
 纯静态网站，无任何框架、无构建步骤：`index.html` + `styles.css` + `app.js` + `assets/`。
 
