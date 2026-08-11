@@ -112,7 +112,7 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
 }
 
 /* hero CTA */
-.hero-cta { margin-top: 24px; }
+.hero-cta { margin-top: 24px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 .cta-btn {
   display: inline-block;
   background: linear-gradient(120deg, var(--gold-soft), var(--gold));
@@ -123,19 +123,22 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
 }
 .cta-btn:hover { transform: translateY(-2px); }
 
-/* store badges */
+/* Launch CTA. No store badge until the app is actually on the stores:
+   Apple's and Google's badges are trademarked artwork that may not be
+   redrawn, and both say "download" — which would be untrue today. */
 .badges { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
 .badges-center { justify-content: center; }
-.store-badge {
-  display: flex; align-items: center; gap: 10px;
-  background: #000; color: #fff;
-  border: 1px solid #3a3a3a; border-radius: 12px;
-  padding: 9px 18px 9px 14px; min-width: 172px;
-  transition: transform .15s ease, border-color .15s ease;
+/* A ghost button, so the same rule works on the dark hero and the light
+   download section: it borrows whichever text colour the section sets. */
+.notify-cta {
+  display: inline-block;
+  background: transparent; color: inherit;
+  border: 1px solid currentColor; border-radius: 14px;
+  padding: 11px 26px; font-size: 1.02rem; font-weight: 600;
+  opacity: .85;
+  transition: transform .15s ease, color .15s ease, opacity .15s ease;
 }
-.store-badge:hover { transform: translateY(-2px); border-color: var(--gold); }
-.store-badge small { display: block; font-size: .68rem; opacity: .75; line-height: 1.2; }
-.store-badge strong { font-size: 1.02rem; line-height: 1.25; }
+.notify-cta:hover { transform: translateY(-2px); color: var(--gold); opacity: 1; }
 
 /* ---------- features ---------- */
 .features { max-width: var(--maxw); margin: 0 auto; padding: 72px 20px 24px; }

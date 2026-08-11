@@ -13,7 +13,7 @@ const I18N = {
     navFeatures: '功能', navDemo: '试一试', navDownload: '下载', navContact: '联系',
     heroTitle: '把家族的故事，留给下一代',
     heroSub: '祖影 Echo 是一款家族树 App：为每一位亲人建一张卡片，留下照片、声音与故事；血脉在指尖流动，称谓自动算好，回声代代相传。',
-    badgeSoon: '即将上架',
+    notifyCta: '上架时通知我',
     heroNote: '第一版将率先登陆 iPhone。想第一时间收到上架通知，欢迎来信。',
     heroCta: '先在线试一试',
     shotsTitle: '真实界面抢先看',
@@ -80,7 +80,7 @@ const I18N = {
     navFeatures: '功能', navDemo: '試一試', navDownload: '下載', navContact: '聯絡',
     heroTitle: '把家族的故事，留給下一代',
     heroSub: '祖影 Echo 是一款家族樹 App：為每一位親人建一張卡片，留下照片、聲音與故事；血脈在指尖流動，稱謂自動算好，回聲代代相傳。',
-    badgeSoon: '即將上架',
+    notifyCta: '上架時通知我',
     heroNote: '第一版將率先登陸 iPhone。想第一時間收到上架通知，歡迎來信。',
     heroCta: '先線上試一試',
     shotsTitle: '真實介面搶先看',
@@ -147,7 +147,7 @@ const I18N = {
     navFeatures: 'Features', navDemo: 'Try it', navDownload: 'Download', navContact: 'Contact',
     heroTitle: 'Keep your family’s story for the next generation',
     heroSub: 'Echo (祖影) is a family-tree app: a card for every relative, holding their photos, voice and stories. Bloodlines flow at your fingertips, kinship terms are worked out for you, and family echoes carry on.',
-    badgeSoon: 'Coming soon',
+    notifyCta: 'Email me when it ships',
     heroNote: 'Launching first on iPhone. Want to hear the moment it ships? Send us a note.',
     heroCta: 'Try the live demo',
     shotsTitle: 'A first look at the real app',
@@ -214,7 +214,7 @@ const I18N = {
     navFeatures: 'Funciones', navDemo: 'Pruébalo', navDownload: 'Descargar', navContact: 'Contacto',
     heroTitle: 'Guarda la historia de tu familia para la próxima generación',
     heroSub: 'Echo (祖影) es una app de árbol genealógico: una tarjeta para cada familiar, con sus fotos, su voz y sus historias. El linaje fluye bajo tus dedos, el parentesco se calcula solo y los ecos familiares perduran.',
-    badgeSoon: 'Muy pronto',
+    notifyCta: 'Avísame cuando salga',
     heroNote: 'Llegará primero a iPhone. ¿Quieres enterarte en cuanto salga? Escríbenos.',
     heroCta: 'Prueba la demo',
     shotsTitle: 'Un vistazo a la app real',
@@ -281,7 +281,7 @@ const I18N = {
     navFeatures: 'Fonctions', navDemo: 'Essayer', navDownload: 'Télécharger', navContact: 'Contact',
     heroTitle: 'Gardez l’histoire de votre famille pour la génération suivante',
     heroSub: 'Echo (祖影) est une app d’arbre généalogique : une carte pour chaque proche, avec ses photos, sa voix et ses histoires. Le lignage coule sous vos doigts, les liens de parenté se calculent tout seuls, et les échos de la famille se transmettent.',
-    badgeSoon: 'Bientôt disponible',
+    notifyCta: 'Prévenez-moi au lancement',
     heroNote: 'D’abord sur iPhone. Envie d’être prévenu dès la sortie ? Écrivez-nous.',
     heroCta: 'Essayer la démo',
     shotsTitle: 'Un aperçu de la vraie app',
@@ -348,7 +348,7 @@ const I18N = {
     navFeatures: 'सुविधाएँ', navDemo: 'आज़माएँ', navDownload: 'डाउनलोड', navContact: 'संपर्क',
     heroTitle: 'अपने परिवार की कहानी अगली पीढ़ी के लिए संजोएँ',
     heroSub: 'Echo (祖影) एक वंश-वृक्ष ऐप है: हर रिश्तेदार के लिए एक कार्ड, जिसमें उनकी तस्वीरें, आवाज़ और कहानियाँ रहती हैं। वंश आपकी उँगलियों पर बहता है, रिश्तों के नाम अपने आप निकलते हैं, और परिवार की गूँज पीढ़ी-दर-पीढ़ी चलती है।',
-    badgeSoon: 'जल्द आ रहा है',
+    notifyCta: 'लॉन्च होने पर मुझे बताएं',
     heroNote: 'पहले iPhone पर आएगा। लॉन्च की खबर सबसे पहले चाहिए? हमें लिखें।',
     heroCta: 'लाइव डेमो आज़माएँ',
     shotsTitle: 'असली ऐप की पहली झलक',
@@ -526,7 +526,7 @@ function detectLang() {
 }
 
 function t(key) {
-  const k = key.replace(/\d+$/, ''); // badgeSoon2/3/4 → badgeSoon
+  const k = key.replace(/\d+$/, ''); // featTitle2/3/4 → featTitle
   return (I18N[lang] && I18N[lang][k]) || I18N.zh[k] || k;
 }
 
