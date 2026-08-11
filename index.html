@@ -12,6 +12,7 @@
 <meta property="og:description" content="本地优先的家族树 App：照片、声音、故事与自动称谓，让家族的回声代代相传。">
 <meta property="og:image" content="assets/icon-512.png">
 <meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -163,9 +164,9 @@
   <!-- ============ DEMO ============ -->
   <section class="demo" id="demo">
     <h2 data-i18n="demoTitle">在这里先试一试</h2>
-    <p class="section-sub" data-i18n="demoSub">这是真实界面的迷你版：拖动、缩放画布，点人看卡片和称谓；点「展开」逛逛 TA 的个人主页；右上角换风格。</p>
+    <p class="section-sub" data-i18n="demoSub">在家族树里点开亲人，或切到地图看看一家人在哪里。</p>
     <div class="demo-stage">
-      <div class="phone" id="phone" data-style="soft">
+      <div class="phone" id="phone" data-style="soft" data-demo-tab="tree">
         <div class="phone-top">
           <span class="phone-title" data-i18n="brandShort">祖影</span>
           <div class="style-dots" id="styleDots" role="group" aria-label="style">
@@ -175,7 +176,59 @@
             <button class="dot dot-paper" data-style="paper" title="雅纸"></button>
           </div>
         </div>
-        <svg id="tree" viewBox="0 0 390 614" aria-label="family tree demo"></svg>
+        <svg id="tree" viewBox="0 0 390 614" role="tabpanel" aria-labelledby="demoTreeTab"></svg>
+
+        <!-- live family map: the actual app's second tab, simplified for web -->
+        <div class="map-demo" id="mapDemo" role="tabpanel" aria-labelledby="demoMapTab" hidden>
+          <div class="family-map" id="familyMap"></div>
+          <div class="map-loading" id="mapLoading">
+            <span class="map-loading-spinner" aria-hidden="true"></span>
+            <span data-i18n="demoMapLoading">正在把家人放到地图上</span>
+          </div>
+          <div class="map-status">
+            <span class="map-status-dot" aria-hidden="true"></span>
+            <span data-i18n="demoMapStatus">已定位 9 / 9 位家人</span>
+          </div>
+          <button class="map-route" id="mapRoute" type="button" aria-controls="lineageRoute" aria-expanded="false" data-i18n-title="demoRouteTooltip" title="家族迁徙路线" aria-label="家族迁徙路线">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm12-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8.8 15.4c3.7-.2 2.1-6.2 6.4-6.4M6 18v2m12-8v2"/></svg>
+          </button>
+          <div class="map-zoom-controls" role="group" aria-label="map zoom">
+            <button id="mapZoomIn" type="button" data-i18n-title="demoMapZoomIn" title="放大地图" aria-label="放大地图">＋</button>
+            <button id="mapZoomOut" type="button" data-i18n-title="demoMapZoomOut" title="缩小地图" aria-label="缩小地图">−</button>
+          </div>
+          <button class="map-frame" id="mapFrame" type="button" data-i18n-title="demoMapFocus" title="回到我所在的地方" aria-label="回到我所在的地方">◎</button>
+          <section class="map-place-sheet" id="mapPlaceSheet" aria-live="polite" hidden>
+            <header>
+              <div>
+                <strong id="mapPlaceTitle"></strong>
+                <span id="mapPlaceCount"></span>
+              </div>
+              <button id="mapPlaceClose" type="button" aria-label="close">×</button>
+            </header>
+            <div class="map-place-people" id="mapPlacePeople"></div>
+          </section>
+        </div>
+
+        <!-- full-screen lineage narrative, matching the app's Family Atlas -->
+        <section class="lineage-route" id="lineageRoute" role="dialog" aria-modal="true" aria-labelledby="lineageRouteTitle" hidden>
+          <header class="route-top">
+            <button id="routeBack" type="button" data-i18n-title="demoRouteBack" title="返回地图" aria-label="返回地图">←</button>
+            <strong id="lineageRouteTitle" data-i18n="demoRouteTitle">家族版图</strong>
+            <span aria-hidden="true"></span>
+          </header>
+          <div class="route-scroll">
+            <div class="route-content">
+              <p class="route-subtitle" data-i18n="demoRouteSubtitle">几代人的脚步，连成这一条路</p>
+              <div class="route-stats" aria-label="route summary">
+                <div><strong id="routeGenerations">—</strong><span data-i18n="demoRouteGenerations">代</span></div>
+                <div><strong id="routeDistance">—</strong><span data-i18n="demoRouteKm">公里</span></div>
+                <div><strong id="routeYears">—</strong><span data-i18n="demoRouteYears">年</span></div>
+                <div><strong id="routeCountries">—</strong><span data-i18n="demoRouteCountries">国家地区</span></div>
+              </div>
+              <div class="route-journey" id="routeJourney"></div>
+            </div>
+          </div>
+        </section>
 
         <!-- centered trading-card dialog, like the app's node tap -->
         <div class="sim-overlay" id="simOverlay" hidden>
@@ -252,11 +305,24 @@
           <button class="fab" id="fabCenter" aria-label="recenter">◎</button>
         </div>
         <div class="phone-hint" id="phoneHint" data-i18n="demoHint">👆 点一点树上的人 · 可拖动、缩放</div>
+        <nav class="demo-tabs" role="tablist" aria-label="demo views">
+          <button class="demo-tab is-on" id="demoTreeTab" type="button" role="tab" aria-selected="true" aria-controls="tree" data-tab="tree">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v5m-6 6v-3h12v3M6 12V9h12v3M4 15h4v4H4zm6-6h4v4h-4zm6 6h4v4h-4z"/></svg>
+            <span data-i18n="demoTabTree">家族树</span>
+          </button>
+          <button class="demo-tab" id="demoMapTab" type="button" role="tab" aria-selected="false" aria-controls="mapDemo" data-tab="map" tabindex="-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 5-2 8 2 5-2v14l-5 2-8-2-5 2zm5-2v14m8-12v14"/></svg>
+            <span data-i18n="demoTabMap">地图</span>
+          </button>
+        </nav>
       </div>
-      <div class="demo-legend">
+      <div class="demo-legend" id="treeLegend">
         <span><i class="lg-heart">♥</i> <span data-i18n="legendCouple">连理结 = 夫妻</span></span>
         <span><i class="lg-dash">┄┄</i> <span data-i18n="legendBlood">流动虚线 = 血脉</span></span>
         <span><i class="lg-fade">◐</i> <span data-i18n="legendDeceased">变淡 = 已故亲人</span></span>
+      </div>
+      <div class="demo-legend map-legend" id="mapLegend" hidden>
+        <span data-i18n="demoMapHint">点头像看家人 · 拖动、缩放地图</span>
       </div>
       <p class="demo-note" data-i18n="demoNote">这里只是浅浅一瞥——想亲手添加家人、写故事、录声音？都在 App 里。</p>
     </div>

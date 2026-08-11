@@ -54,8 +54,23 @@ const I18N = {
     feat9T: '搬得进来，也带得走',
     feat9B: 'GEDCOM 双向互通，和你已经在用的家谱软件对得上；一份 .zuying 文件就是整棵树，隔空投送给家人，他打开就是完整的一棵。',
     demoTitle: '在这里先试一试',
-    demoSub: '这是真实界面的迷你版：拖动、缩放画布，点人看卡片和称谓；点「展开」逛逛 TA 的个人主页；右上角换风格。',
+    demoSub: '在家族树里点开亲人，或切到地图看看一家人在哪里；右上角还能随时换风格。',
     demoHint: '👆 点一点树上的人 · 可拖动、缩放',
+    demoTabTree: '家族树', demoTabMap: '地图',
+    demoMapLoading: '正在把家人放到地图上',
+    demoMapStatus: '已定位 9 / 9 位家人',
+    demoMapHint: '点头像看家人 · 拖动、缩放地图',
+    demoMapFocus: '回到我所在的地方', demoMapFit: '查看全部家人',
+    demoMapZoomIn: '放大地图', demoMapZoomOut: '缩小地图',
+    demoMapPeople: '{n} 位家人在这里',
+    demoMapBirthplace: '出生地', demoMapError: '地图暂时无法加载，请稍后再试。',
+    demoRouteTitle: '家族版图', demoRouteTooltip: '家族迁徙路线',
+    demoRouteSubtitle: '几代人的脚步，连成这一条路',
+    demoRouteGenerations: '代', demoRouteKm: '公里', demoRouteYears: '年', demoRouteCountries: '国家地区',
+    demoRouteBorn: '{year} 年生于{place}',
+    demoRouteLeg: '{heading} {km} 公里 · {years} 年后', demoRouteSame: '留在原地 · {years} 年后',
+    demoRouteNorth: '北上', demoRouteSouth: '南下', demoRouteEast: '东行', demoRouteWest: '西行',
+    demoRouteBack: '返回地图',
     demoNote: '这里只是浅浅一瞥——想亲手添加家人、写故事、录声音？都在 App 里。',
     addRelative: '添加亲人', expandChip: '展开', refocusChip: '以TA为中心', deleteChip: '删除',
     tryInApp: '想亲手添加？这些要在 App 里完成——即将上架，敬请期待。',
@@ -122,8 +137,23 @@ const I18N = {
     feat9T: '搬得進來，也帶得走',
     feat9B: 'GEDCOM 雙向互通，和你已經在用的家譜軟體對得上；一份 .zuying 檔案就是整棵樹，用 AirDrop 傳給家人，他打開就是完整的一棵。',
     demoTitle: '在這裡先試一試',
-    demoSub: '這是真實介面的迷你版：拖動、縮放畫布，點人看卡片和稱謂；點「展開」逛逛 TA 的個人主頁；右上角換風格。',
+    demoSub: '在家族樹裡點開親人，或切到地圖看看一家人在哪裡；右上角還能隨時換風格。',
     demoHint: '👆 點一點樹上的人 · 可拖動、縮放',
+    demoTabTree: '家族樹', demoTabMap: '地圖',
+    demoMapLoading: '正在把家人放到地圖上',
+    demoMapStatus: '已定位 9 / 9 位家人',
+    demoMapHint: '點頭像看家人 · 拖動、縮放地圖',
+    demoMapFocus: '回到我所在的地方', demoMapFit: '查看全部家人',
+    demoMapZoomIn: '放大地圖', demoMapZoomOut: '縮小地圖',
+    demoMapPeople: '{n} 位家人在這裡',
+    demoMapBirthplace: '出生地', demoMapError: '地圖暫時無法載入，請稍後再試。',
+    demoRouteTitle: '家族版圖', demoRouteTooltip: '家族遷徙路線',
+    demoRouteSubtitle: '幾代人的腳步，連成這一條路',
+    demoRouteGenerations: '代', demoRouteKm: '公里', demoRouteYears: '年', demoRouteCountries: '國家地區',
+    demoRouteBorn: '{year} 年生於{place}',
+    demoRouteLeg: '{heading} {km} 公里 · {years} 年後', demoRouteSame: '留在原地 · {years} 年後',
+    demoRouteNorth: '北上', demoRouteSouth: '南下', demoRouteEast: '東行', demoRouteWest: '西行',
+    demoRouteBack: '返回地圖',
     demoNote: '這裡只是淺淺一瞥——想親手添加家人、寫故事、錄聲音？都在 App 裡。',
     addRelative: '添加親人', expandChip: '展開', refocusChip: '以TA為中心', deleteChip: '刪除',
     tryInApp: '想親手添加？這些要在 App 裡完成——即將上架，敬請期待。',
@@ -190,8 +220,23 @@ const I18N = {
     feat9T: 'Bring it in, take it with you',
     feat9B: 'GEDCOM both ways, so it talks to the genealogy software you already use. One .zuying file is the entire tree — AirDrop it to a relative and they open a complete family.',
     demoTitle: 'Try it right here',
-    demoSub: 'A miniature of the real UI: drag and zoom the canvas, tap people for cards and kinship terms, tap “Open” to browse their page, switch styles top-right.',
+    demoSub: 'Open relatives in the family tree, or switch to the map to see where everyone is; change styles any time at the top right.',
     demoHint: '👆 Tap someone · drag & pinch to move',
+    demoTabTree: 'Family tree', demoTabMap: 'Map',
+    demoMapLoading: 'Putting your family on the map',
+    demoMapStatus: 'Located 9 / 9 family members',
+    demoMapHint: 'Tap a pin to meet the family · drag and zoom the map',
+    demoMapFocus: 'Back to where I am', demoMapFit: 'Show everyone',
+    demoMapZoomIn: 'Zoom in', demoMapZoomOut: 'Zoom out',
+    demoMapPeople: '{n} family members here',
+    demoMapBirthplace: 'Birthplace', demoMapError: 'The map could not load. Please try again later.',
+    demoRouteTitle: 'Family Atlas', demoRouteTooltip: 'Family migration route',
+    demoRouteSubtitle: 'Generations of footsteps, joined into one road',
+    demoRouteGenerations: 'generations', demoRouteKm: 'km', demoRouteYears: 'years', demoRouteCountries: 'countries',
+    demoRouteBorn: 'Born in {place}, {year}',
+    demoRouteLeg: '{km} km {heading} · {years} years later', demoRouteSame: 'Stayed put · {years} years later',
+    demoRouteNorth: 'north', demoRouteSouth: 'south', demoRouteEast: 'east', demoRouteWest: 'west',
+    demoRouteBack: 'Back to map',
     demoNote: 'This is just a glimpse — adding family, writing stories and recording voices all happen in the app.',
     addRelative: 'Add relative', expandChip: 'Expand', refocusChip: 'Center on them', deleteChip: 'Delete',
     tryInApp: 'Want to add your own? That happens in the app — coming soon.',
@@ -258,8 +303,23 @@ const I18N = {
     feat9T: 'Tráelo contigo, y llévatelo',
     feat9B: 'GEDCOM en ambos sentidos, para entenderse con el programa de genealogía que ya usas. Un archivo .zuying es el árbol entero: envíalo por AirDrop y tu familiar abre una familia completa.',
     demoTitle: 'Pruébalo aquí mismo',
-    demoSub: 'Una miniatura de la interfaz real: arrastra y haz zoom, toca a las personas para ver su tarjeta y parentesco, toca «Abrir» para ver su página, cambia el estilo arriba a la derecha.',
+    demoSub: 'Abre a tus familiares en el árbol o cambia al mapa para ver dónde están; cambia el estilo cuando quieras arriba a la derecha.',
     demoHint: '👆 Toca a alguien · arrastra y haz zoom',
+    demoTabTree: 'Árbol familiar', demoTabMap: 'Mapa',
+    demoMapLoading: 'Situando a tu familia en el mapa',
+    demoMapStatus: '9 / 9 familiares ubicados',
+    demoMapHint: 'Toca un marcador · arrastra y amplía el mapa',
+    demoMapFocus: 'Volver a donde estoy', demoMapFit: 'Ver a todos',
+    demoMapZoomIn: 'Acercar', demoMapZoomOut: 'Alejar',
+    demoMapPeople: '{n} familiares aquí',
+    demoMapBirthplace: 'Lugar de nacimiento', demoMapError: 'No se pudo cargar el mapa. Inténtalo de nuevo más tarde.',
+    demoRouteTitle: 'Atlas familiar', demoRouteTooltip: 'Ruta migratoria de la familia',
+    demoRouteSubtitle: 'Los pasos de varias generaciones, unidos en un solo camino',
+    demoRouteGenerations: 'generaciones', demoRouteKm: 'km', demoRouteYears: 'años', demoRouteCountries: 'países',
+    demoRouteBorn: 'Nació en {place}, {year}',
+    demoRouteLeg: '{km} km {heading} · {years} años después', demoRouteSame: 'Se quedó · {years} años después',
+    demoRouteNorth: 'hacia el norte', demoRouteSouth: 'hacia el sur', demoRouteEast: 'hacia el este', demoRouteWest: 'hacia el oeste',
+    demoRouteBack: 'Volver al mapa',
     demoNote: 'Esto es solo un vistazo: añadir familiares, escribir historias y grabar voces se hace en la app.',
     addRelative: 'Añadir familiar', expandChip: 'Abrir', refocusChip: 'Centrar aquí', deleteChip: 'Eliminar',
     tryInApp: '¿Quieres añadir a los tuyos? Eso se hace en la app — muy pronto.',
@@ -326,8 +386,23 @@ const I18N = {
     feat9T: 'Il arrive, et il repart avec vous',
     feat9B: 'GEDCOM dans les deux sens, pour dialoguer avec le logiciel de généalogie que vous utilisez déjà. Un fichier .zuying, c’est l’arbre entier : envoyez-le par AirDrop et votre proche ouvre une famille complète.',
     demoTitle: 'Essayez ici même',
-    demoSub: 'Une miniature de la vraie interface : déplacez et zoomez, touchez les personnes pour voir carte et lien de parenté, touchez « Ouvrir » pour parcourir leur page, changez de style en haut à droite.',
+    demoSub: 'Ouvrez vos proches dans l’arbre, ou passez à la carte pour voir où chacun se trouve ; changez de style en haut à droite.',
     demoHint: '👆 Touchez quelqu’un · glissez, zoomez',
+    demoTabTree: 'Arbre familial', demoTabMap: 'Carte',
+    demoMapLoading: 'Placement de votre famille sur la carte',
+    demoMapStatus: '9 proches sur 9 localisés',
+    demoMapHint: 'Touchez un repère · déplacez et zoomez la carte',
+    demoMapFocus: 'Revenir où je suis', demoMapFit: 'Voir tout le monde',
+    demoMapZoomIn: 'Zoom avant', demoMapZoomOut: 'Zoom arrière',
+    demoMapPeople: '{n} proches ici',
+    demoMapBirthplace: 'Lieu de naissance', demoMapError: 'La carte n’a pas pu se charger. Réessayez plus tard.',
+    demoRouteTitle: 'Atlas familial', demoRouteTooltip: 'Route migratoire de la famille',
+    demoRouteSubtitle: 'Les pas de plusieurs générations, réunis en un seul chemin',
+    demoRouteGenerations: 'générations', demoRouteKm: 'km', demoRouteYears: 'ans', demoRouteCountries: 'pays',
+    demoRouteBorn: 'Né à {place} en {year}',
+    demoRouteLeg: '{km} km {heading} · {years} ans plus tard', demoRouteSame: 'Resté sur place · {years} ans plus tard',
+    demoRouteNorth: 'vers le nord', demoRouteSouth: 'vers le sud', demoRouteEast: 'vers l’est', demoRouteWest: 'vers l’ouest',
+    demoRouteBack: 'Retour à la carte',
     demoNote: 'Ce n’est qu’un aperçu — ajouter des proches, écrire des histoires et enregistrer des voix, tout cela se passe dans l’app.',
     addRelative: 'Ajouter un proche', expandChip: 'Ouvrir', refocusChip: 'Recentrer ici', deleteChip: 'Supprimer',
     tryInApp: 'Envie d’ajouter les vôtres ? Cela se passe dans l’app — bientôt disponible.',
@@ -394,8 +469,23 @@ const I18N = {
     feat9T: 'अंदर लाइए, और साथ ले जाइए',
     feat9B: 'GEDCOM दोनों तरफ़, ताकि यह उस जेनेलॉजी सॉफ़्टवेयर से बात कर सके जो आप पहले से इस्तेमाल करते हैं। एक .zuying फ़ाइल यानी पूरा पेड़ — AirDrop से भेजिए और आपका रिश्तेदार पूरा परिवार खोलेगा।',
     demoTitle: 'यहीं आज़माकर देखें',
-    demoSub: 'असली इंटरफ़ेस की झलक: कैनवास खींचें-ज़ूम करें, लोगों पर टैप कर कार्ड और रिश्ते देखें, «खोलें» से उनका पेज घूमें, ऊपर दाईं ओर से थीम बदलें।',
+    demoSub: 'वंश-वृक्ष में परिजनों को खोलें, या नक़्शे पर देखें कि सब कहाँ हैं; ऊपर दाईं ओर से शैली कभी भी बदलें।',
     demoHint: '👆 किसी को छुएँ · खींचें, ज़ूम करें',
+    demoTabTree: 'वंश-वृक्ष', demoTabMap: 'नक़्शा',
+    demoMapLoading: 'आपके परिवार को नक़्शे पर रखा जा रहा है',
+    demoMapStatus: '9 / 9 परिजन नक़्शे पर',
+    demoMapHint: 'पिन छुएँ · नक़्शा खींचें और ज़ूम करें',
+    demoMapFocus: 'मेरी जगह पर लौटें', demoMapFit: 'सबको दिखाएँ',
+    demoMapZoomIn: 'ज़ूम इन', demoMapZoomOut: 'ज़ूम आउट',
+    demoMapPeople: 'यहाँ {n} परिजन',
+    demoMapBirthplace: 'जन्मस्थान', demoMapError: 'नक़्शा लोड नहीं हो सका। बाद में फिर कोशिश करें।',
+    demoRouteTitle: 'पारिवारिक मानचित्र', demoRouteTooltip: 'परिवार का प्रवास मार्ग',
+    demoRouteSubtitle: 'पीढ़ियों के कदम, जुड़कर बनी एक राह',
+    demoRouteGenerations: 'पीढ़ियाँ', demoRouteKm: 'किमी', demoRouteYears: 'वर्ष', demoRouteCountries: 'देश',
+    demoRouteBorn: '{year} में {place} में जन्म',
+    demoRouteLeg: '{km} किमी {heading} · {years} वर्ष बाद', demoRouteSame: 'वहीं रहे · {years} वर्ष बाद',
+    demoRouteNorth: 'उत्तर की ओर', demoRouteSouth: 'दक्षिण की ओर', demoRouteEast: 'पूर्व की ओर', demoRouteWest: 'पश्चिम की ओर',
+    demoRouteBack: 'नक़्शे पर लौटें',
     demoNote: 'यह बस एक झलक है — परिजन जोड़ना, कहानियाँ लिखना और आवाज़ रिकॉर्ड करना, सब ऐप में होता है।',
     addRelative: 'रिश्तेदार जोड़ें', expandChip: 'खोलें', refocusChip: 'इन पर केंद्रित करें', deleteChip: 'हटाएँ',
     tryInApp: 'खुद जोड़ना चाहते हैं? यह ऐप में होता है — जल्द आ रहा है।',
@@ -564,6 +654,11 @@ function applyLang() {
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     el.textContent = t(el.dataset.i18n);
   });
+  document.querySelectorAll('[data-i18n-title]').forEach((el) => {
+    const label = t(el.dataset.i18nTitle);
+    el.title = label;
+    el.setAttribute('aria-label', label);
+  });
   document.querySelectorAll('#styleDots .dot').forEach((d) => {
     d.title = I18N[lang].styles[d.dataset.style];
   });
@@ -572,6 +667,7 @@ function applyLang() {
   if (sel.value !== lang) sel.value = lang;
   renderTree();
   if (!overlay.hidden && selectedId) openCard(byId(selectedId));
+  refreshFamilyMapText();
 }
 
 document.getElementById('langSelect').addEventListener('change', (e) => {
@@ -716,7 +812,7 @@ const ego = addPerson({ nameZh: '李明', nameEn: 'Li Ming', family: '李', gend
 const wife = addPerson({ nameZh: '陈静', nameEn: 'Chen Jing', family: '陈', gender: 'female', gen: 2, birthY: 1991, placeZh: '上海', placeEn: 'Shanghai' });
 marry(ego, wife);
 addPerson({ nameZh: '李婷', nameEn: 'Li Ting', family: '李', gender: 'female', gen: 2, birthY: 1994, placeZh: '北京', placeEn: 'Beijing', parentIds: [dad.id, mom.id] });
-addPerson({ nameZh: '李朵朵', nameEn: 'Li Duoduo', family: '李', gender: 'female', gen: 3, birthY: 2014, placeZh: '北京', placeEn: 'Beijing', parentIds: [ego.id, wife.id] });
+const child = addPerson({ nameZh: '李朵朵', nameEn: 'Li Duoduo', family: '李', gender: 'female', gen: 3, birthY: 2014, placeZh: '北京', placeEn: 'Beijing', parentIds: [ego.id, wife.id] });
 
 let focalId = ego.id;
 let selectedId = null;
@@ -1411,6 +1507,403 @@ document.getElementById('styleDots').addEventListener('click', (e) => {
   phone.dataset.style = dot.dataset.style;
   document.querySelectorAll('#styleDots .dot').forEach((d) =>
     d.classList.toggle('is-on', d === dot));
+});
+
+/* ----------------------- tree / map demo tabs ----------------------- */
+
+const demoTabs = [...document.querySelectorAll('.demo-tab')];
+const mapDemo = document.getElementById('mapDemo');
+const mapLoading = document.getElementById('mapLoading');
+const mapFrame = document.getElementById('mapFrame');
+const mapPlaceSheet = document.getElementById('mapPlaceSheet');
+const mapPlaceTitle = document.getElementById('mapPlaceTitle');
+const mapPlaceCount = document.getElementById('mapPlaceCount');
+const mapPlacePeople = document.getElementById('mapPlacePeople');
+const treeLegend = document.getElementById('treeLegend');
+const mapLegend = document.getElementById('mapLegend');
+const canvasFabs = document.querySelector('.canvas-fabs');
+const mapRoute = document.getElementById('mapRoute');
+const lineageRoute = document.getElementById('lineageRoute');
+const routeJourney = document.getElementById('routeJourney');
+
+const DEMO_MAP_PLACES = [
+  {
+    key: 'Jinan', coordinates: [117.1201, 36.6512], country: 'CN',
+    labels: { zh: '山东济南', zh_Hant: '山東濟南', en: 'Jinan', es: 'Jinan', fr: 'Jinan', hi: 'जिनान' },
+  },
+  {
+    key: 'Beijing', coordinates: [116.4074, 39.9042], country: 'CN',
+    labels: { zh: '北京', zh_Hant: '北京', en: 'Beijing', es: 'Pekín', fr: 'Pékin', hi: 'बीजिंग' },
+  },
+  {
+    key: 'Shanghai', coordinates: [121.4737, 31.2304], country: 'CN',
+    labels: { zh: '上海', zh_Hant: '上海', en: 'Shanghai', es: 'Shanghái', fr: 'Shanghai', hi: 'शंघाई' },
+  },
+].map((place) => ({
+  ...place,
+  people: people.filter((person) => person.placeEn === place.key),
+}));
+
+// The app reads one direct line through ego and continues through the eldest
+// child. This demo family has the same shape: grandfather → father → me → child.
+const DEMO_LINEAGE_ROUTE = [gp, dad, ego, child];
+
+let familyMap = null;
+let familyMapApi = null;
+let familyMapPromise = null;
+let familyMapReady = false;
+let familyMapFailed = false;
+let familyMapOverview = true;
+let selectedMapPlace = null;
+const familyMapMarkers = [];
+
+function mapPlaceLabel(place) {
+  return place.labels[lang] || place.labels.en;
+}
+
+function routePlaceFor(person) {
+  return DEMO_MAP_PLACES.find((place) => place.key === person.placeEn);
+}
+
+function routeText(key, values) {
+  return t(key).replace(/\{(\w+)\}/g, (_, name) => values[name] ?? '');
+}
+
+function routeDistanceKm(a, b) {
+  const earthRadiusKm = 6371.0088;
+  const radians = (degrees) => degrees * Math.PI / 180;
+  const [lng1, lat1] = a.coordinates;
+  const [lng2, lat2] = b.coordinates;
+  const deltaLat = radians(lat2 - lat1);
+  const deltaLng = radians(lng2 - lng1);
+  const h = Math.sin(deltaLat / 2) ** 2
+    + Math.cos(radians(lat1)) * Math.cos(radians(lat2))
+    * Math.sin(deltaLng / 2) ** 2;
+  return 2 * earthRadiusKm * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
+}
+
+function routeHeadingKey(a, b) {
+  const [lng1, lat1] = a.coordinates;
+  const [lng2, lat2] = b.coordinates;
+  let deltaLng = (lng2 - lng1) % 360;
+  if (deltaLng > 180) deltaLng -= 360;
+  if (deltaLng < -180) deltaLng += 360;
+  const northKm = (lat2 - lat1) * 111.32;
+  const eastKm = deltaLng * 111.32
+    * Math.cos((lat1 + lat2) * Math.PI / 360);
+  if (Math.abs(eastKm) > Math.abs(northKm)) {
+    return eastKm >= 0 ? 'demoRouteEast' : 'demoRouteWest';
+  }
+  return northKm >= 0 ? 'demoRouteNorth' : 'demoRouteSouth';
+}
+
+function renderLineageRoute() {
+  const number = new Intl.NumberFormat(document.documentElement.lang);
+  const placed = DEMO_LINEAGE_ROUTE.map((person) => ({
+    person,
+    place: routePlaceFor(person),
+  })).filter((stop) => stop.place);
+  let totalKm = 0;
+  for (let i = 0; i + 1 < placed.length; i += 1) {
+    totalKm += routeDistanceKm(placed[i].place, placed[i + 1].place);
+  }
+  const years = placed.map((stop) => stop.person.birthY).filter(Number.isFinite);
+  const countries = new Set(placed.map((stop) => stop.place.country));
+  document.getElementById('routeGenerations').textContent = placed.length;
+  document.getElementById('routeDistance').textContent = number.format(Math.round(totalKm));
+  document.getElementById('routeYears').textContent = years.length > 1
+    ? Math.max(...years) - Math.min(...years)
+    : '—';
+  document.getElementById('routeCountries').textContent = countries.size;
+
+  routeJourney.innerHTML = '';
+  for (let i = 0; i < placed.length; i += 1) {
+    const { person, place } = placed[i];
+    const stop = document.createElement('div');
+    stop.className = 'route-stop';
+    const rail = document.createElement('span');
+    rail.className = 'route-rail';
+    rail.setAttribute('aria-hidden', 'true');
+    const copy = document.createElement('div');
+    copy.className = 'route-stop-copy';
+    const title = document.createElement('div');
+    const name = document.createElement('strong');
+    name.className = 'route-stop-name';
+    name.textContent = displayName(person);
+    const kin = document.createElement('span');
+    kin.className = 'route-stop-kin';
+    kin.textContent = person.id === ego.id
+      ? t('meBadge')
+      : kinTerm(relationKey(ego, person));
+    title.append(name, kin);
+    const born = document.createElement('p');
+    born.className = 'route-stop-born';
+    born.textContent = routeText('demoRouteBorn', {
+      year: person.birthY,
+      place: mapPlaceLabel(place),
+    });
+    copy.append(title, born);
+    stop.append(rail, copy);
+    routeJourney.appendChild(stop);
+
+    if (i + 1 >= placed.length) continue;
+    const next = placed[i + 1];
+    const km = routeDistanceKm(place, next.place);
+    const elapsed = next.person.birthY - person.birthY;
+    const leg = document.createElement('div');
+    leg.className = `route-leg${km >= 1 ? ' is-move' : ''}`;
+    const legRail = document.createElement('span');
+    legRail.className = 'route-rail';
+    legRail.setAttribute('aria-hidden', 'true');
+    const legCopy = document.createElement('p');
+    legCopy.className = 'route-leg-copy';
+    legCopy.textContent = km < 1
+      ? routeText('demoRouteSame', { years: elapsed })
+      : routeText('demoRouteLeg', {
+        heading: t(routeHeadingKey(place, next.place)),
+        km: number.format(Math.round(km)),
+        years: elapsed,
+      });
+    leg.append(legRail, legCopy);
+    routeJourney.appendChild(leg);
+  }
+}
+
+function updateMapFrameLabel() {
+  const key = familyMapOverview ? 'demoMapFocus' : 'demoMapFit';
+  const label = t(key);
+  mapFrame.dataset.i18nTitle = key;
+  mapFrame.title = label;
+  mapFrame.setAttribute('aria-label', label);
+  mapFrame.classList.toggle('is-focused', !familyMapOverview);
+}
+
+function renderMapPlaceSheet(place) {
+  selectedMapPlace = place;
+  mapPlaceTitle.textContent = mapPlaceLabel(place);
+  mapPlaceCount.textContent = t('demoMapPeople').replace('{n}', place.people.length);
+  const focal = byId(focalId);
+  mapPlacePeople.innerHTML = '';
+  for (const person of place.people) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'map-person';
+    const relation = person.id === focalId
+      ? t('meBadge')
+      : kinTerm(relationKey(focal, person));
+    button.innerHTML =
+      `<span class="map-person-avatar">${avatarSvg(person, 38, 'm')}</span>` +
+      `<span class="map-person-copy">` +
+        `<span class="map-person-name">${displayName(person)}</span>` +
+        `<span class="map-person-place">${t('demoMapBirthplace')} · ${mapPlaceLabel(place)}</span>` +
+      `</span>` +
+      `<span class="map-person-kin">${relation || ''}</span>`;
+    button.addEventListener('click', () => {
+      mapPlaceSheet.hidden = true;
+      openGallery(person);
+    });
+    mapPlacePeople.appendChild(button);
+  }
+  mapPlaceSheet.hidden = false;
+}
+
+function refreshFamilyMapText() {
+  tree.setAttribute('aria-label', t('demoTabTree'));
+  mapDemo.setAttribute('aria-label', t('demoTabMap'));
+  updateMapFrameLabel();
+  if (familyMapFailed) {
+    mapLoading.querySelector('[data-i18n]').textContent = t('demoMapError');
+  }
+  for (const entry of familyMapMarkers) {
+    const label = `${mapPlaceLabel(entry.place)} · ${t('demoMapPeople')
+      .replace('{n}', entry.place.people.length)}`;
+    entry.element.setAttribute('aria-label', label);
+    entry.element.title = label;
+  }
+  if (selectedMapPlace && !mapPlaceSheet.hidden) {
+    renderMapPlaceSheet(selectedMapPlace);
+  }
+  renderLineageRoute();
+}
+
+function fitFamilyMap({ animate = true } = {}) {
+  if (!familyMap || !familyMapReady) return;
+  familyMapOverview = true;
+  updateMapFrameLabel();
+  const bounds = new familyMapApi.LngLatBounds();
+  for (const place of DEMO_MAP_PLACES) bounds.extend(place.coordinates);
+  familyMap.fitBounds(
+    bounds,
+    {
+      padding: { top: 58, right: 38, bottom: 54, left: 38 },
+      duration: animate ? 650 : 0,
+      maxZoom: 5.2,
+    },
+  );
+}
+
+function focusFamilyMapOnEgo() {
+  if (!familyMap || !familyMapReady) return;
+  const egoPlace = DEMO_MAP_PLACES.find((place) => place.people.includes(ego));
+  if (!egoPlace) return;
+  familyMapOverview = false;
+  updateMapFrameLabel();
+  familyMap.easeTo({
+    center: egoPlace.coordinates,
+    zoom: 6.2,
+    duration: 650,
+  });
+}
+
+function addFamilyMapMarkers() {
+  for (const place of DEMO_MAP_PLACES) {
+    const element = document.createElement('button');
+    element.type = 'button';
+    element.className = `family-marker${place.people.includes(ego) ? ' is-ego' : ''}`;
+    element.innerHTML =
+      `<span class="family-marker-face">${avatarSvg(place.people[0], 36, 'p')}</span>` +
+      (place.people.length > 1
+        ? `<span class="family-marker-count">${place.people.length}</span>`
+        : '');
+    element.addEventListener('click', (event) => {
+      event.stopPropagation();
+      renderMapPlaceSheet(place);
+      familyMap.easeTo({ center: place.coordinates, duration: 420 });
+    });
+    new familyMapApi.Marker({ element, anchor: 'bottom' })
+      .setLngLat(place.coordinates)
+      .addTo(familyMap);
+    familyMapMarkers.push({ place, element });
+  }
+  refreshFamilyMapText();
+}
+
+function showMapLoadError() {
+  familyMapFailed = true;
+  mapLoading.classList.add('is-error');
+  mapLoading.querySelector('[data-i18n]').textContent = t('demoMapError');
+}
+
+async function ensureFamilyMap() {
+  if (familyMap) {
+    requestAnimationFrame(() => familyMap.resize());
+    return;
+  }
+  if (familyMapPromise) return familyMapPromise;
+  familyMapPromise = (async () => {
+    try {
+      familyMapFailed = false;
+      mapLoading.hidden = false;
+      mapLoading.classList.remove('is-error');
+      mapLoading.querySelector('[data-i18n]').textContent = t('demoMapLoading');
+      familyMapApi = await import(
+        'https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.mjs'
+      );
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+      familyMap = new familyMapApi.Map({
+        container: 'familyMap',
+        style: 'https://tiles.openfreemap.org/styles/positron',
+        center: [117.8, 35.8],
+        zoom: 3.2,
+        minZoom: 1,
+        maxZoom: 10,
+        attributionControl: false,
+        maplibreLogo: false,
+        dragRotate: false,
+        pitchWithRotate: false,
+        scrollZoom: false,
+      });
+      familyMap.touchZoomRotate.disableRotation();
+      familyMap.addControl(
+        new familyMapApi.AttributionControl({ compact: true }),
+        'bottom-left',
+      );
+      familyMap.once('load', () => {
+        familyMapReady = true;
+        familyMapFailed = false;
+        addFamilyMapMarkers();
+        mapLoading.hidden = true;
+        fitFamilyMap({ animate: false });
+      });
+      familyMap.once('error', () => {
+        if (!familyMapReady) showMapLoadError();
+      });
+    } catch (_) {
+      showMapLoadError();
+      familyMapPromise = null;
+    }
+  })();
+  return familyMapPromise;
+}
+
+function setDemoTab(tab) {
+  const showMap = tab === 'map';
+  phone.dataset.demoTab = tab;
+  tree.hidden = showMap;
+  mapDemo.hidden = !showMap;
+  canvasFabs.hidden = showMap;
+  hint.hidden = showMap;
+  treeLegend.hidden = showMap;
+  mapLegend.hidden = !showMap;
+  overlay.hidden = true;
+  gallery.hidden = true;
+  lineageRoute.hidden = true;
+  mapRoute.setAttribute('aria-expanded', 'false');
+  mapPlaceSheet.hidden = true;
+  selectedId = null;
+  for (const button of demoTabs) {
+    const active = button.dataset.tab === tab;
+    button.classList.toggle('is-on', active);
+    button.setAttribute('aria-selected', String(active));
+    button.tabIndex = active ? 0 : -1;
+  }
+  if (showMap) ensureFamilyMap();
+}
+
+for (const button of demoTabs) {
+  button.addEventListener('click', () => setDemoTab(button.dataset.tab));
+  button.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    const next = button.dataset.tab === 'tree' ? 'map' : 'tree';
+    setDemoTab(next);
+    document.querySelector(`.demo-tab[data-tab="${next}"]`).focus();
+    event.preventDefault();
+  });
+}
+
+mapFrame.addEventListener('click', () => {
+  if (familyMapOverview) focusFamilyMapOnEgo();
+  else fitFamilyMap();
+});
+mapRoute.addEventListener('click', () => {
+  mapPlaceSheet.hidden = true;
+  renderLineageRoute();
+  lineageRoute.hidden = false;
+  mapRoute.setAttribute('aria-expanded', 'true');
+  document.getElementById('routeBack').focus();
+});
+document.getElementById('routeBack').addEventListener('click', () => {
+  lineageRoute.hidden = true;
+  mapRoute.setAttribute('aria-expanded', 'false');
+  mapRoute.focus();
+});
+document.getElementById('mapZoomIn').addEventListener('click', () => {
+  if (familyMapReady) familyMap.zoomIn({ duration: 250 });
+});
+document.getElementById('mapZoomOut').addEventListener('click', () => {
+  if (familyMapReady) familyMap.zoomOut({ duration: 250 });
+});
+document.getElementById('mapPlaceClose').addEventListener('click', () => {
+  mapPlaceSheet.hidden = true;
+});
+window.addEventListener('resize', () => {
+  if (familyMap && !mapDemo.hidden) familyMap.resize();
+});
+window.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape' || lineageRoute.hidden) return;
+  lineageRoute.hidden = true;
+  mapRoute.setAttribute('aria-expanded', 'false');
+  mapRoute.focus();
 });
 
 /* ------------------------------ boot ------------------------------ */
