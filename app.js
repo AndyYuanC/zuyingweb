@@ -538,7 +538,7 @@ function t(key) {
 const ALL_LANGS = ['zh', 'zh_Hant', 'en', 'es', 'fr', 'hi'];
 const SHOT_LANGS = {
   styles: ALL_LANGS, whole: ALL_LANGS, tree: ALL_LANGS,
-  card: ALL_LANGS, page: ALL_LANGS, route: ALL_LANGS,
+  card: ALL_LANGS, page: ALL_LANGS, map: ALL_LANGS, route: ALL_LANGS,
 };
 
 function applyShotLangs() {
