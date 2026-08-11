@@ -18,6 +18,7 @@ const I18N = {
     heroCta: '先在线试一试',
     shotsTitle: '真实界面抢先看',
     shotsSub: '以下截图来自正在开发中的 iPhone 版本。',
+    shotsDrag: '拖动查看全部界面',
     shotCapTree: '家族树画布', shotCapCard: '人物卡',
     shotCapGallery: '个人主页：故事与回声',
     shotCapWide: '全家总览：五代同堂',
@@ -85,6 +86,7 @@ const I18N = {
     heroCta: '先線上試一試',
     shotsTitle: '真實介面搶先看',
     shotsSub: '以下截圖來自正在開發中的 iPhone 版本。',
+    shotsDrag: '拖動查看全部介面',
     shotCapTree: '家族樹畫布', shotCapCard: '人物卡',
     shotCapGallery: '個人主頁：故事與回聲',
     shotCapWide: '全家總覽：五代同堂',
@@ -152,6 +154,7 @@ const I18N = {
     heroCta: 'Try the live demo',
     shotsTitle: 'A first look at the real app',
     shotsSub: 'Screenshots from the iPhone build in development.',
+    shotsDrag: 'Drag to explore every screen',
     shotCapTree: 'The tree canvas', shotCapCard: 'Person card',
     shotCapGallery: 'Person page: stories & echoes',
     shotCapWide: 'The whole tree: five generations at a glance',
@@ -219,6 +222,7 @@ const I18N = {
     heroCta: 'Prueba la demo',
     shotsTitle: 'Un vistazo a la app real',
     shotsSub: 'Capturas de la versión para iPhone en desarrollo.',
+    shotsDrag: 'Arrastra para explorar todas las pantallas',
     shotCapTree: 'El lienzo del árbol', shotCapCard: 'Tarjeta de persona',
     shotCapGallery: 'Página personal: historias y ecos',
     shotCapWide: 'Todo el árbol: cinco generaciones de un vistazo',
@@ -286,6 +290,7 @@ const I18N = {
     heroCta: 'Essayer la démo',
     shotsTitle: 'Un aperçu de la vraie app',
     shotsSub: 'Captures de la version iPhone en développement.',
+    shotsDrag: 'Faites glisser pour voir tous les écrans',
     shotCapTree: 'Le canevas de l’arbre', shotCapCard: 'Carte de personne',
     shotCapGallery: 'Page personnelle : histoires et échos',
     shotCapWide: 'L’arbre entier : cinq générations d’un coup d’œil',
@@ -353,6 +358,7 @@ const I18N = {
     heroCta: 'लाइव डेमो आज़माएँ',
     shotsTitle: 'असली ऐप की पहली झलक',
     shotsSub: 'विकासाधीन iPhone संस्करण के स्क्रीनशॉट।',
+    shotsDrag: 'सभी स्क्रीन देखने के लिए खींचें',
     shotCapTree: 'वंश-वृक्ष कैनवास', shotCapCard: 'व्यक्ति कार्ड',
     shotCapGallery: 'व्यक्तिगत पेज: कहानियाँ और गूँज',
     shotCapWide: 'पूरा वृक्ष: एक नज़र में पाँच पीढ़ियाँ',
@@ -573,6 +579,112 @@ document.getElementById('langSelect').addEventListener('change', (e) => {
   localStorage.setItem(LANG_KEY, lang);
   applyLang();
 });
+
+/* ======================== screenshot scrubber ======================== */
+
+const shotsStrip = document.getElementById('shotsStrip');
+const shotsScrubber = document.getElementById('shotsScrubber');
+const shotsScrubberWrap = shotsScrubber.closest('.shots-scrubber');
+const shotsScrubberThumb = document.getElementById('shotsScrubberThumb');
+let shotsThumbWidth = 0;
+let shotsScrollFrame = null;
+let shotsPointerId = null;
+let shotsGrabOffset = 0;
+
+function shotsMaxScroll() {
+  return Math.max(0, shotsStrip.scrollWidth - shotsStrip.clientWidth);
+}
+
+function updateShotsScrubber() {
+  const trackWidth = shotsScrubber.clientWidth;
+  const maxScroll = shotsMaxScroll();
+  const canScroll = maxScroll > 1 && trackWidth > 0;
+  shotsScrubberWrap.classList.toggle('is-disabled', !canScroll);
+  if (!canScroll) return;
+
+  shotsThumbWidth = Math.min(
+    trackWidth,
+    Math.max(54, trackWidth * (shotsStrip.clientWidth / shotsStrip.scrollWidth)),
+  );
+  const progress = Math.min(1, Math.max(0, shotsStrip.scrollLeft / maxScroll));
+  const thumbLeft = progress * (trackWidth - shotsThumbWidth);
+  shotsScrubberThumb.style.width = `${shotsThumbWidth}px`;
+  shotsScrubberThumb.style.transform = `translateX(${thumbLeft}px)`;
+  shotsScrubber.setAttribute('aria-valuenow', String(Math.round(progress * 100)));
+}
+
+function setShotsScrollFromPointer(clientX) {
+  const rect = shotsScrubber.getBoundingClientRect();
+  const maxThumbLeft = Math.max(0, rect.width - shotsThumbWidth);
+  const thumbLeft = Math.min(
+    maxThumbLeft,
+    Math.max(0, clientX - rect.left - shotsGrabOffset),
+  );
+  const progress = maxThumbLeft ? thumbLeft / maxThumbLeft : 0;
+  shotsStrip.scrollLeft = progress * shotsMaxScroll();
+}
+
+shotsScrubber.addEventListener('pointerdown', (event) => {
+  if (shotsScrubberWrap.classList.contains('is-disabled')) return;
+  shotsPointerId = event.pointerId;
+  const thumbRect = shotsScrubberThumb.getBoundingClientRect();
+  const onThumb = event.target === shotsScrubberThumb;
+  shotsGrabOffset = onThumb
+    ? event.clientX - thumbRect.left
+    : shotsThumbWidth / 2;
+  shotsScrubber.setPointerCapture(shotsPointerId);
+  shotsScrubber.classList.add('is-dragging');
+  shotsStrip.classList.add('is-scrubbing');
+  setShotsScrollFromPointer(event.clientX);
+  event.preventDefault();
+});
+
+shotsScrubber.addEventListener('pointermove', (event) => {
+  if (event.pointerId !== shotsPointerId) return;
+  setShotsScrollFromPointer(event.clientX);
+});
+
+function endShotsDrag(event) {
+  if (event.pointerId !== shotsPointerId) return;
+  shotsPointerId = null;
+  shotsScrubber.classList.remove('is-dragging');
+  shotsStrip.classList.remove('is-scrubbing');
+}
+
+shotsScrubber.addEventListener('pointerup', endShotsDrag);
+shotsScrubber.addEventListener('pointercancel', endShotsDrag);
+
+shotsScrubber.addEventListener('keydown', (event) => {
+  const page = Math.max(240, shotsStrip.clientWidth * .8);
+  const smallStep = 240;
+  let next = null;
+  if (event.key === 'ArrowLeft') next = shotsStrip.scrollLeft - smallStep;
+  if (event.key === 'ArrowRight') next = shotsStrip.scrollLeft + smallStep;
+  if (event.key === 'PageUp') next = shotsStrip.scrollLeft - page;
+  if (event.key === 'PageDown') next = shotsStrip.scrollLeft + page;
+  if (event.key === 'Home') next = 0;
+  if (event.key === 'End') next = shotsMaxScroll();
+  if (next == null) return;
+  shotsStrip.scrollTo({ left: next, behavior: 'smooth' });
+  event.preventDefault();
+});
+
+shotsStrip.addEventListener('scroll', () => {
+  if (shotsScrollFrame != null) return;
+  shotsScrollFrame = requestAnimationFrame(() => {
+    shotsScrollFrame = null;
+    updateShotsScrubber();
+  });
+}, { passive: true });
+
+if ('ResizeObserver' in window) {
+  const shotsResizeObserver = new ResizeObserver(updateShotsScrubber);
+  shotsResizeObserver.observe(shotsStrip);
+  shotsResizeObserver.observe(shotsScrubber);
+} else {
+  window.addEventListener('resize', updateShotsScrubber);
+}
+updateShotsScrubber();
 
 /* ========================= demo simulator ========================= */
 

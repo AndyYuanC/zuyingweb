@@ -119,7 +119,7 @@
   <section class="shots" id="shots">
     <h2 data-i18n="shotsTitle">真实界面抢先看</h2>
     <p class="section-sub" data-i18n="shotsSub">以下截图来自正在开发中的 iPhone 版本。</p>
-    <div class="shots-strip">
+    <div class="shots-strip" id="shotsStrip">
       <figure class="shot">
         <img src="assets/shots/shot-styles.png" data-shot="styles" alt="" loading="lazy">
         <figcaption data-i18n="shotCapStyles">先选一种风格 —— 四套主题，随时可换</figcaption>
@@ -148,6 +148,15 @@
         <img src="assets/shots/shot-route.png" data-shot="route" alt="" loading="lazy">
         <figcaption data-i18n="shotCapRoute">家族版图 —— 沿着直系一脉，看这个家走了多远</figcaption>
       </figure>
+    </div>
+    <div class="shots-scrubber">
+      <span class="shots-scrubber-label" id="shotsScrubberLabel" data-i18n="shotsDrag">拖动查看全部界面</span>
+      <div class="shots-scrubber-track" id="shotsScrubber" role="scrollbar"
+           aria-labelledby="shotsScrubberLabel" aria-controls="shotsStrip"
+           aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100"
+           aria-valuenow="0" tabindex="0">
+        <span class="shots-scrubber-thumb" id="shotsScrubberThumb" aria-hidden="true"></span>
+      </div>
     </div>
   </section>
 
