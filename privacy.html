@@ -51,10 +51,11 @@
     <li data-i18n="s4i1">相机——拍摄照片或录制视频</li>
     <li data-i18n="s4i2">麦克风——录制语音</li>
     <li data-i18n="s4i3">相册——选取已有的照片或视频</li>
+    <li data-i18n="s4i4">相册（存入）——把家族树里的照片或视频存回你自己的相册</li>
   </ul>
 
   <h2 data-i18n="sMapT">地图与地址定位</h2>
-  <p data-i18n="sMapB">当你打开"地图"页时，本应用会把家人资料里的"现居地／出生地"这行文字发送给 Apple 的地址定位服务（Geocoding），换算成地图上的坐标。只发送这一行地址文字——不含姓名、照片、录音、故事或任何其他内容。换算结果缓存在你的设备上，同一个地址只查询一次。该查询由 Apple 提供，受 Apple 的隐私条款约束。本应用不读取你设备的定位，也从不请求定位权限。</p>
+  <p data-i18n="sMapB">当你打开"地图"页时，本应用会把家人资料里的"现居地／出生地"这行文字发送给 Apple 的地址定位服务（Geocoding），换算成地图上的坐标。只发送这一行地址文字——不含姓名、照片、录音、故事或任何其他内容。常见的城市和地区由应用内置的地名表离线换算，根本不会发出去；只有这张表不认识的地址才会交给 Apple。换算结果缓存在你的设备上，同一个地址只查询一次。该查询由 Apple 提供，受 Apple 的隐私条款约束。本应用不读取你设备的定位，也从不请求定位权限。</p>
 
   <h2 data-i18n="s5T">你主动的导出与分享</h2>
   <p data-i18n="s5B">你可以把家族数据导出为备份文件，或通过系统分享发送给亲人。导出的文件由你自行保管与分享；请注意其中可能包含家人的个人信息。</p>
@@ -80,7 +81,7 @@
 const PRIV = {
   zh: {
     docTitle: '隐私政策 — 祖影', brand: '祖影', backHome: '← 返回首页',
-    title: '隐私政策', updated: '最后更新：2026年7月25日',
+    title: '隐私政策', updated: '最后更新：2026年8月11日',
     intro: '祖影（下称"本应用"）是一款本地优先的家族树应用。本政策说明我们如何对待你的信息——简单说：你的数据只属于你。',
     s1T: '我们的承诺',
     s1B: '你在本应用中记录的一切——家族成员资料、照片、录音、视频、故事——全部只保存在你自己的设备上。本应用不需要注册账号，不上传数据，不含广告，也不接入任何统计或追踪工具。唯一离开设备的内容，是"地图"页把地址文字交给 Apple 换算坐标（见下文《地图与地址定位》）。',
@@ -90,9 +91,9 @@ const PRIV = {
     s3B: '数据保存在你设备上本应用的专属存储空间中。如果你开启了 iCloud 备份或电脑备份，这些数据会随设备一起备份——该过程由 Apple 提供，受 Apple 的隐私条款约束。删除本应用会同时删除设备上的全部应用数据。',
     s4T: '系统权限',
     s4B: '本应用只在你主动使用相应功能时请求以下权限，获取的内容全部保存在本地：',
-    s4i1: '相机——拍摄照片或录制视频', s4i2: '麦克风——录制语音', s4i3: '相册——选取已有的照片或视频',
-    sMapT: 'å°å¾ä¸å°åå®ä½',
-    sMapB: 'å½ä½ æå¼"å°å¾"é¡µæ¶ï¼æ¬åºç¨ä¼æå®¶äººèµæéç"ç°å±å°ï¼åºçå°"è¿è¡æå­åéç» Apple çå°åå®ä½æå¡ï¼Geocodingï¼ï¼æ¢ç®æå°å¾ä¸çåæ ãåªåéè¿ä¸è¡å°åæå­ââä¸å«å§åãç§çãå½é³ãæäºæä»»ä½å¶ä»åå®¹ãæ¢ç®ç»æç¼å­å¨ä½ çè®¾å¤ä¸ï¼åä¸ä¸ªå°ååªæ¥è¯¢ä¸æ¬¡ãè¯¥æ¥è¯¢ç± Apple æä¾ï¼å Apple çéç§æ¡æ¬¾çº¦æãæ¬åºç¨ä¸è¯»åä½ è®¾å¤çå®ä½ï¼ä¹ä»ä¸è¯·æ±å®ä½æéã',
+    s4i1: '相机——拍摄照片或录制视频', s4i2: '麦克风——录制语音', s4i3: '相册——选取已有的照片或视频', s4i4: '相册（存入）——把家族树里的照片或视频存回你自己的相册',
+    sMapT: '地图与地址定位',
+    sMapB: '当你打开"地图"页时，本应用会把家人资料里的"现居地／出生地"这行文字发送给 Apple 的地址定位服务（Geocoding），换算成地图上的坐标。只发送这一行地址文字——不含姓名、照片、录音、故事或任何其他内容。常见的城市和地区由应用内置的地名表离线换算，根本不会发出去；只有这张表不认识的地址才会交给 Apple。换算结果缓存在你的设备上，同一个地址只查询一次。该查询由 Apple 提供，受 Apple 的隐私条款约束。本应用不读取你设备的定位，也从不请求定位权限。',
     s5T: '你主动的导出与分享',
     s5B: '你可以把家族数据导出为备份文件，或通过系统分享发送给亲人。导出的文件由你自行保管与分享；请注意其中可能包含家人的个人信息。',
     s6T: '关于儿童与家人的信息',
@@ -105,7 +106,7 @@ const PRIV = {
   },
   zh_Hant: {
     docTitle: '隱私政策 — 祖影', brand: '祖影', backHome: '← 返回首頁',
-    title: '隱私政策', updated: '最後更新：2026年7月25日',
+    title: '隱私政策', updated: '最後更新：2026年8月11日',
     intro: '祖影（下稱「本應用程式」）是一款本地優先的家族樹應用程式。本政策說明我們如何對待你的資訊——簡單說：你的資料只屬於你。',
     s1T: '我們的承諾',
     s1B: '你在本應用程式中記錄的一切——家族成員資料、照片、錄音、影片、故事——全部只保存在你自己的裝置上。本應用程式不需要註冊帳號，不上傳資料，不含廣告，也不接入任何統計或追蹤工具。唯一離開裝置的內容，是「地圖」頁把地址文字交給 Apple 換算座標（見下文〈地圖與地址定位〉）。',
@@ -115,9 +116,9 @@ const PRIV = {
     s3B: '資料保存在你裝置上本應用程式的專屬儲存空間中。如果你開啟了 iCloud 備份或電腦備份，這些資料會隨裝置一起備份——該過程由 Apple 提供，受 Apple 的隱私條款約束。刪除本應用程式會同時刪除裝置上的全部應用資料。',
     s4T: '系統權限',
     s4B: '本應用程式只在你主動使用相應功能時請求以下權限，取得的內容全部保存在本地：',
-    s4i1: '相機——拍攝照片或錄製影片', s4i2: '麥克風——錄製語音', s4i3: '相簿——選取已有的照片或影片',
-    sMapT: 'å°åèå°åå®ä½',
-    sMapB: 'ç¶ä½ éåãå°åãé æï¼æ¬æç¨ææå®¶äººè³æè£¡çãç¾å±å°ï¼åºçå°ãéè¡æå­å³éçµ¦ Apple çå°åå®ä½æåï¼Geocodingï¼ï¼æç®æå°åä¸çåº§æ¨ãåªå³ééä¸è¡å°åæå­ââä¸å«å§åãç§çãéé³ãæäºæä»»ä½å¶ä»å§å®¹ãæç®çµææå¿«åå¨ä½ çè£ç½®ä¸ï¼åä¸åå°ååªæ¥è©¢ä¸æ¬¡ãè©²æ¥è©¢ç± Apple æä¾ï¼å Apple çé±ç§æ¢æ¬¾ç´æãæ¬æç¨ä¸è®åä½ è£ç½®çå®ä½ï¼ä¹å¾ä¸è«æ±å®ä½æ¬éã',
+    s4i1: '相機——拍攝照片或錄製影片', s4i2: '麥克風——錄製語音', s4i3: '相簿——選取已有的照片或影片', s4i4: '相簿（存入）——把家族樹裡的照片或影片存回你自己的相簿',
+    sMapT: '地圖與地址定位',
+    sMapB: '當你開啟「地圖」頁時，本應用會把家人資料裡的「現居地／出生地」這行文字傳送給 Apple 的地址定位服務（Geocoding），換算成地圖上的座標。只傳送這一行地址文字——不含姓名、照片、錄音、故事或任何其他內容。常見的城市與地區由應用程式內建的地名表離線換算，根本不會傳送出去；只有這張表不認識的地址才會交給 Apple。換算結果會快取在你的裝置上，同一個地址只查詢一次。該查詢由 Apple 提供，受 Apple 的隱私條款約束。本應用不讀取你裝置的定位，也從不請求定位權限。',
     s5T: '你主動的匯出與分享',
     s5B: '你可以把家族資料匯出為備份檔案，或透過系統分享傳送給親人。匯出的檔案由你自行保管與分享；請注意其中可能包含家人的個人資訊。',
     s6T: '關於兒童與家人的資訊',
@@ -130,7 +131,7 @@ const PRIV = {
   },
   en: {
     docTitle: 'Privacy Policy — Zuying', brand: 'Zuying', backHome: '← Back to home',
-    title: 'Privacy Policy', updated: 'Last updated: July 25, 2026',
+    title: 'Privacy Policy', updated: 'Last updated: August 11, 2026',
     intro: 'Zuying (祖影, "the app") is a local-first family-tree app. This policy explains how we treat your information — in short: your data belongs to you alone.',
     s1T: 'Our promise',
     s1B: 'Everything you record in the app — family member profiles, photos, voice recordings, videos, stories — is stored only on your own device. The app requires no account, uploads nothing, shows no ads, and includes no analytics or tracking tools. The one thing that leaves your device is the address text the Map tab hands to Apple to convert into coordinates — see “Maps and address lookup” below.',
@@ -143,8 +144,9 @@ const PRIV = {
     s4i1: 'Camera — taking photos or recording videos',
     s4i2: 'Microphone — recording voice memos',
     s4i3: 'Photo library — choosing existing photos or videos',
+    s4i4: 'Photo library (adding) — saving a photo or video from your tree back to your own album',
     sMapT: 'Maps and address lookup',
-    sMapB: 'When you open the Map tab, the app sends the "lives in / born in" line from your relatives’ profiles to Apple’s geocoding service, to turn it into coordinates on the map. Only that line of address text is sent — never names, photos, recordings, stories or anything else. Results are cached on your device, so each address is looked up once. The lookup is provided by Apple and governed by Apple’s privacy policy. The app never reads your device’s location and never asks for location permission.',
+    sMapB: 'When you open the Map tab, the app sends the "lives in / born in" line from your relatives’ profiles to Apple’s geocoding service, to turn it into coordinates on the map. Only that line of address text is sent — never names, photos, recordings, stories or anything else. Common cities and regions are resolved offline from a table built into the app and never leave your device at all; only an address that table does not know is sent to Apple. Results are cached on your device, so each address is looked up once. The lookup is provided by Apple and governed by Apple’s privacy policy. The app never reads your device’s location and never asks for location permission.',
     s5T: 'Exports and sharing you initiate',
     s5B: 'You can export your family data as a backup file or share it with relatives through the system share sheet. Exported files are in your hands; please remember they may contain your family members’ personal information.',
     s6T: 'About children’s and relatives’ information',
@@ -157,7 +159,7 @@ const PRIV = {
   },
   es: {
     docTitle: 'Política de privacidad — Zuying', brand: 'Zuying', backHome: '← Volver al inicio',
-    title: 'Política de privacidad', updated: 'Última actualización: 25 de julio de 2026',
+    title: 'Política de privacidad', updated: 'Última actualización: 11 de agosto de 2026',
     intro: 'Zuying (祖影, «la app») es una app de árbol genealógico local-first. Esta política explica cómo tratamos tu información; en resumen: tus datos te pertenecen solo a ti.',
     s1T: 'Nuestro compromiso',
     s1B: 'Todo lo que registras en la app —perfiles de familiares, fotos, grabaciones de voz, vídeos, historias— se guarda únicamente en tu propio dispositivo. La app no requiere cuenta, no sube nada, no muestra anuncios y no incluye herramientas de análisis ni de rastreo. Lo único que sale de tu dispositivo es el texto de la dirección que la pestaña Mapa entrega a Apple para convertirlo en coordenadas: consulta «Mapa y localización de direcciones» más abajo.',
@@ -170,8 +172,9 @@ const PRIV = {
     s4i1: 'Cámara — tomar fotos o grabar vídeos',
     s4i2: 'Micrófono — grabar notas de voz',
     s4i3: 'Fototeca — elegir fotos o vídeos existentes',
+    s4i4: 'Fototeca (añadir) — guardar en tu álbum una foto o un vídeo de tu árbol',
     sMapT: 'Mapa y localización de direcciones',
-    sMapB: 'Cuando abres la pestaña Mapa, la aplicación envía la línea de «residencia actual / lugar de nacimiento» de las fichas de tus familiares al servicio de geocodificación de Apple, para convertirla en coordenadas del mapa. Solo se envía esa línea de dirección: nunca nombres, fotos, grabaciones, historias ni ninguna otra cosa. Los resultados se guardan en tu dispositivo, de modo que cada dirección se consulta una sola vez. Esa consulta la presta Apple y se rige por su política de privacidad. La aplicación nunca lee la ubicación de tu dispositivo ni pide permiso de ubicación.',
+    sMapB: 'Cuando abres la pestaña Mapa, la aplicación envía la línea de «residencia actual / lugar de nacimiento» de las fichas de tus familiares al servicio de geocodificación de Apple, para convertirla en coordenadas del mapa. Solo se envía esa línea de dirección: nunca nombres, fotos, grabaciones, historias ni ninguna otra cosa. Las ciudades y regiones habituales se resuelven sin conexión con una tabla incluida en la aplicación y no salen de tu dispositivo; solo se envía a Apple una dirección que esa tabla no conozca. Los resultados se guardan en tu dispositivo, de modo que cada dirección se consulta una sola vez. Esa consulta la presta Apple y se rige por su política de privacidad. La aplicación nunca lee la ubicación de tu dispositivo ni pide permiso de ubicación.',
     s5T: 'Exportaciones y compartición que tú inicias',
     s5B: 'Puedes exportar tus datos familiares como archivo de copia de seguridad o compartirlos con tus parientes. Los archivos exportados quedan en tus manos; recuerda que pueden contener información personal de tus familiares.',
     s6T: 'Sobre la información de menores y familiares',
@@ -184,7 +187,7 @@ const PRIV = {
   },
   fr: {
     docTitle: 'Politique de confidentialité — Zuying', brand: 'Zuying', backHome: '← Retour à l’accueil',
-    title: 'Politique de confidentialité', updated: 'Dernière mise à jour : 25 juillet 2026',
+    title: 'Politique de confidentialité', updated: 'Dernière mise à jour : 11 août 2026',
     intro: 'Zuying (祖影, « l’app ») est une app d’arbre généalogique « local d’abord ». Cette politique explique comment nous traitons vos informations — en bref : vos données n’appartiennent qu’à vous.',
     s1T: 'Notre engagement',
     s1B: 'Tout ce que vous enregistrez dans l’app — profils de proches, photos, enregistrements vocaux, vidéos, histoires — est stocké uniquement sur votre propre appareil. L’app ne demande aucun compte, n’envoie rien, n’affiche aucune publicité et n’intègre aucun outil d’analyse ou de pistage. La seule chose qui quitte votre appareil est le texte de l’adresse que l’onglet Carte confie à Apple pour le convertir en coordonnées — voir « Carte et localisation des adresses » ci-dessous.',
@@ -197,8 +200,9 @@ const PRIV = {
     s4i1: 'Appareil photo — prendre des photos ou filmer',
     s4i2: 'Micro — enregistrer des mémos vocaux',
     s4i3: 'Photothèque — choisir des photos ou vidéos existantes',
+    s4i4: 'Photothèque (ajout) — enregistrer dans votre album une photo ou une vidéo de votre arbre',
     sMapT: 'Carte et localisation des adresses',
-    sMapB: 'Lorsque vous ouvrez l’onglet Carte, l’application envoie la ligne « lieu de résidence / lieu de naissance » des fiches de vos proches au service de géocodage d’Apple, afin de la convertir en coordonnées sur la carte. Seule cette ligne d’adresse est transmise — jamais les noms, les photos, les enregistrements, les récits ni quoi que ce soit d’autre. Les résultats sont conservés sur votre appareil : chaque adresse n’est recherchée qu’une fois. Cette recherche est assurée par Apple et régie par sa politique de confidentialité. L’application ne lit jamais la position de votre appareil et ne demande aucune autorisation de localisation.',
+    sMapB: 'Lorsque vous ouvrez l’onglet Carte, l’application envoie la ligne « lieu de résidence / lieu de naissance » des fiches de vos proches au service de géocodage d’Apple, afin de la convertir en coordonnées sur la carte. Seule cette ligne d’adresse est transmise — jamais les noms, les photos, les enregistrements, les récits ni quoi que ce soit d’autre. Les villes et régions courantes sont résolues hors ligne à partir d’une table intégrée à l’application et ne quittent jamais votre appareil ; seule une adresse que cette table ne connaît pas est envoyée à Apple. Les résultats sont conservés sur votre appareil : chaque adresse n’est recherchée qu’une fois. Cette recherche est assurée par Apple et régie par sa politique de confidentialité. L’application ne lit jamais la position de votre appareil et ne demande aucune autorisation de localisation.',
     s5T: 'Exports et partages à votre initiative',
     s5B: 'Vous pouvez exporter vos données familiales en fichier de sauvegarde ou les partager avec vos proches. Les fichiers exportés sont entre vos mains ; n’oubliez pas qu’ils peuvent contenir des informations personnelles de votre famille.',
     s6T: 'Informations sur les enfants et les proches',
@@ -211,7 +215,7 @@ const PRIV = {
   },
   hi: {
     docTitle: 'गोपनीयता नीति — Zuying', brand: 'Zuying', backHome: '← मुखपृष्ठ पर लौटें',
-    title: 'गोपनीयता नीति', updated: 'अंतिम अद्यतन: 25 जुलाई 2026',
+    title: 'गोपनीयता नीति', updated: 'अंतिम अद्यतन: 11 अगस्त 2026',
     intro: 'Zuying (祖影, "ऐप") एक लोकल-फ़र्स्ट वंश-वृक्ष ऐप है। यह नीति बताती है कि हम आपकी जानकारी के साथ कैसा व्यवहार करते हैं — संक्षेप में: आपका डेटा केवल आपका है।',
     s1T: 'हमारा वचन',
     s1B: 'ऐप में आप जो भी दर्ज करते हैं — परिवारजनों की जानकारी, तस्वीरें, आवाज़ की रिकॉर्डिंग, वीडियो, कहानियाँ — सब कुछ केवल आपके अपने डिवाइस पर सहेजा जाता है। ऐप में खाते की ज़रूरत नहीं, कुछ भी अपलोड नहीं होता, कोई विज्ञापन नहीं, और कोई एनालिटिक्स या ट्रैकिंग टूल नहीं है। आपके डिवाइस से बाहर जाने वाली एकमात्र चीज़ वह पता-पाठ है जिसे "मानचित्र" टैब निर्देशांक में बदलने के लिए Apple को भेजता है — नीचे "मानचित्र और पते की खोज" देखें।',
@@ -224,8 +228,9 @@ const PRIV = {
     s4i1: 'कैमरा — फ़ोटो लेना या वीडियो रिकॉर्ड करना',
     s4i2: 'माइक्रोफ़ोन — आवाज़ रिकॉर्ड करना',
     s4i3: 'फ़ोटो लाइब्रेरी — मौजूदा फ़ोटो या वीडियो चुनना',
+    s4i4: 'फ़ोटो लाइब्रेरी (जोड़ना) — अपने वंश-वृक्ष की कोई तस्वीर या वीडियो अपने एलबम में सहेजना',
     sMapT: 'मानचित्र और पते की खोज',
-    sMapB: 'जब आप "मानचित्र" टैब खोलते हैं, ऐप आपके परिजनों की प्रोफ़ाइल में लिखा "वर्तमान निवास / जन्मस्थान" पाठ Apple की जियोकोडिंग सेवा को भेजता है, ताकि उसे मानचित्र के निर्देशांकों में बदला जा सके। केवल पते की वह पंक्ति भेजी जाती है — नाम, तस्वीरें, रिकॉर्डिंग, कहानियाँ या कुछ और कभी नहीं। परिणाम आपके डिवाइस पर सहेजे जाते हैं, इसलिए हर पता एक ही बार खोजा जाता है। यह खोज Apple द्वारा की जाती है और Apple की गोपनीयता नीति के अधीन है। ऐप आपके डिवाइस की लोकेशन कभी नहीं पढ़ता और लोकेशन अनुमति कभी नहीं माँगता।',
+    sMapB: 'जब आप "मानचित्र" टैब खोलते हैं, ऐप आपके परिजनों की प्रोफ़ाइल में लिखा "वर्तमान निवास / जन्मस्थान" पाठ Apple की जियोकोडिंग सेवा को भेजता है, ताकि उसे मानचित्र के निर्देशांकों में बदला जा सके। केवल पते की वह पंक्ति भेजी जाती है — नाम, तस्वीरें, रिकॉर्डिंग, कहानियाँ या कुछ और कभी नहीं। आम शहर और क्षेत्र ऐप में शामिल एक तालिका से ऑफ़लाइन ही हल हो जाते हैं और आपके डिवाइस से बाहर जाते ही नहीं; केवल वही पता Apple को भेजा जाता है जिसे वह तालिका नहीं जानती। परिणाम आपके डिवाइस पर सहेजे जाते हैं, इसलिए हर पता एक ही बार खोजा जाता है। यह खोज Apple द्वारा की जाती है और Apple की गोपनीयता नीति के अधीन है। ऐप आपके डिवाइस की लोकेशन कभी नहीं पढ़ता और लोकेशन अनुमति कभी नहीं माँगता।',
     s5T: 'आपके द्वारा किया गया निर्यात और साझा करना',
     s5B: 'आप अपना पारिवारिक डेटा बैकअप फ़ाइल के रूप में निर्यात कर सकते हैं या परिजनों के साथ साझा कर सकते हैं। निर्यात की गई फ़ाइलें आपके हाथ में हैं; ध्यान रखें कि उनमें परिवारजनों की व्यक्तिगत जानकारी हो सकती है।',
     s6T: 'बच्चों और परिजनों की जानकारी',
