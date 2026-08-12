@@ -246,6 +246,18 @@ const PRIV = {
 const LANGS = ['zh', 'zh_Hant', 'en', 'es', 'fr', 'hi'];
 const LANG_KEY = 'zuying_web_lang';
 let lang = (() => {
+  // ?lang= wins over everything. The app links here with the language the
+  // reader picked INSIDE 祖影, which the browser has no way to know: someone
+  // on an English phone who set the app to 中文 would otherwise be handed the
+  // English policy by their own browser.
+  const asked = new URLSearchParams(location.search).get('lang');
+  if (asked && LANGS.includes(asked)) {
+    // Remembered, so 返回首页 lands on the home page in the same language
+    // instead of falling back to whatever the browser prefers.
+    try { localStorage.setItem(LANG_KEY, asked); } catch (e) { /* private mode */ }
+    return asked;
+  }
+
   const saved = localStorage.getItem(LANG_KEY);
   if (saved && LANGS.includes(saved)) return saved;
   for (const raw of (navigator.languages || [navigator.language || 'en'])) {
