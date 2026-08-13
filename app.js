@@ -606,6 +606,15 @@ const LANG_KEY = 'zuying_web_lang';
 let lang = detectLang();
 
 function detectLang() {
+  // ?lang= wins, and is remembered. The app links here with the language the
+  // reader chose INSIDE 祖影, which the browser has no way to know: someone on
+  // an English phone who set the app to 中文 would otherwise land in English.
+  const asked = new URLSearchParams(location.search).get('lang');
+  if (asked && LANGS.includes(asked)) {
+    try { localStorage.setItem(LANG_KEY, asked); } catch (e) { /* private mode */ }
+    return asked;
+  }
+
   const saved = localStorage.getItem(LANG_KEY);
   if (saved && LANGS.includes(saved)) return saved;
   for (const raw of (navigator.languages || [navigator.language || 'en'])) {
