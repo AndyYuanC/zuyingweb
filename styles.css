@@ -98,7 +98,6 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
 .hero-sub {
   margin-top: 18px; font-size: 1.08rem; opacity: .88; max-width: 520px;
 }
-.hero-note { margin-top: 14px; font-size: .9rem; opacity: .6; }
 .hero-art { display: flex; justify-content: center; }
 .hero-img {
   width: min(340px, 80%);
@@ -122,23 +121,6 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
   transition: transform .15s ease;
 }
 .cta-btn:hover { transform: translateY(-2px); }
-
-/* Launch CTA. No store badge until the app is actually on the stores:
-   Apple's and Google's badges are trademarked artwork that may not be
-   redrawn, and both say "download" — which would be untrue today. */
-.badges { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
-.badges-center { justify-content: center; }
-/* A ghost button, so the same rule works on the dark hero and the light
-   download section: it borrows whichever text colour the section sets. */
-.notify-cta {
-  display: inline-block;
-  background: transparent; color: inherit;
-  border: 1px solid currentColor; border-radius: 14px;
-  padding: 11px 26px; font-size: 1.02rem; font-weight: 600;
-  opacity: .85;
-  transition: transform .15s ease, color .15s ease, opacity .15s ease;
-}
-.notify-cta:hover { transform: translateY(-2px); color: var(--gold); opacity: 1; }
 
 /* ---------- features ---------- */
 .features { max-width: var(--maxw); margin: 0 auto; padding: 72px 20px 24px; }
@@ -780,17 +762,24 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
   pointer-events: none; white-space: nowrap;
 }
 
-/* ---------- download ---------- */
-.download {
-  margin: 72px auto 0; padding: 64px 20px;
-  text-align: center; color: #f2ecdf;
-  background:
-    radial-gradient(900px 400px at 50% 120%, #22345c 0%, transparent 60%),
-    var(--navy);
+/* Where you can actually get it — the question every "coming soon" page
+   leaves unanswered, so it sits in the hero rather than at the bottom.
+   A two-column grid, not a label inline with its text: the labels differ in
+   width in every language, and inline they left both lines of text starting
+   at different x. The grid's max-content column makes one edge for all of
+   them. Cream on the navy hero; quiet — it informs, it does not sell. */
+.regions {
+  display: grid; grid-template-columns: max-content 1fr;
+  gap: 7px 10px; align-items: baseline;
+  margin: 16px 0 0; max-width: 620px; font-size: .88rem; line-height: 1.7;
+  color: rgba(242,236,223,.72);
 }
-.dl-icon { margin: 0 auto 18px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
-.download .section-sub { color: #cbc3ae; }
-.download .badges { margin-top: 26px; }
+.regions-label {
+  justify-self: start; padding: 1px 9px;
+  border: 1px solid rgba(242,236,223,.34); border-radius: 999px;
+  font-size: .74rem; letter-spacing: .04em; color: #f2ecdf; white-space: nowrap;
+}
+.regions-now { color: #f2ecdf; }
 
 /* ---------- contact ---------- */
 .contact { max-width: var(--maxw); margin: 0 auto; padding: 72px 20px; text-align: center; }
