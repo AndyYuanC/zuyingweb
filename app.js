@@ -14,8 +14,9 @@ const I18N = {
     heroTitle: '把家族的故事，留给下一代',
     heroSub: '祖影是一款家族树 App：为每一位亲人建一张卡片，留下照片、声音与故事；血脉在指尖流动，称谓自动算好，回声代代相传。',
     heroCta: '先在线试一试',
+    heroCtaStore: '在 App Store 下载',
     shotsTitle: '真实界面抢先看',
-    shotsSub: '以下截图来自正在开发中的 iPhone 版本。',
+    shotsSub: '以下截图来自 iPhone 版。',
     shotsDrag: '拖动查看全部界面',
     shotCapTree: '家族树画布', shotCapCard: '人物卡',
     shotCapGallery: '个人主页：故事与回声',
@@ -71,7 +72,7 @@ const I18N = {
     demoRouteBack: '返回地图',
     demoNote: '这里只是浅浅一瞥——想亲手添加家人、写故事、录声音？都在 App 里。',
     addRelative: '添加亲人', expandChip: '展开', refocusChip: '以TA为中心', deleteChip: '删除',
-    tryInApp: '想亲手添加？这些要在 App 里完成——即将上架，敬请期待。',
+    tryInApp: '想亲手添加？这些要在 App 里完成——去 App Store 下载。',
     gStories: '故事', gTellOne: '讲一个', gAlbum: '相册', gPhotos: '照片',
     gAudio: '录音', gVideo: '视频', gEchoes: '回声', gAddMedia: '添加',
     gStoryTitle: '天井里的夏夜',
@@ -80,7 +81,7 @@ const I18N = {
     echoZodiac: '和你一样属{z}', meBadge: '我',
     zodiac: ['鼠','牛','虎','兔','龙','蛇','马','羊','猴','鸡','狗','猪'],
     regionsNowLabel: '首发',
-    regionsNow: 'iPhone 版，即将在美国、加拿大、港澳台、新加坡和马来西亚的 App Store 上架。',
+    regionsNow: 'iPhone 版已上架美国、加拿大、港澳台、新加坡和马来西亚的 App Store。',
     regionsNextLabel: '接下来',
     regionsNext: 'Android 版，以及英国、澳洲、印度和欧盟；中国大陆要等备案完成。',
     ctTitle: '联系我们',
@@ -97,8 +98,9 @@ const I18N = {
     heroTitle: '把家族的故事，留給下一代',
     heroSub: '祖影是一款家族樹 App：為每一位親人建一張卡片，留下照片、聲音與故事；血脈在指尖流動，稱謂自動算好，回聲代代相傳。',
     heroCta: '先線上試一試',
+    heroCtaStore: '在 App Store 下載',
     shotsTitle: '真實介面搶先看',
-    shotsSub: '以下截圖來自正在開發中的 iPhone 版本。',
+    shotsSub: '以下截圖來自 iPhone 版。',
     shotsDrag: '拖動查看全部介面',
     shotCapTree: '家族樹畫布', shotCapCard: '人物卡',
     shotCapGallery: '個人主頁：故事與回聲',
@@ -154,7 +156,7 @@ const I18N = {
     demoRouteBack: '返回地圖',
     demoNote: '這裡只是淺淺一瞥——想親手添加家人、寫故事、錄聲音？都在 App 裡。',
     addRelative: '添加親人', expandChip: '展開', refocusChip: '以TA為中心', deleteChip: '刪除',
-    tryInApp: '想親手添加？這些要在 App 裡完成——即將上架，敬請期待。',
+    tryInApp: '想親手添加？這些要在 App 裡完成——去 App Store 下載。',
     gStories: '故事', gTellOne: '講一個', gAlbum: '相簿', gPhotos: '照片',
     gAudio: '錄音', gVideo: '影片', gEchoes: '回聲', gAddMedia: '新增',
     gStoryTitle: '天井裡的夏夜',
@@ -163,7 +165,7 @@ const I18N = {
     echoZodiac: '和你一樣屬{z}', meBadge: '我',
     zodiac: ['鼠','牛','虎','兔','龍','蛇','馬','羊','猴','雞','狗','豬'],
     regionsNowLabel: '首發',
-    regionsNow: 'iPhone 版，即將在美國、加拿大、港澳台、新加坡和馬來西亞的 App Store 上架。',
+    regionsNow: 'iPhone 版已上架美國、加拿大、港澳台、新加坡和馬來西亞的 App Store。',
     regionsNextLabel: '接下來',
     regionsNext: 'Android 版，以及英國、澳洲、印度和歐盟；中國大陸要等備案完成。',
     ctTitle: '聯絡我們',
@@ -180,8 +182,9 @@ const I18N = {
     heroTitle: 'Keep your family’s story for the next generation',
     heroSub: 'Zuying (祖影) is a family-tree app: a card for every relative, holding their photos, voice and stories. Bloodlines flow at your fingertips, kinship terms are worked out for you, and family echoes carry on.',
     heroCta: 'Try the live demo',
+    heroCtaStore: 'Download on the App Store',
     shotsTitle: 'A first look at the real app',
-    shotsSub: 'Screenshots from the iPhone build in development.',
+    shotsSub: 'Screenshots from the iPhone app.',
     shotsDrag: 'Drag to explore every screen',
     shotCapTree: 'The tree canvas', shotCapCard: 'Person card',
     shotCapGallery: 'Person page: stories & echoes',
@@ -237,7 +240,7 @@ const I18N = {
     demoRouteBack: 'Back to map',
     demoNote: 'This is just a glimpse — adding family, writing stories and recording voices all happen in the app.',
     addRelative: 'Add relative', expandChip: 'Expand', refocusChip: 'Center on them', deleteChip: 'Delete',
-    tryInApp: 'Want to add your own? That happens in the app — coming soon.',
+    tryInApp: 'Want to add your own? That happens in the app — download it on the App Store.',
     gStories: 'Stories', gTellOne: 'Tell one', gAlbum: 'Album', gPhotos: 'Photos',
     gAudio: 'Recordings', gVideo: 'Videos', gEchoes: 'Echoes', gAddMedia: 'Add',
     gStoryTitle: 'Summer nights in the courtyard',
@@ -246,7 +249,7 @@ const I18N = {
     echoZodiac: 'Year of the {z}, same as you', meBadge: 'Me',
     zodiac: ['Rat','Ox','Tiger','Rabbit','Dragon','Snake','Horse','Goat','Monkey','Rooster','Dog','Pig'],
     regionsNowLabel: 'First release',
-    regionsNow: 'Coming to iPhone in the US, Canada, Hong Kong, Taiwan, Macau, Singapore and Malaysia.',
+    regionsNow: 'Out now on iPhone in the US, Canada, Hong Kong, Taiwan, Macau, Singapore and Malaysia.',
     regionsNextLabel: 'Next',
     regionsNext: 'Android, plus the UK, Australia, India and the EU; mainland China waits on its filing.',
     ctTitle: 'Contact us',
@@ -263,8 +266,9 @@ const I18N = {
     heroTitle: 'Guarda la historia de tu familia para la próxima generación',
     heroSub: 'Zuying (祖影) es una app de árbol genealógico: una tarjeta para cada familiar, con sus fotos, su voz y sus historias. El linaje fluye bajo tus dedos, el parentesco se calcula solo y los ecos familiares perduran.',
     heroCta: 'Prueba la demo',
+    heroCtaStore: 'Descargar en el App Store',
     shotsTitle: 'Un vistazo a la app real',
-    shotsSub: 'Capturas de la versión para iPhone en desarrollo.',
+    shotsSub: 'Capturas de la app para iPhone.',
     shotsDrag: 'Arrastra para explorar todas las pantallas',
     shotCapTree: 'El lienzo del árbol', shotCapCard: 'Tarjeta de persona',
     shotCapGallery: 'Página personal: historias y ecos',
@@ -320,7 +324,7 @@ const I18N = {
     demoRouteBack: 'Volver al mapa',
     demoNote: 'Esto es solo un vistazo: añadir familiares, escribir historias y grabar voces se hace en la app.',
     addRelative: 'Añadir familiar', expandChip: 'Abrir', refocusChip: 'Centrar aquí', deleteChip: 'Eliminar',
-    tryInApp: '¿Quieres añadir a los tuyos? Eso se hace en la app — muy pronto.',
+    tryInApp: '¿Quieres añadir a los tuyos? Eso se hace en la app — descárgala en el App Store.',
     gStories: 'Historias', gTellOne: 'Contar una', gAlbum: 'Álbum', gPhotos: 'Fotos',
     gAudio: 'Grabaciones', gVideo: 'Vídeos', gEchoes: 'Ecos', gAddMedia: 'Añadir',
     gStoryTitle: 'Noches de verano en el patio',
@@ -329,7 +333,7 @@ const I18N = {
     echoZodiac: 'Año del {z}, igual que tú', meBadge: 'Yo',
     zodiac: ['Rata','Buey','Tigre','Conejo','Dragón','Serpiente','Caballo','Cabra','Mono','Gallo','Perro','Cerdo'],
     regionsNowLabel: 'Primer lanzamiento',
-    regionsNow: 'Muy pronto en iPhone en Estados Unidos, Canadá, Hong Kong, Taiwán, Macao, Singapur y Malasia.',
+    regionsNow: 'Ya disponible para iPhone en Estados Unidos, Canadá, Hong Kong, Taiwán, Macao, Singapur y Malasia.',
     regionsNextLabel: 'Después',
     regionsNext: 'Android, y luego Reino Unido, Australia, India y la Unión Europea; China continental espera su registro.',
     ctTitle: 'Contacto',
@@ -346,8 +350,9 @@ const I18N = {
     heroTitle: 'Gardez l’histoire de votre famille pour la génération suivante',
     heroSub: 'Zuying (祖影) est une app d’arbre généalogique : une carte pour chaque proche, avec ses photos, sa voix et ses histoires. Le lignage coule sous vos doigts, les liens de parenté se calculent tout seuls, et les échos de la famille se transmettent.',
     heroCta: 'Essayer la démo',
+    heroCtaStore: 'Télécharger sur l’App Store',
     shotsTitle: 'Un aperçu de la vraie app',
-    shotsSub: 'Captures de la version iPhone en développement.',
+    shotsSub: 'Captures de l’app iPhone.',
     shotsDrag: 'Faites glisser pour voir tous les écrans',
     shotCapTree: 'Le canevas de l’arbre', shotCapCard: 'Carte de personne',
     shotCapGallery: 'Page personnelle : histoires et échos',
@@ -403,7 +408,7 @@ const I18N = {
     demoRouteBack: 'Retour à la carte',
     demoNote: 'Ce n’est qu’un aperçu — ajouter des proches, écrire des histoires et enregistrer des voix, tout cela se passe dans l’app.',
     addRelative: 'Ajouter un proche', expandChip: 'Ouvrir', refocusChip: 'Recentrer ici', deleteChip: 'Supprimer',
-    tryInApp: 'Envie d’ajouter les vôtres ? Cela se passe dans l’app — bientôt disponible.',
+    tryInApp: 'Envie d’ajouter les vôtres ? Cela se passe dans l’app — téléchargez-la sur l’App Store.',
     gStories: 'Histoires', gTellOne: 'En raconter une', gAlbum: 'Album', gPhotos: 'Photos',
     gAudio: 'Enregistrements', gVideo: 'Vidéos', gEchoes: 'Échos', gAddMedia: 'Ajouter',
     gStoryTitle: 'Nuits d’été dans la cour',
@@ -412,7 +417,7 @@ const I18N = {
     echoZodiac: 'Année du {z}, comme toi', meBadge: 'Moi',
     zodiac: ['Rat','Buffle','Tigre','Lapin','Dragon','Serpent','Cheval','Chèvre','Singe','Coq','Chien','Cochon'],
     regionsNowLabel: 'Premier lancement',
-    regionsNow: 'Bientôt sur iPhone aux États-Unis, au Canada, à Hong Kong, à Taïwan, à Macao, à Singapour et en Malaisie.',
+    regionsNow: 'Disponible sur iPhone aux États-Unis, au Canada, à Hong Kong, à Taïwan, à Macao, à Singapour et en Malaisie.',
     regionsNextLabel: 'Ensuite',
     regionsNext: 'Android, puis le Royaume-Uni, l’Australie, l’Inde et l’Union européenne ; la Chine continentale attend son enregistrement.',
     ctTitle: 'Nous contacter',
@@ -429,8 +434,9 @@ const I18N = {
     heroTitle: 'अपने परिवार की कहानी अगली पीढ़ी के लिए संजोएँ',
     heroSub: 'Zuying (祖影) एक वंश-वृक्ष ऐप है: हर रिश्तेदार के लिए एक कार्ड, जिसमें उनकी तस्वीरें, आवाज़ और कहानियाँ रहती हैं। वंश आपकी उँगलियों पर बहता है, रिश्तों के नाम अपने आप निकलते हैं, और परिवार की गूँज पीढ़ी-दर-पीढ़ी चलती है।',
     heroCta: 'लाइव डेमो आज़माएँ',
+    heroCtaStore: 'App Store से डाउनलोड करें',
     shotsTitle: 'असली ऐप की पहली झलक',
-    shotsSub: 'विकासाधीन iPhone संस्करण के स्क्रीनशॉट।',
+    shotsSub: 'iPhone ऐप के स्क्रीनशॉट।',
     shotsDrag: 'सभी स्क्रीन देखने के लिए खींचें',
     shotCapTree: 'वंश-वृक्ष कैनवास', shotCapCard: 'व्यक्ति कार्ड',
     shotCapGallery: 'व्यक्तिगत पेज: कहानियाँ और गूँज',
@@ -486,7 +492,7 @@ const I18N = {
     demoRouteBack: 'नक़्शे पर लौटें',
     demoNote: 'यह बस एक झलक है — परिजन जोड़ना, कहानियाँ लिखना और आवाज़ रिकॉर्ड करना, सब ऐप में होता है।',
     addRelative: 'रिश्तेदार जोड़ें', expandChip: 'खोलें', refocusChip: 'इन पर केंद्रित करें', deleteChip: 'हटाएँ',
-    tryInApp: 'खुद जोड़ना चाहते हैं? यह ऐप में होता है — जल्द आ रहा है।',
+    tryInApp: 'खुद जोड़ना चाहते हैं? यह ऐप में होता है — App Store से डाउनलोड करें।',
     gStories: 'कहानियाँ', gTellOne: 'एक सुनाएँ', gAlbum: 'एल्बम', gPhotos: 'तस्वीरें',
     gAudio: 'रिकॉर्डिंग', gVideo: 'वीडियो', gEchoes: 'गूँज', gAddMedia: 'जोड़ें',
     gStoryTitle: 'आँगन की गर्मियों की रातें',
@@ -495,7 +501,7 @@ const I18N = {
     echoZodiac: '{z} वर्ष — आपकी तरह', meBadge: 'मैं',
     zodiac: ['चूहा','बैल','बाघ','ख़रगोश','ड्रैगन','साँप','घोड़ा','बकरी','बंदर','मुर्गा','कुत्ता','सुअर'],
     regionsNowLabel: 'पहली रिलीज़',
-    regionsNow: 'जल्द ही iPhone पर — अमेरिका, कनाडा, हांगकांग, ताइवान, मकाऊ, सिंगापुर और मलेशिया में।',
+    regionsNow: 'iPhone पर अब उपलब्ध — अमेरिका, कनाडा, हांगकांग, ताइवान, मकाऊ, सिंगापुर और मलेशिया में।',
     regionsNextLabel: 'आगे',
     regionsNext: 'Android, और फिर ब्रिटेन, ऑस्ट्रेलिया, भारत तथा यूरोपीय संघ; मुख्यभूमि चीन पंजीकरण की प्रतीक्षा में।',
     ctTitle: 'संपर्क करें',
@@ -656,6 +662,13 @@ function applyShotLangs() {
   });
 }
 
+/* Apple ships the badge per language, each a different width, and offers no
+   Hindi lockup — their own guidance is to fall back to English. White artwork:
+   the black badge vanishes into the navy hero. */
+const BADGE_LOCALE = {
+  zh: 'zh-cn', zh_Hant: 'zh-tw', en: 'en-us', es: 'es-es', fr: 'fr-fr', hi: 'en-us',
+};
+
 function applyLang() {
   document.documentElement.lang =
     { zh: 'zh-CN', zh_Hant: 'zh-Hant' }[lang] || lang;
@@ -668,6 +681,11 @@ function applyLang() {
     el.title = label;
     el.setAttribute('aria-label', label);
   });
+  const badge = document.getElementById('storeBadge');
+  if (badge) {
+    badge.src = `assets/appstore/${BADGE_LOCALE[lang] || 'en-us'}.svg`;
+    badge.alt = t('heroCtaStore');
+  }
   document.querySelectorAll('#styleDots .dot').forEach((d) => {
     d.title = I18N[lang].styles[d.dataset.style];
   });

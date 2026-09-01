@@ -112,15 +112,25 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
 
 /* hero CTA */
 .hero-cta { margin-top: 24px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-.cta-btn {
+/* Official App Store badge, served from Apple's marketing toolbox. Their terms:
+   don't recolour, rotate, or add effects to the artwork, keep it at least 40px
+   tall, and leave clear space of 10% of its height (4px) around it. The hover
+   lift moves the badge; it does not alter it. */
+.badge-btn { display: inline-block; line-height: 0; padding: 4px; transition: transform .15s ease; }
+.badge-btn:hover { transform: translateY(-2px); }
+.badge-btn img { display: block; height: 40px; width: auto; }
+
+/* Secondary CTA. The gold button now goes to the App Store, so the demo link
+   steps back to an outline — same size and baseline, no second gold surface
+   competing with the primary action. */
+.cta-ghost {
   display: inline-block;
-  background: linear-gradient(120deg, var(--gold-soft), var(--gold));
-  color: #221607; font-weight: 700; font-size: 1.02rem;
-  border-radius: 14px; padding: 12px 26px;
-  box-shadow: 0 8px 24px rgba(217, 164, 65, .35);
-  transition: transform .15s ease;
+  color: #f2ecdf; font-weight: 600; font-size: 1.02rem;
+  border: 1px solid rgba(242,236,223,.38); border-radius: 14px;
+  padding: 11px 22px;
+  transition: border-color .15s ease, transform .15s ease;
 }
-.cta-btn:hover { transform: translateY(-2px); }
+.cta-ghost:hover { border-color: rgba(242,236,223,.7); transform: translateY(-2px); }
 
 /* ---------- features ---------- */
 .features { max-width: var(--maxw); margin: 0 auto; padding: 72px 20px 24px; }
@@ -708,6 +718,8 @@ h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); text-align: center; }
 .g-dur { font-size: .74rem; color: var(--ph-dim); }
 .g-play { font-size: 1.5rem; }
 .g-foot { margin: 18px 4px 6px; font-size: .74rem; color: var(--ph-dim); text-align: center; }
+.g-foot-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.g-foot-link:hover { color: var(--ink); }
 
 /* recenter / zoom controls, like the app's canvas FABs */
 .canvas-fabs {
