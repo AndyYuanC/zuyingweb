@@ -65,7 +65,7 @@ const I18N = {
     demoMapBirthplace: '出生地', demoMapError: '地图暂时无法加载，请稍后再试。',
     demoRouteTitle: '家族版图', demoRouteTooltip: '家族迁徙路线',
     demoRouteSubtitle: '几代人的脚步，连成这一条路',
-    demoRouteGenerations: '代', demoRouteKm: '公里', demoRouteYears: '年', demoRouteCountries: '国家地区',
+    demoRouteGenerations: '代', demoRouteKm: '公里', demoRouteYears: '年', demoRouteCountries: '国家地区', demoRoutePlaces: '城市',
     demoRouteBorn: '{year} 年生于{place}',
     demoRouteLeg: '{heading} {km} 公里 · {years} 年后', demoRouteSame: '留在原地 · {years} 年后',
     demoRouteNorth: '北上', demoRouteSouth: '南下', demoRouteEast: '东行', demoRouteWest: '西行',
@@ -149,7 +149,7 @@ const I18N = {
     demoMapBirthplace: '出生地', demoMapError: '地圖暫時無法載入，請稍後再試。',
     demoRouteTitle: '家族版圖', demoRouteTooltip: '家族遷徙路線',
     demoRouteSubtitle: '幾代人的腳步，連成這一條路',
-    demoRouteGenerations: '代', demoRouteKm: '公里', demoRouteYears: '年', demoRouteCountries: '國家地區',
+    demoRouteGenerations: '代', demoRouteKm: '公里', demoRouteYears: '年', demoRouteCountries: '國家地區', demoRoutePlaces: '城市',
     demoRouteBorn: '{year} 年生於{place}',
     demoRouteLeg: '{heading} {km} 公里 · {years} 年後', demoRouteSame: '留在原地 · {years} 年後',
     demoRouteNorth: '北上', demoRouteSouth: '南下', demoRouteEast: '東行', demoRouteWest: '西行',
@@ -233,7 +233,7 @@ const I18N = {
     demoMapBirthplace: 'Birthplace', demoMapError: 'The map could not load. Please try again later.',
     demoRouteTitle: 'Family Atlas', demoRouteTooltip: 'Family migration route',
     demoRouteSubtitle: 'Generations of footsteps, joined into one road',
-    demoRouteGenerations: 'generations', demoRouteKm: 'km', demoRouteYears: 'years', demoRouteCountries: 'countries',
+    demoRouteGenerations: 'generations', demoRouteKm: 'km', demoRouteYears: 'years', demoRouteCountries: 'countries', demoRoutePlaces: 'cities',
     demoRouteBorn: 'Born in {place}, {year}',
     demoRouteLeg: '{km} km {heading} · {years} years later', demoRouteSame: 'Stayed put · {years} years later',
     demoRouteNorth: 'north', demoRouteSouth: 'south', demoRouteEast: 'east', demoRouteWest: 'west',
@@ -317,7 +317,7 @@ const I18N = {
     demoMapBirthplace: 'Lugar de nacimiento', demoMapError: 'No se pudo cargar el mapa. Inténtalo de nuevo más tarde.',
     demoRouteTitle: 'Atlas familiar', demoRouteTooltip: 'Ruta migratoria de la familia',
     demoRouteSubtitle: 'Los pasos de varias generaciones, unidos en un solo camino',
-    demoRouteGenerations: 'generaciones', demoRouteKm: 'km', demoRouteYears: 'años', demoRouteCountries: 'países',
+    demoRouteGenerations: 'generaciones', demoRouteKm: 'km', demoRouteYears: 'años', demoRouteCountries: 'países', demoRoutePlaces: 'ciudades',
     demoRouteBorn: 'Nació en {place}, {year}',
     demoRouteLeg: '{km} km {heading} · {years} años después', demoRouteSame: 'Se quedó · {years} años después',
     demoRouteNorth: 'hacia el norte', demoRouteSouth: 'hacia el sur', demoRouteEast: 'hacia el este', demoRouteWest: 'hacia el oeste',
@@ -401,7 +401,7 @@ const I18N = {
     demoMapBirthplace: 'Lieu de naissance', demoMapError: 'La carte n’a pas pu se charger. Réessayez plus tard.',
     demoRouteTitle: 'Atlas familial', demoRouteTooltip: 'Route migratoire de la famille',
     demoRouteSubtitle: 'Les pas de plusieurs générations, réunis en un seul chemin',
-    demoRouteGenerations: 'générations', demoRouteKm: 'km', demoRouteYears: 'ans', demoRouteCountries: 'pays',
+    demoRouteGenerations: 'générations', demoRouteKm: 'km', demoRouteYears: 'ans', demoRouteCountries: 'pays', demoRoutePlaces: 'villes',
     demoRouteBorn: 'Né à {place} en {year}',
     demoRouteLeg: '{km} km {heading} · {years} ans plus tard', demoRouteSame: 'Resté sur place · {years} ans plus tard',
     demoRouteNorth: 'vers le nord', demoRouteSouth: 'vers le sud', demoRouteEast: 'vers l’est', demoRouteWest: 'vers l’ouest',
@@ -485,7 +485,7 @@ const I18N = {
     demoMapBirthplace: 'जन्मस्थान', demoMapError: 'नक़्शा लोड नहीं हो सका। बाद में फिर कोशिश करें।',
     demoRouteTitle: 'पारिवारिक मानचित्र', demoRouteTooltip: 'परिवार का प्रवास मार्ग',
     demoRouteSubtitle: 'पीढ़ियों के कदम, जुड़कर बनी एक राह',
-    demoRouteGenerations: 'पीढ़ियाँ', demoRouteKm: 'किमी', demoRouteYears: 'वर्ष', demoRouteCountries: 'देश',
+    demoRouteGenerations: 'पीढ़ियाँ', demoRouteKm: 'किमी', demoRouteYears: 'वर्ष', demoRouteCountries: 'देश', demoRoutePlaces: 'शहर',
     demoRouteBorn: '{year} में {place} में जन्म',
     demoRouteLeg: '{km} किमी {heading} · {years} वर्ष बाद', demoRouteSame: 'वहीं रहे · {years} वर्ष बाद',
     demoRouteNorth: 'उत्तर की ओर', demoRouteSouth: 'दक्षिण की ओर', demoRouteEast: 'पूर्व की ओर', demoRouteWest: 'पश्चिम की ओर',
@@ -1636,12 +1636,21 @@ function renderLineageRoute() {
   }
   const years = placed.map((stop) => stop.person.birthY).filter(Number.isFinite);
   const countries = new Set(placed.map((stop) => stop.place.country));
+  const places = new Set(placed.map((stop) => stop.place.key));
   document.getElementById('routeGenerations').textContent = placed.length;
   document.getElementById('routeDistance').textContent = number.format(Math.round(totalKm));
   document.getElementById('routeYears').textContent = years.length > 1
     ? Math.max(...years) - Math.min(...years)
     : '—';
-  document.getElementById('routeCountries').textContent = countries.size;
+  // Like the app: one country is not a fact worth a whole figure, so a line
+  // that never left home counts the cities it moved between instead.
+  const spread = countries.size < 2
+    ? { value: places.size, key: 'demoRoutePlaces' }
+    : { value: countries.size, key: 'demoRouteCountries' };
+  document.getElementById('routeCountries').textContent = spread.value;
+  const spreadLabel = document.getElementById('routeCountriesLabel');
+  spreadLabel.dataset.i18n = spread.key;
+  spreadLabel.textContent = t(spread.key);
 
   routeJourney.innerHTML = '';
   for (let i = 0; i < placed.length; i += 1) {
